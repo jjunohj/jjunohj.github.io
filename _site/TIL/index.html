@@ -1,0 +1,751 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러 - Daily Inspiration</title>
+<meta name="description" content="jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러">
+
+
+  <meta name="author" content="주노 (jjunohj)">
+  
+  <meta property="article:author" content="주노 (jjunohj)">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Daily Inspiration">
+<meta property="og:title" content="jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러">
+<meta property="og:url" content="http://localhost:4000/TIL/">
+
+
+  <meta property="og:description" content="jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-01-09T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2023-01-09T19:46:51+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/TIL/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "주노 (jjunohj)",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Daily Inspiration Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.ico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo.ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/logo.ico/favicon-16x16.png">
+<link rel="manifest" href="/assets/logo.ico/site.webmanifest">
+<link rel="mask-icon" href="/assets/logo.ico/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Daily Inspiration Blog
+          <span class="site-subtitle">기록되지 않는 건 기억되지 않는다.</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">Introduce</a>
+            </li><li class="masthead__menu-item">
+              <a href="/TIL/">TIL</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/bio-photo.jpg" alt="주노 (jjunohj)" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">주노 (jjunohj)</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p><strong>궁금한 것이 없으면 배우는 것도 없다.</strong> <br /> 궁금한 건 참 많은 개발자입니다😂</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:jjunohj@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/jjunohj" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/xuuno_" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러">
+    <meta itemprop="description" content="jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러">
+    <meta itemprop="datePublished" content="2023-01-09T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-01-09T19:46:51+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/TIL/" class="u-url" itemprop="url">jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#jekyll를-이용한-깃허브-블로그-생성-배포-과정-발생한-에러">jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러</a><ul><li><a href="#gemfilepermissionerror-gem-설치-에러">Gem::FilePermissionError, Gem 설치 에러</a><ul><li><a href="#문제-해결">문제 해결</a></li></ul></li><li><a href="#build-failed-macos-131-using-ruby-build-20221225-rbenv-설치-에러">BUILD FAILED (macOS 13.1 using ruby-build 20221225), rbenv 설치 에러</a><ul><li><a href="#문제-해결-1">문제 해결</a></li></ul></li><li><a href="#bundlergemnotfound-jekyll-설치-에러">Bundler::GemNotFound, Jekyll 설치 에러</a><ul><li><a href="#문제-해결-2">문제 해결</a></li></ul></li><li><a href="#gemloaderror-gem-로드-에러">Gem::LoadError, Gem 로드 에러</a><ul><li><a href="#문제-해결-3">문제 해결</a></li></ul></li><li><a href="#webrickloaderror-jekyll-로드-에러">webrick(loadError), Jekyll 로드 에러</a><ul><li><a href="#문제-해결-4">문제 해결</a></li></ul></li><li><a href="#deprecation-warning-using--for-division-outside-of-calc-is-deprecated-and-will-be-removed-in-dart-sass-200-문법-지원-중단">Deprecation Warning: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0, 문법 지원 중단</a><ul><li><a href="#문제-해결-5">문제 해결</a></li></ul></li><li><a href="#conversion-error-jekyllconvertersscss-encountered-an-error-while-converting-assetscssmainscss-변환-에러">Conversion error: Jekyll::Converters::Scss encountered an error while converting ‘assets/css/main.scss’, 변환 에러</a><ul><li><a href="#문제-해결-6">문제 해결</a></li></ul></li><li><a href="#authentication-failed-for--use-a-personal-access-token-instead-github-pull-에러">Authentication failed for ~ use a personal access token instead, Github pull 에러</a><ul><li><a href="#문제-해결-7">문제 해결</a></li></ul></li><li><a href="#github-pages에서-build-error">github pages에서 build error</a><ul><li><a href="#문제-해결-8">문제 해결</a></li></ul></li><li><a href="#참고-블로그">참고 블로그</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h1 id="jekyll를-이용한-깃허브-블로그-생성-배포-과정-발생한-에러">jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러</h1>
+
+<p><del>“명색이 개발자면 블로그는 github.io 써야지”</del></p>
+
+<p>2023년엔 지금껏 곳곳에 작성했던 여러 TIL들을 싹 없애고, 아예 새로운 블로그를 만들어 배운 걸 착착 기록하고자 한다. 여러 블로그 환경들 중 내가 선택한 것은 가장 <del>개발자스러운</del> 깔끔하고 커스터마이징이 가능한 <strong>github.io</strong> 였다.</p>
+
+<p>그리고 github.io에서 올리게 될 첫 포스팅은 당연하게도, github.io를 만드는데 겪었던 오류들에 대한 것이다. 본인은 <code class="language-plaintext highlighter-rouge">jekyll</code>을 사용하여 깃허브 블로그를 만들었는데, 이 과정에서 필요한 것들이 의존성 관리가 잘 안 되는 것인지 하나를 해결하면 다른 하나가 안되고 사람 미치게 만드는 무언가가 존재했다.</p>
+
+<p>아무튼, 본 포스팅은 Github.io를 만들고, 깃허브에서 페이지를 등록하는 것까지의 과정을 일일이 설명하는 것이 아니다. 그저 구글에 아~주 간단하게 나와있는 Github.io 만들기를 따라하면서 무려 6시간동안 겪은 수많은 에러와의 사투 <del>(나한테만 있는 건지..)</del> 들을 정리해보고자 하는 것이다.</p>
+
+<h2 id="gemfilepermissionerror-gem-설치-에러">Gem::FilePermissionError, Gem 설치 에러</h2>
+
+<p><code class="language-plaintext highlighter-rouge">jekyll</code>을 설치하기 위해서는 선행 조건인 <code class="language-plaintext highlighter-rouge">Ruby</code>와 <code class="language-plaintext highlighter-rouge">bundler</code>가 필요하다. 기본적으로 Mac을 사용하게 되면 패키지를 설치할 때 <code class="language-plaintext highlighter-rouge">ruby</code> 기반인 <code class="language-plaintext highlighter-rouge">Homebrew</code>를 이용하기 때문에 당연히 설치되어 있고, 문제가 없을 줄 알았다.</p>
+
+<p>Mac M1 개발환경에서 <code class="language-plaintext highlighter-rouge">ruby</code>의 패키지 매니저인 <code class="language-plaintext highlighter-rouge">gem</code>을 통해 <code class="language-plaintext highlighter-rouge">bundler</code>를 설치하다 다음과 같은 에러가 발생했다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install bundler
+ERROR:  While executing gem ... (Gem::FilePermissionError)
+    You don't have write permissions for the /Library/Ruby/Gems/X.X.X directory.
+</code></pre></div></div>
+
+<p>write 권한이 없다고 하는데, 여러 블로그들을 찾아보며 알아 본 결과 기본적으로 OS ruby를 사용하고 있기 때문에 권한이 없어서 gem설치가 안됐던 것이라고 한다.</p>
+
+<p>따라서 <code class="language-plaintext highlighter-rouge">sudo</code>를 통해 root 권한으로 실행하면 설치가 가능하다고 하지만, <strong>보안상 권장하지 않는 설치법</strong>이라고 한다.</p>
+
+<p>찾아낸 해결방안은 <code class="language-plaintext highlighter-rouge">rbenv</code>를 이용하는 것이었다. <code class="language-plaintext highlighter-rouge">rbenv</code>는 <code class="language-plaintext highlighter-rouge">ruby</code>의 버전을 독립적으로 사용할 수 있도록 도와주는 패키지이다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">rbenv</code>는 개발자가 진행하는 프로젝트들이 각각 상이한 <code class="language-plaintext highlighter-rouge">ruby</code> 버전을 사용할 경우 각 프로젝트를 개발할 때마다 매번 <code class="language-plaintext highlighter-rouge">ruby</code> 버전을 지우고 다시 설치하는 상황을 방지한다.</p>
+
+<h3 id="문제-해결">문제 해결</h3>
+
+<p>먼저 <code class="language-plaintext highlighter-rouge">brew</code>를 통해 <code class="language-plaintext highlighter-rouge">rbenv</code>를 설치한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew update
+brew install rbenv ruby-build
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">rbenv</code>가 잘 설치되었는지 확인한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rbenv versions
+* system
+</code></pre></div></div>
+
+<p>여기서 앞서 말했듯이 현재 <code class="language-plaintext highlighter-rouge">system ruby</code>를 사용하고 있는 것을 확인할 수 있다.</p>
+
+<p>이제 <code class="language-plaintext highlighter-rouge">rbenv</code>로 관리되는 <code class="language-plaintext highlighter-rouge">ruby</code>를 설치하자.
+설치할 수 있는 <code class="language-plaintext highlighter-rouge">ruby</code> 버전은 다음 명령어로 확인할 수 있다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rbenv install -l
+2.7.7
+3.0.5
+3.1.3
+3.2.0
+jruby-9.4.0.0
+mruby-3.1.0
+picoruby-3.0.0
+rbx-5.0
+...
+</code></pre></div></div>
+<p>여러가지가 나오는데 이 중에 가장 최근 것을 다운받으라고 한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv install 3.2.0
+</code></pre></div></div>
+
+<h2 id="build-failed-macos-131-using-ruby-build-20221225-rbenv-설치-에러">BUILD FAILED (macOS 13.1 using ruby-build 20221225), rbenv 설치 에러</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BUILD FAILED (macOS 13.1 using ruby-build 20221225)
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">rbenv install 3.2.0</code>을 하면 이런 에러가 자꾸 뜬다.</p>
+
+<p>열심히 찾아 본 결과 <code class="language-plaintext highlighter-rouge">ruby 3.2.0</code>에는 <code class="language-plaintext highlighter-rouge">psych</code>를 필요로하는데 따라서 <code class="language-plaintext highlighter-rouge">libyaml</code> 없이 설치할 경우 에러가 뜬다는 내용이 있었다.</p>
+
+<h3 id="문제-해결-1">문제 해결</h3>
+
+<p>해결책은 다음과 같았다.</p>
+<ol>
+  <li>Mac OS를 최신 버전으로 업데이트한다.</li>
+  <li>homebrew로 <code class="language-plaintext highlighter-rouge">libyaml</code>를 설치한다.</li>
+</ol>
+
+<p>명령어는 다음과 같은 순으로 실행했다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install libyaml
+brew update &amp;&amp; brew upgrade ruby-build
+rbenv install 3.2.0
+</code></pre></div></div>
+
+<p><em>하지만, 나는 이 번거로움을 싫어서 그냥 3.1.3 버전을 설치 후 사용했다 . . .ㅎㅎ..</em></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv global 3.1.3
+</code></pre></div></div>
+
+<p>그럼 <code class="language-plaintext highlighter-rouge">ruby</code>를 설치했으니 rbenv <code class="language-plaintext highlighter-rouge">PATH</code>를 추가하기 위해 쉘 설정파일에 다음 코드를 추가한다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim ~/.zshrc
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[ -d ~/.rbenv  ]] &amp;&amp; \
+  export PATH=${HOME}/.rbenv/bin:${PATH} &amp;&amp; \
+  eval "$(rbenv init -)"
+</code></pre></div></div>
+
+<p>추가했다면, <code class="language-plaintext highlighter-rouge">source</code>로 코드를 적용한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source ~/.zshrc
+</code></pre></div></div>
+
+<p><strong>다시 gem install을 실행한다.</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install bundler
+</code></pre></div></div>
+
+<p>이제서야 gem install이 되는 모습</p>
+
+<h2 id="bundlergemnotfound-jekyll-설치-에러">Bundler::GemNotFound, Jekyll 설치 에러</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem intall jekyll
+jekyll serve
+</code></pre></div></div>
+<p>드디어 선행 설치요소가 다 설치하고 <code class="language-plaintext highlighter-rouge">jekyll</code>을 설치하고 실행하려는데,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jekyll serve            
+/xuuno/.rbenv/versions/3.1.3/lib/ruby/gems/3.1.0/gems/bundler-2.4.3/lib/bundler/resolver.rb:314:in `block in verify_gemfile_dependencies_are_found!': Could not find gem 'jekyll (~&gt; 3.5)' in any of the gem sources listed in your Gemfile. (Bundler::GemNotFound)
+</code></pre></div></div>
+<p>오류가 등장한다.</p>
+
+<h3 id="문제-해결-2">문제 해결</h3>
+
+<p><code class="language-plaintext highlighter-rouge">Gemfile</code>에 리스트된 gem source들 중에 <code class="language-plaintext highlighter-rouge">jekyll</code>을 찾을 수 없다고 하는데, 이는 <strong>bundle</strong> 패키지 매니저를 사용하면 된다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">bundle</code>은 하나의 package manager로, <code class="language-plaintext highlighter-rouge">Gemfile</code>에 등록되어 있는 gem에 맞춰서 패키지를 사용해 의존성을 해결한다.</p>
+
+<p>즉, <code class="language-plaintext highlighter-rouge">bundle exec</code>를 앞에 붙여서 실행하면 된다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle exec jekyll serve
+Could not find gem 'jekyll (~&gt; 3.5)' in any of the gem sources listed in your Gemfile.
+Run `bundle install` to install missing gems.
+</code></pre></div></div>
+<p>이제는 <code class="language-plaintext highlighter-rouge">bundle install</code>을 하라는 메시지가 나온다.
+하라는대로 하면 여러 다른 gem metadata가 fetch된다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
+</code></pre></div></div>
+
+<h2 id="gemloaderror-gem-로드-에러">Gem::LoadError, Gem 로드 에러</h2>
+
+<p>이렇게 설치를 한 뒤 <code class="language-plaintext highlighter-rouge">jekyll serve</code>를 하면 다음과 같은 에러가 뜬다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You have already activated i18n 1.12.0, but your Gemfile requires i18n 0.9.5. Prepending `bundle exec` to your command may solve this. (Gem::LoadError)
+</code></pre></div></div>
+
+<h3 id="문제-해결-3">문제 해결</h3>
+
+<p>이는 현재 나의 로컬에서 활성화되어 있는 버전은 <code class="language-plaintext highlighter-rouge">i18n 1.12.0</code>이고, <code class="language-plaintext highlighter-rouge">Gemfile</code>에는 <code class="language-plaintext highlighter-rouge">i18n 0.9.5</code>가 설치되어 있고 이 의존성을 해결하기 위해 코드를 다 고칠 수는 없으니 앞에 <code class="language-plaintext highlighter-rouge">bundle exec</code>를 붙여서 사용하라는 뜻이다.</p>
+
+<p>그러므로</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle exec jekyll serve
+</code></pre></div></div>
+<p>앞으로 위 명령어를 사용해주면 된다.</p>
+
+<p><strong><del>암튼 실행됐죠?</del></strong></p>
+
+<h2 id="webrickloaderror-jekyll-로드-에러">webrick(loadError), Jekyll 로드 에러</h2>
+
+<p>하지만 처음에 <code class="language-plaintext highlighter-rouge">jekyll serve</code>를 실행할 때는 아래와 같은 에러가 등장한다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Please append --trace to the serve command for any additional information or backtrace....cannot load such file -- webrick(loadError)
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code>를 해도 자꾸 등장하는 이 에러의 원인은, webrick이라는 파일이 없어러 load를 할 수 없다는 내용인데, ruby 3.0.0 버전부터 webrick이 기본으로 포함된 gem에서 빠졌기 때문에 발생한다.</p>
+
+<h3 id="문제-해결-4">문제 해결</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle add webrick
+</code></pre></div></div>
+<p>을 추가해주면 된다.</p>
+
+<p><strong>이를 끝으로 localhost:4000에서 접속을 하는데 성공했다.</strong></p>
+
+<h2 id="deprecation-warning-using--for-division-outside-of-calc-is-deprecated-and-will-be-removed-in-dart-sass-200-문법-지원-중단">Deprecation Warning: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0, 문법 지원 중단</h2>
+
+<p>나름 되게 골머리를 앓았던 에러인데, <code class="language-plaintext highlighter-rouge">calc</code> 함수 외부에서 <code class="language-plaintext highlighter-rouge">/</code>를 이용하여 나눗셈을 하는 것은 더이상 지원되지 않아서 발생하는 오류이다.
+하필 적용하려는 테마에서 반응형을 지원할 때 <code class="language-plaintext highlighter-rouge">/</code>를 여러 군데 사용하여 구현하여 위와 같은 에러가 발생했다.</p>
+
+<h3 id="문제-해결-5">문제 해결</h3>
+<p>이를 위해 모든 문제가 있는 파일과 라인을 찾아가 <code class="language-plaintext highlighter-rouge">sass:math</code>의 <code class="language-plaintext highlighter-rouge">math.div</code> 혹은 <code class="language-plaintext highlighter-rouge">calc( / )</code>를 직접 하나하나 다 써주어야 했다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@use "sass:math";
+
+body {
+  font-size: math.div(50, 16) * 1px;
+}
+</code></pre></div></div>
+
+<p><del>멍청해서 요수를 부리는 것보다 일단 노가다를 시작하는 게 더 빠르다</del></p>
+
+<h2 id="conversion-error-jekyllconvertersscss-encountered-an-error-while-converting-assetscssmainscss-변환-에러">Conversion error: Jekyll::Converters::Scss encountered an error while converting ‘assets/css/main.scss’, 변환 에러</h2>
+
+<p>github.io에 테마를 적용하고, 네비게이션 바를 조금 바꾸니 마주쳤던 에러이다.</p>
+
+<h3 id="문제-해결-6">문제 해결</h3>
+
+<p><code class="language-plaintext highlighter-rouge">SCSS</code>에서 자신이 변경한 부분이나 <code class="language-plaintext highlighter-rouge">;</code>, <code class="language-plaintext highlighter-rouge">{</code>, <code class="language-plaintext highlighter-rouge">}</code> 등 부호에 각별하게 주의를 해서 코드를 마무리 했어야 했다.</p>
+
+<h2 id="authentication-failed-for--use-a-personal-access-token-instead-github-pull-에러">Authentication failed for ~ use a personal access token instead, Github pull 에러</h2>
+
+<p>새로운 리포지토리를 파고, 해당하는 리포지토리에 git pull할 때 위와 같은 에러가 발생한다. 이는 2021년 8월 이후로 ID/PW 방식이 아닌 token을 이용하여 로그인을 하기 때문에 발생하는 것이다. 좀 불편하지만, 보안이 더 좋아지는 것이니 감내해야 할 것 같다.</p>
+
+<h3 id="문제-해결-7">문제 해결</h3>
+
+<ol>
+  <li>github 계정 로그인</li>
+  <li>우측 상단 Settings</li>
+  <li>좌측 최하단 Developer settings</li>
+  <li>Personal access tokens 탭</li>
+  <li>Generate new token</li>
+  <li>사용처, 만료 기간 결정 후 생성</li>
+  <li>생성된 토큰 키 복사</li>
+  <li>이후 git config로 등록</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config --global user.name ‘아이디’
+git config --global user.password ‘복사한 토큰’
+</code></pre></div></div>
+
+<h2 id="github-pages에서-build-error">github pages에서 build error</h2>
+
+<p><code class="language-plaintext highlighter-rouge">localhost:4000</code>에서는 잘만 실행되는 블로그가 깃허브 레포지토리에 push만 하면 build가 아작이 나는 상태가 계속되었다.</p>
+
+<p><img src="../../assets/images/pages_build_fail.png" alt="page_build_failure" /></p>
+
+<p>분명 Github Pages는 <code class="language-plaintext highlighter-rouge">jekyll</code>을 지원하고, 내 블로그는 로컬에서 잘만 돌아가는데 왜 원격에선 빌드가 되지 않을까.</p>
+
+<p>당연하게도 이유는 Github의 배포 환경과 내 로컬 환경이 완전히 동일하지 않기 때문이다. 따라서 내가 만든 <code class="language-plaintext highlighter-rouge">Gemfile</code>을 github는 읽지 않고, Github만의 <code class="language-plaintext highlighter-rouge">Gemfile</code>을 사용하기 때문에 발생하는 것이다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">_config.yml</code>의 <code class="language-plaintext highlighter-rouge">theme</code>옵션은 프로젝트에 설치된 gem으로부터 jekyll theme을 불러올 수 있게 한다. 그렇게 원하는 테마의 gem을 깔았지만, 이 테마를 Github Pages에서 지원한다는 보장은 없었다. 결국 jekyll theme이 문제였다. <a href="https://pages.github.com/themes/">Github Pages에서 사용 가능한 theme</a>은 정해져 있으며, 여기에 없는 theme일 경우 github는 <code class="language-plaintext highlighter-rouge">page build warning</code>을 선사한다.</p>
+
+<h3 id="문제-해결-8">문제 해결</h3>
+
+<p><strong>Remote theme 방법</strong>을 사용한다.</p>
+
+<p>Remote theme 방식은 Gem 기반 방식과 유사하게 직접 테마 파일을 가지지 않는 방법이다. Guthub pages에서 본인이 사용하는 테마인 minimal-mistakes 테마의 remote theme 방식을 지원하기 때문에 이 방식을 사용할 수 있다.</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">_config.yml</code>파일 수정
+  remote_theme 줄의 주석을 푼다.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># theme             : "minimal-mistakes-jekyll"
+remote_theme   : "mmistakes/minimal-mistakes
+</code></pre></div>    </div>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">Gemfile</code>을 아래와 같이 수정한다.
+```
+source “https://rubygems.org”</li>
+</ol>
+
+<p>gem “github-pages”, group: :jekyll_plugins
+gem “jekyll-include-cache”</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3. `bundle` 명령을 통해 필요한 gem을 설치한다.
+</code></pre></div></div>
+<p>bundle install
+```</p>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code> 실행
+  _site 폴더가 만들어지면서 블로그 파일들이 자동으로 생성된다.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">push</code> <code class="language-plaintext highlighter-rouge">push</code> baby</p>
+  </li>
+</ol>
+
+<h2 id="참고-블로그">참고 블로그</h2>
+
+<p><a href="https://jekyllrb-ko.github.io/">jekyll 공식 사이트</a></p>
+
+<p><a href="https://labs.brandi.co.kr//2018/05/14/chunbs.html">jekyll을 이용한 Github 블로그 만들기</a></p>
+
+<p><a href="https://velog.io/@eona1301/Github-Blog-Jekyll-minimal-mistakes-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0">Jekyll, Github Blog 시작하기</a></p>
+
+<p><a href="https://dnight.tistory.com/entry/Jekyll%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-GitHub-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0?category=843234">https://dnight.tistory.com/entry/Jekyll%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-GitHub-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0?category=843234</a></p>
+
+<p><a href="https://jojoldu.tistory.com/288">https://jojoldu.tistory.com/288</a></p>
+
+<p><a href="https://fuzzysound.github.io/github-and-jekyll">https://fuzzysound.github.io/github-and-jekyll</a></p>
+
+<p><a href="https://kimss1502.github.io/%EB%B8%94%EB%A1%9C%EA%B9%85/2.-GitHub-pages-%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/">https://kimss1502.github.io/%EB%B8%94%EB%A1%9C%EA%B9%85/2.-GitHub-pages-%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#errors" class="page__taxonomy-item p-category" rel="tag">Errors</a><span class="sep">, </span>
+    
+      <a href="/tags/#gem" class="page__taxonomy-item p-category" rel="tag">Gem</a><span class="sep">, </span>
+    
+      <a href="/tags/#github-pages" class="page__taxonomy-item p-category" rel="tag">Github pages</a><span class="sep">, </span>
+    
+      <a href="/tags/#rbenv" class="page__taxonomy-item p-category" rel="tag">rbenv</a><span class="sep">, </span>
+    
+      <a href="/tags/#ruby" class="page__taxonomy-item p-category" rel="tag">Ruby</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#errors" class="page__taxonomy-item p-category" rel="tag">Errors</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-01-09">January 9, 2023</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=jekyll%EB%A5%BC+%EC%9D%B4%EC%9A%A9%ED%95%9C+%EA%B9%83%ED%97%88%EB%B8%8C+%EB%B8%94%EB%A1%9C%EA%B7%B8+%EC%83%9D%EC%84%B1%2C+%EB%B0%B0%ED%8F%AC+%EA%B3%BC%EC%A0%95+%EB%B0%9C%EC%83%9D%ED%95%9C+%EC%97%90%EB%9F%AC%20http%3A%2F%2Flocalhost%3A4000%2FTIL%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2FTIL%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2FTIL%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+            
+      </div>
+    </div>
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:jjunohj@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/jjunohj" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://instagram.com/xuuno_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 주노 (jjunohj). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

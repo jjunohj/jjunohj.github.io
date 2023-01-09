@@ -1,1 +1,278 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-09T14:41:00+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Daily Inspiration</title><subtitle>What I got is</subtitle><author><name>주노 (jjunohj)</name></author></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-09T20:10:01+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Daily Inspiration</title><subtitle>What I got is</subtitle><author><name>주노 (jjunohj)</name></author><entry><title type="html">jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러</title><link href="http://localhost:4000/TIL/" rel="alternate" type="text/html" title="jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러" /><published>2023-01-09T00:00:00+09:00</published><updated>2023-01-09T19:46:51+09:00</updated><id>http://localhost:4000/github-io-errors</id><content type="html" xml:base="http://localhost:4000/TIL/">&lt;h1 id=&quot;jekyll를-이용한-깃허브-블로그-생성-배포-과정-발생한-에러&quot;&gt;jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러&lt;/h1&gt;
+
+&lt;p&gt;&lt;del&gt;“명색이 개발자면 블로그는 github.io 써야지”&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;2023년엔 지금껏 곳곳에 작성했던 여러 TIL들을 싹 없애고, 아예 새로운 블로그를 만들어 배운 걸 착착 기록하고자 한다. 여러 블로그 환경들 중 내가 선택한 것은 가장 &lt;del&gt;개발자스러운&lt;/del&gt; 깔끔하고 커스터마이징이 가능한 &lt;strong&gt;github.io&lt;/strong&gt; 였다.&lt;/p&gt;
+
+&lt;p&gt;그리고 github.io에서 올리게 될 첫 포스팅은 당연하게도, github.io를 만드는데 겪었던 오류들에 대한 것이다. 본인은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll&lt;/code&gt;을 사용하여 깃허브 블로그를 만들었는데, 이 과정에서 필요한 것들이 의존성 관리가 잘 안 되는 것인지 하나를 해결하면 다른 하나가 안되고 사람 미치게 만드는 무언가가 존재했다.&lt;/p&gt;
+
+&lt;p&gt;아무튼, 본 포스팅은 Github.io를 만들고, 깃허브에서 페이지를 등록하는 것까지의 과정을 일일이 설명하는 것이 아니다. 그저 구글에 아~주 간단하게 나와있는 Github.io 만들기를 따라하면서 무려 6시간동안 겪은 수많은 에러와의 사투 &lt;del&gt;(나한테만 있는 건지..)&lt;/del&gt; 들을 정리해보고자 하는 것이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;gemfilepermissionerror-gem-설치-에러&quot;&gt;Gem::FilePermissionError, Gem 설치 에러&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll&lt;/code&gt;을 설치하기 위해서는 선행 조건인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;와 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundler&lt;/code&gt;가 필요하다. 기본적으로 Mac을 사용하게 되면 패키지를 설치할 때 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ruby&lt;/code&gt; 기반인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Homebrew&lt;/code&gt;를 이용하기 때문에 당연히 설치되어 있고, 문제가 없을 줄 알았다.&lt;/p&gt;
+
+&lt;p&gt;Mac M1 개발환경에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ruby&lt;/code&gt;의 패키지 매니저인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gem&lt;/code&gt;을 통해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundler&lt;/code&gt;를 설치하다 다음과 같은 에러가 발생했다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ gem install bundler
+ERROR:  While executing gem ... (Gem::FilePermissionError)
+    You don&apos;t have write permissions for the /Library/Ruby/Gems/X.X.X directory.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;write 권한이 없다고 하는데, 여러 블로그들을 찾아보며 알아 본 결과 기본적으로 OS ruby를 사용하고 있기 때문에 권한이 없어서 gem설치가 안됐던 것이라고 한다.&lt;/p&gt;
+
+&lt;p&gt;따라서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo&lt;/code&gt;를 통해 root 권한으로 실행하면 설치가 가능하다고 하지만, &lt;strong&gt;보안상 권장하지 않는 설치법&lt;/strong&gt;이라고 한다.&lt;/p&gt;
+
+&lt;p&gt;찾아낸 해결방안은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rbenv&lt;/code&gt;를 이용하는 것이었다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rbenv&lt;/code&gt;는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ruby&lt;/code&gt;의 버전을 독립적으로 사용할 수 있도록 도와주는 패키지이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rbenv&lt;/code&gt;는 개발자가 진행하는 프로젝트들이 각각 상이한 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ruby&lt;/code&gt; 버전을 사용할 경우 각 프로젝트를 개발할 때마다 매번 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ruby&lt;/code&gt; 버전을 지우고 다시 설치하는 상황을 방지한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;문제-해결&quot;&gt;문제 해결&lt;/h3&gt;
+
+&lt;p&gt;먼저 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;brew&lt;/code&gt;를 통해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rbenv&lt;/code&gt;를 설치한다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew update
+brew install rbenv ruby-build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rbenv&lt;/code&gt;가 잘 설치되었는지 확인한다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ rbenv versions
+* system
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;여기서 앞서 말했듯이 현재 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;system ruby&lt;/code&gt;를 사용하고 있는 것을 확인할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;이제 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rbenv&lt;/code&gt;로 관리되는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ruby&lt;/code&gt;를 설치하자.
+설치할 수 있는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ruby&lt;/code&gt; 버전은 다음 명령어로 확인할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ rbenv install -l
+2.7.7
+3.0.5
+3.1.3
+3.2.0
+jruby-9.4.0.0
+mruby-3.1.0
+picoruby-3.0.0
+rbx-5.0
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;여러가지가 나오는데 이 중에 가장 최근 것을 다운받으라고 한다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rbenv install 3.2.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;build-failed-macos-131-using-ruby-build-20221225-rbenv-설치-에러&quot;&gt;BUILD FAILED (macOS 13.1 using ruby-build 20221225), rbenv 설치 에러&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BUILD FAILED (macOS 13.1 using ruby-build 20221225)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rbenv install 3.2.0&lt;/code&gt;을 하면 이런 에러가 자꾸 뜬다.&lt;/p&gt;
+
+&lt;p&gt;열심히 찾아 본 결과 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ruby 3.2.0&lt;/code&gt;에는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;psych&lt;/code&gt;를 필요로하는데 따라서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libyaml&lt;/code&gt; 없이 설치할 경우 에러가 뜬다는 내용이 있었다.&lt;/p&gt;
+
+&lt;h3 id=&quot;문제-해결-1&quot;&gt;문제 해결&lt;/h3&gt;
+
+&lt;p&gt;해결책은 다음과 같았다.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Mac OS를 최신 버전으로 업데이트한다.&lt;/li&gt;
+  &lt;li&gt;homebrew로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libyaml&lt;/code&gt;를 설치한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;명령어는 다음과 같은 순으로 실행했다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew install libyaml
+brew update &amp;amp;&amp;amp; brew upgrade ruby-build
+rbenv install 3.2.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;하지만, 나는 이 번거로움을 싫어서 그냥 3.1.3 버전을 설치 후 사용했다 . . .ㅎㅎ..&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rbenv global 3.1.3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;그럼 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ruby&lt;/code&gt;를 설치했으니 rbenv &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PATH&lt;/code&gt;를 추가하기 위해 쉘 설정파일에 다음 코드를 추가한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim ~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[[ -d ~/.rbenv  ]] &amp;amp;&amp;amp; \
+  export PATH=${HOME}/.rbenv/bin:${PATH} &amp;amp;&amp;amp; \
+  eval &quot;$(rbenv init -)&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;추가했다면, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;source&lt;/code&gt;로 코드를 적용한다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;source ~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;다시 gem install을 실행한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem install bundler
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이제서야 gem install이 되는 모습&lt;/p&gt;
+
+&lt;h2 id=&quot;bundlergemnotfound-jekyll-설치-에러&quot;&gt;Bundler::GemNotFound, Jekyll 설치 에러&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem intall jekyll
+jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;드디어 선행 설치요소가 다 설치하고 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll&lt;/code&gt;을 설치하고 실행하려는데,&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ jekyll serve            
+/xuuno/.rbenv/versions/3.1.3/lib/ruby/gems/3.1.0/gems/bundler-2.4.3/lib/bundler/resolver.rb:314:in `block in verify_gemfile_dependencies_are_found!&apos;: Could not find gem &apos;jekyll (~&amp;gt; 3.5)&apos; in any of the gem sources listed in your Gemfile. (Bundler::GemNotFound)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;오류가 등장한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;문제-해결-2&quot;&gt;문제 해결&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;에 리스트된 gem source들 중에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll&lt;/code&gt;을 찾을 수 없다고 하는데, 이는 &lt;strong&gt;bundle&lt;/strong&gt; 패키지 매니저를 사용하면 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle&lt;/code&gt;은 하나의 package manager로, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;에 등록되어 있는 gem에 맞춰서 패키지를 사용해 의존성을 해결한다.&lt;/p&gt;
+
+&lt;p&gt;즉, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec&lt;/code&gt;를 앞에 붙여서 실행하면 된다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ bundle exec jekyll serve
+Could not find gem &apos;jekyll (~&amp;gt; 3.5)&apos; in any of the gem sources listed in your Gemfile.
+Run `bundle install` to install missing gems.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;이제는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;을 하라는 메시지가 나온다.
+하라는대로 하면 여러 다른 gem metadata가 fetch된다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;gemloaderror-gem-로드-에러&quot;&gt;Gem::LoadError, Gem 로드 에러&lt;/h2&gt;
+
+&lt;p&gt;이렇게 설치를 한 뒤 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;를 하면 다음과 같은 에러가 뜬다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;You have already activated i18n 1.12.0, but your Gemfile requires i18n 0.9.5. Prepending `bundle exec` to your command may solve this. (Gem::LoadError)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;문제-해결-3&quot;&gt;문제 해결&lt;/h3&gt;
+
+&lt;p&gt;이는 현재 나의 로컬에서 활성화되어 있는 버전은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i18n 1.12.0&lt;/code&gt;이고, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;에는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i18n 0.9.5&lt;/code&gt;가 설치되어 있고 이 의존성을 해결하기 위해 코드를 다 고칠 수는 없으니 앞에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec&lt;/code&gt;를 붙여서 사용하라는 뜻이다.&lt;/p&gt;
+
+&lt;p&gt;그러므로&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle exec jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;앞으로 위 명령어를 사용해주면 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;del&gt;암튼 실행됐죠?&lt;/del&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;webrickloaderror-jekyll-로드-에러&quot;&gt;webrick(loadError), Jekyll 로드 에러&lt;/h2&gt;
+
+&lt;p&gt;하지만 처음에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;를 실행할 때는 아래와 같은 에러가 등장한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Please append --trace to the serve command for any additional information or backtrace....cannot load such file -- webrick(loadError)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt;를 해도 자꾸 등장하는 이 에러의 원인은, webrick이라는 파일이 없어러 load를 할 수 없다는 내용인데, ruby 3.0.0 버전부터 webrick이 기본으로 포함된 gem에서 빠졌기 때문에 발생한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;문제-해결-4&quot;&gt;문제 해결&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle add webrick
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;을 추가해주면 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;이를 끝으로 localhost:4000에서 접속을 하는데 성공했다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;deprecation-warning-using--for-division-outside-of-calc-is-deprecated-and-will-be-removed-in-dart-sass-200-문법-지원-중단&quot;&gt;Deprecation Warning: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0, 문법 지원 중단&lt;/h2&gt;
+
+&lt;p&gt;나름 되게 골머리를 앓았던 에러인데, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;calc&lt;/code&gt; 함수 외부에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;를 이용하여 나눗셈을 하는 것은 더이상 지원되지 않아서 발생하는 오류이다.
+하필 적용하려는 테마에서 반응형을 지원할 때 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;를 여러 군데 사용하여 구현하여 위와 같은 에러가 발생했다.&lt;/p&gt;
+
+&lt;h3 id=&quot;문제-해결-5&quot;&gt;문제 해결&lt;/h3&gt;
+&lt;p&gt;이를 위해 모든 문제가 있는 파일과 라인을 찾아가 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sass:math&lt;/code&gt;의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;math.div&lt;/code&gt; 혹은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;calc( / )&lt;/code&gt;를 직접 하나하나 다 써주어야 했다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@use &quot;sass:math&quot;;
+
+body {
+  font-size: math.div(50, 16) * 1px;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;del&gt;멍청해서 요수를 부리는 것보다 일단 노가다를 시작하는 게 더 빠르다&lt;/del&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;conversion-error-jekyllconvertersscss-encountered-an-error-while-converting-assetscssmainscss-변환-에러&quot;&gt;Conversion error: Jekyll::Converters::Scss encountered an error while converting ‘assets/css/main.scss’, 변환 에러&lt;/h2&gt;
+
+&lt;p&gt;github.io에 테마를 적용하고, 네비게이션 바를 조금 바꾸니 마주쳤던 에러이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;문제-해결-6&quot;&gt;문제 해결&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SCSS&lt;/code&gt;에서 자신이 변경한 부분이나 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;;&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;}&lt;/code&gt; 등 부호에 각별하게 주의를 해서 코드를 마무리 했어야 했다.&lt;/p&gt;
+
+&lt;h2 id=&quot;authentication-failed-for--use-a-personal-access-token-instead-github-pull-에러&quot;&gt;Authentication failed for ~ use a personal access token instead, Github pull 에러&lt;/h2&gt;
+
+&lt;p&gt;새로운 리포지토리를 파고, 해당하는 리포지토리에 git pull할 때 위와 같은 에러가 발생한다. 이는 2021년 8월 이후로 ID/PW 방식이 아닌 token을 이용하여 로그인을 하기 때문에 발생하는 것이다. 좀 불편하지만, 보안이 더 좋아지는 것이니 감내해야 할 것 같다.&lt;/p&gt;
+
+&lt;h3 id=&quot;문제-해결-7&quot;&gt;문제 해결&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;github 계정 로그인&lt;/li&gt;
+  &lt;li&gt;우측 상단 Settings&lt;/li&gt;
+  &lt;li&gt;좌측 최하단 Developer settings&lt;/li&gt;
+  &lt;li&gt;Personal access tokens 탭&lt;/li&gt;
+  &lt;li&gt;Generate new token&lt;/li&gt;
+  &lt;li&gt;사용처, 만료 기간 결정 후 생성&lt;/li&gt;
+  &lt;li&gt;생성된 토큰 키 복사&lt;/li&gt;
+  &lt;li&gt;이후 git config로 등록&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global user.name ‘아이디’
+git config --global user.password ‘복사한 토큰’
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;github-pages에서-build-error&quot;&gt;github pages에서 build error&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localhost:4000&lt;/code&gt;에서는 잘만 실행되는 블로그가 깃허브 레포지토리에 push만 하면 build가 아작이 나는 상태가 계속되었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../assets/images/pages_build_fail.png&quot; alt=&quot;page_build_failure&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;분명 Github Pages는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll&lt;/code&gt;을 지원하고, 내 블로그는 로컬에서 잘만 돌아가는데 왜 원격에선 빌드가 되지 않을까.&lt;/p&gt;
+
+&lt;p&gt;당연하게도 이유는 Github의 배포 환경과 내 로컬 환경이 완전히 동일하지 않기 때문이다. 따라서 내가 만든 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;을 github는 읽지 않고, Github만의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;을 사용하기 때문에 발생하는 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;theme&lt;/code&gt;옵션은 프로젝트에 설치된 gem으로부터 jekyll theme을 불러올 수 있게 한다. 그렇게 원하는 테마의 gem을 깔았지만, 이 테마를 Github Pages에서 지원한다는 보장은 없었다. 결국 jekyll theme이 문제였다. &lt;a href=&quot;https://pages.github.com/themes/&quot;&gt;Github Pages에서 사용 가능한 theme&lt;/a&gt;은 정해져 있으며, 여기에 없는 theme일 경우 github는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;page build warning&lt;/code&gt;을 선사한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;문제-해결-8&quot;&gt;문제 해결&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Remote theme 방법&lt;/strong&gt;을 사용한다.&lt;/p&gt;
+
+&lt;p&gt;Remote theme 방식은 Gem 기반 방식과 유사하게 직접 테마 파일을 가지지 않는 방법이다. Guthub pages에서 본인이 사용하는 테마인 minimal-mistakes 테마의 remote theme 방식을 지원하기 때문에 이 방식을 사용할 수 있다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;파일 수정
+  remote_theme 줄의 주석을 푼다.
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# theme             : &quot;minimal-mistakes-jekyll&quot;
+remote_theme   : &quot;mmistakes/minimal-mistakes
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;을 아래와 같이 수정한다.
+```
+source “https://rubygems.org”&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;gem “github-pages”, group: :jekyll_plugins
+gem “jekyll-include-cache”&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;3. `bundle` 명령을 통해 필요한 gem을 설치한다.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;bundle install
+```&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt; 실행
+  _site 폴더가 만들어지면서 블로그 파일들이 자동으로 생성된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;push&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;push&lt;/code&gt; baby&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;참고-블로그&quot;&gt;참고 블로그&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://jekyllrb-ko.github.io/&quot;&gt;jekyll 공식 사이트&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://labs.brandi.co.kr//2018/05/14/chunbs.html&quot;&gt;jekyll을 이용한 Github 블로그 만들기&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://velog.io/@eona1301/Github-Blog-Jekyll-minimal-mistakes-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0&quot;&gt;Jekyll, Github Blog 시작하기&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://dnight.tistory.com/entry/Jekyll%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-GitHub-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0?category=843234&quot;&gt;https://dnight.tistory.com/entry/Jekyll%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-GitHub-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0?category=843234&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://jojoldu.tistory.com/288&quot;&gt;https://jojoldu.tistory.com/288&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://fuzzysound.github.io/github-and-jekyll&quot;&gt;https://fuzzysound.github.io/github-and-jekyll&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://kimss1502.github.io/%EB%B8%94%EB%A1%9C%EA%B9%85/2.-GitHub-pages-%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/&quot;&gt;https://kimss1502.github.io/%EB%B8%94%EB%A1%9C%EA%B9%85/2.-GitHub-pages-%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/&lt;/a&gt;&lt;/p&gt;</content><author><name>주노 (jjunohj)</name></author><category term="Errors" /><category term="rbenv" /><category term="Ruby" /><category term="Gem" /><category term="Errors" /><category term="Github pages" /><summary type="html">jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러</summary></entry></feed>
