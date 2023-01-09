@@ -23,6 +23,8 @@ toc: true
 
 아무튼, 본 포스팅은 Github.io를 만들고, 깃허브에서 페이지를 등록하는 것까지의 과정을 일일이 설명하는 것이 아니다. 그저 구글에 아~주 간단하게 나와있는 Github.io 만들기를 따라하면서 무려 6시간동안 겪은 수많은 에러와의 사투 ~~(나한테만 있는 건지..)~~ 들을 정리해보고자 하는 것이다.
 
+<hr>
+
 ## Gem::FilePermissionError, Gem 설치 에러
 
 `jekyll`을 설치하기 위해서는 선행 조건인 `Ruby`와 `bundler`가 필요하다. 기본적으로 Mac을 사용하게 되면 패키지를 설치할 때 `ruby` 기반인 `Homebrew`를 이용하기 때문에 당연히 설치되어 있고, 문제가 없을 줄 알았다.
@@ -35,7 +37,7 @@ ERROR:  While executing gem ... (Gem::FilePermissionError)
     You don't have write permissions for the /Library/Ruby/Gems/X.X.X directory.
 ```
 
-write 권한이 없다고 하는데, 여러 블로그들을 찾아보며 알아 본 결과 기본적으로 OS ruby를 사용하고 있기 때문에 권한이 없어서 gem설치가 안됐던 것이라고 한다.
+write 권한이 없다고 하는데, 여러 블로그들을 찾아보며 알아 본 결과 기본적으로 `OS ruby`를 사용하고 있기 때문에 권한이 없어서 `gem`설치가 안됐던 것이라고 한다.
 
 따라서 `sudo`를 통해 root 권한으로 실행하면 설치가 가능하다고 하지만, **보안상 권장하지 않는 설치법**이라고 한다.
 
@@ -78,6 +80,8 @@ rbx-5.0
 rbenv install 3.2.0
 ```
 
+---
+
 ## BUILD FAILED (macOS 13.1 using ruby-build 20221225), rbenv 설치 에러 
 
 ```
@@ -91,7 +95,7 @@ BUILD FAILED (macOS 13.1 using ruby-build 20221225)
 
 해결책은 다음과 같았다.
 1. Mac OS를 최신 버전으로 업데이트한다.
-2. homebrew로 `libyaml`를 설치한다.
+2. `homebrew`로 `libyaml`를 설치한다.
 
 명령어는 다음과 같은 순으로 실행했다.
 ```
@@ -100,11 +104,13 @@ brew update && brew upgrade ruby-build
 rbenv install 3.2.0
 ```
 
-*하지만, 나는 이 번거로움을 싫어서 그냥 3.1.3 버전을 설치 후 사용했다 . . .ㅎㅎ..*
+*하지만, 나는 이 번거로움이 싫어서 그냥 3.1.3 버전을 설치 후 사용했다 . . .ㅎㅎ..*
 
 ```
 rbenv global 3.1.3
 ```
+
+---
 
 그럼 `ruby`를 설치했으니 rbenv `PATH`를 추가하기 위해 쉘 설정파일에 다음 코드를 추가한다. 
 
@@ -129,6 +135,8 @@ gem install bundler
 ```
 
 이제서야 gem install이 되는 모습
+
+---
 
 ## Bundler::GemNotFound, Jekyll 설치 에러
 
@@ -190,7 +198,7 @@ bundle exec jekyll serve
 Please append --trace to the serve command for any additional information or backtrace....cannot load such file -- webrick(loadError)
 ```
 
-`bundle exec jekyll serve`를 해도 자꾸 등장하는 이 에러의 원인은, webrick이라는 파일이 없어러 load를 할 수 없다는 내용인데, ruby 3.0.0 버전부터 webrick이 기본으로 포함된 gem에서 빠졌기 때문에 발생한다.
+`bundle exec jekyll serve`를 해도 자꾸 등장하는 이 에러의 원인은, webrick이라는 파일이 없어러 load를 할 수 없다는 내용인데, `ruby 3.0.0` 버전부터 webrick이 기본으로 포함된 gem에서 빠졌기 때문에 발생한다.
 
 ### 문제 해결
 
@@ -200,6 +208,8 @@ bundle add webrick
 을 추가해주면 된다.
 
 **이를 끝으로 localhost:4000에서 접속을 하는데 성공했다.** 
+
+---
 
 ## Deprecation Warning: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0, 문법 지원 중단
 
@@ -234,13 +244,13 @@ github.io에 테마를 적용하고, 네비게이션 바를 조금 바꾸니 마
 ### 문제 해결
 
 1. github 계정 로그인
-2. 우측 상단 Settings
-3. 좌측 최하단 Developer settings
-4. Personal access tokens 탭
-5. Generate new token
+2. 우측 상단 `Settings`
+3. 좌측 최하단 `Developer settings`
+4. `Personal access tokens` 탭
+5. `Generate new token`
 6. 사용처, 만료 기간 결정 후 생성
 7. 생성된 토큰 키 복사
-8. 이후 git config로 등록
+8. 이후 `git config`로 등록
 
 ```
 git config --global user.name ‘아이디’
@@ -275,7 +285,8 @@ remote_theme   : "mmistakes/minimal-mistakes
 2. `Gemfile`을 아래와 같이 수정한다.
 ```
 source "https://rubygems.org"
-
+```
+```
 gem "github-pages", group: :jekyll_plugins
 gem "jekyll-include-cache"
 ```
@@ -289,6 +300,8 @@ bundle install
 
 5. `push` `push` baby
 
+---
+
 ## 참고 블로그
 
 [jekyll 공식 사이트](https://jekyllrb-ko.github.io/)
@@ -298,10 +311,10 @@ bundle install
 
 [Jekyll, Github Blog 시작하기](https://velog.io/@eona1301/Github-Blog-Jekyll-minimal-mistakes-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0)
 
-<https://dnight.tistory.com/entry/Jekyll%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-GitHub-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0?category=843234>
+[Jekyll을 사용하여 Github 블로그 만들기](https://dnight.tistory.com/entry/Jekyll%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-GitHub-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0?category=843234)
 
-<https://jojoldu.tistory.com/288>
+[기억보단 기록을](https://jojoldu.tistory.com/288)
 
-<https://fuzzysound.github.io/github-and-jekyll>
+[Github Pages와 jekyll, 로컬 환경 이슈](https://fuzzysound.github.io/github-and-jekyll)
 
-<https://kimss1502.github.io/%EB%B8%94%EB%A1%9C%EA%B9%85/2.-GitHub-pages-%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/>
+[GitHub pages로 블로그 만들기 (2)](https://kimss1502.github.io/%EB%B8%94%EB%A1%9C%EA%B9%85/2.-GitHub-pages-%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/)
