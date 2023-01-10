@@ -49,8 +49,8 @@ write 권한이 없다고 하는데, 여러 블로그들을 찾아보며 알아 
 
 먼저 `brew`를 통해 `rbenv`를 설치한다.
 ```
-brew update
-brew install rbenv ruby-build
+$ brew update
+$ brew install rbenv ruby-build
 ```
 
 `rbenv`가 잘 설치되었는지 확인한다.
@@ -99,15 +99,15 @@ BUILD FAILED (macOS 13.1 using ruby-build 20221225)
 
 명령어는 다음과 같은 순으로 실행했다.
 ```
-brew install libyaml
-brew update && brew upgrade ruby-build
-rbenv install 3.2.0
+$ brew install libyaml
+$ brew update && brew upgrade ruby-build
+$ rbenv install 3.2.0
 ```
 
 *하지만, 나는 이 번거로움이 싫어서 그냥 3.1.3 버전을 설치 후 사용했다 . . .ㅎㅎ..*
 
 ```
-rbenv global 3.1.3
+$ rbenv global 3.1.3
 ```
 
 ---
@@ -115,7 +115,7 @@ rbenv global 3.1.3
 그럼 `ruby`를 설치했으니 rbenv `PATH`를 추가하기 위해 쉘 설정파일에 다음 코드를 추가한다. 
 
 ```
-vim ~/.zshrc
+$ vim ~/.zshrc
 ```
 
 ```
@@ -126,12 +126,12 @@ vim ~/.zshrc
 
 추가했다면, `source`로 코드를 적용한다.
 ```
-source ~/.zshrc
+$ source ~/.zshrc
 ```
 
 **다시 gem install을 실행한다.**
 ```
-gem install bundler
+$ gem install bundler
 ```
 
 이제서야 gem install이 되는 모습
@@ -141,8 +141,8 @@ gem install bundler
 ## Bundler::GemNotFound, Jekyll 설치 에러
 
 ```
-gem intall jekyll
-jekyll serve
+$ gem intall jekyll
+$ jekyll serve
 ```
 드디어 선행 설치요소가 다 설치하고 `jekyll`을 설치하고 실행하려는데,
 
@@ -168,7 +168,7 @@ Run `bundle install` to install missing gems.
 하라는대로 하면 여러 다른 gem metadata가 fetch된다.
 
 ```
-bundle install
+$ bundle install
 ```
 
 ## Gem::LoadError, Gem 로드 에러
@@ -184,7 +184,7 @@ You have already activated i18n 1.12.0, but your Gemfile requires i18n 0.9.5. Pr
 
 그러므로
 ```
-bundle exec jekyll serve
+$ bundle exec jekyll serve
 ```
 앞으로 위 명령어를 사용해주면 된다.
 
@@ -203,7 +203,7 @@ Please append --trace to the serve command for any additional information or bac
 ### 문제 해결
 
 ```
-bundle add webrick
+$ bundle add webrick
 ```
 을 추가해주면 된다.
 
@@ -253,8 +253,8 @@ github.io에 테마를 적용하고, 네비게이션 바를 조금 바꾸니 마
 8. 이후 `git config`로 등록
 
 ```
-git config --global user.name ‘아이디’
-git config --global user.password ‘복사한 토큰’
+$ git config --global user.name ‘아이디’
+$ git config --global user.password ‘복사한 토큰’
 ```
 
 ## github pages에서 build error
@@ -285,20 +285,18 @@ remote_theme   : "mmistakes/minimal-mistakes
 2. `Gemfile`을 아래와 같이 수정한다.
 ```
 source "https://rubygems.org"
-```
-```
 gem "github-pages", group: :jekyll_plugins
 gem "jekyll-include-cache"
 ```
 3. `bundle` 명령을 통해 필요한 gem을 설치한다.
 ```
-bundle install
+$ bundle install
 ```
 
 4. `bundle exec jekyll serve` 실행
   _site 폴더가 만들어지면서 블로그 파일들이 자동으로 생성된다.
 
-5. `push` `push` baby
+5. `push`
 
 ---
 
