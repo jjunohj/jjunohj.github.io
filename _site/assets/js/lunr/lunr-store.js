@@ -4,4 +4,10 @@ var store = [{
         "tags": ["Blog","jekyll","rbenv","Github","Git","Errors"],
         "url": "/blog/github-io-errors/",
         "teaser": "/assets/images/github-pages.png"
+      },{
+        "title": "[BOJ] 백준 18185번 - 라면 사기 (Small)",
+        "excerpt":"문제 바로가기 “이게 정답률 29%?” 애초부터 그리디 필수 문제집에서 뽑은 문제고, 문제도 딱 봐도 그리디이다. 되게 쉬운 것 같았는데… 라면을 연속된 공장 3개에서 하나씩 총 3개를 구입하면 7원 라면을 연속된 공장 2개에서 하나씩 총 2개를 구입하면 5원 라면을 연속된 공장 1개에서 하나씩 총 1개를 구입하면 3원 붙어있는 공장들 중 최대한...","categories": ["BOJ"],
+        "tags": ["BOJ","Greedy","Python"],
+        "url": "/boj/boj-18185/",
+        "teaser": "/assets/images/teaser.png"
       }]
