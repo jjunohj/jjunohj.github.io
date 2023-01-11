@@ -14,7 +14,7 @@ date: 2023-01-09
 last_modified_at: 2023-01-11
 
 header:
-  teaser: /assets/images/github-pages.png
+  teaser: "/assets/images/github-pages.png"
 ---
 
 ~~"명색이 개발자면 블로그는 github.io 써야지"~~
