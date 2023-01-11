@@ -4,9 +4,8 @@ excerpt: "Jekyll을 사용한 깃허브 블로그 제작 중 마주친 에러들
 
 categories:
   - Blog
-
 tags:
-  - [Blog, jekyll, rbenv, Github, Errors]
+  - [Blog, jekyll, rbenv, Github, Git, Errors]
 
 toc: true
 toc_sticky: true
@@ -14,9 +13,6 @@ toc_sticky: true
 date: 2023-01-09
 last_modified_at: 2023-01-11
 
-permalink: /categories/blog/
-
-taxonomy: Blog
 header:
   teaser: /assets/images/github-pages.png
 ---
