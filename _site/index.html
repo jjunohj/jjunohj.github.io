@@ -7,10 +7,21 @@
 -->
 <html lang="ko" class="no-js">
   <head>
+    <!--폰트 : "Nanum Gothic Coding", "Coming Soon"-->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Nanum+Gothic+Coding&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Nanum+Gothic+Coding&display=swap">
+    
+    <!--폰트 : "Iropke Batang"-->
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+
+    <!--main.scss 조금이라도 빨리 로드 되길.. preload-->
+    <link rel="preload" as="style" href="/assets/css/main.css">
+    
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Daily Inspiration</title>
-<meta name="description" content="What I got is">
+<meta name="description" content="IT knowledge realized by a curious developer through various trials and errors.">
 
 
   <meta name="author" content="주노 (jjunohj)">
@@ -24,9 +35,11 @@
 <meta property="og:url" content="http://localhost:4000/">
 
 
-  <meta property="og:description" content="What I got is">
+  <meta property="og:description" content="IT knowledge realized by a curious developer through various trials and errors.">
 
 
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/bio-photo.jpg">
 
 
 
@@ -58,9 +71,13 @@
 </script>
 
 
+  <meta name="google-site-verification" content="3e45d69838ad669a" />
 
 
 
+
+
+  <meta name="naver-site-verification" content="0927ff851e7c3a88dbef776ef5f5a7e8">
 
 
 <!-- end _includes/seo.html -->
@@ -116,20 +133,27 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt="Daily Inspiration"></a>
+        
         <a class="site-title" href="/">
-          Daily Inspiration Blog
+          Daily Inspiration
           <span class="site-subtitle">기록되지 않는 건 기억되지 않는다.</span>
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/about/">Introduce</a>
             </li><li class="masthead__menu-item">
-              <a href="/TIL/">TIL</a>
+              <a href="/categories/">Category</a>
             </li><li class="masthead__menu-item">
               <a href="/tags/">Tags</a>
             </li></ul>
         
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
         <button class="greedy-nav__toggle hidden" type="button">
-          <span class="visually-hidden">토글 메뉴</span>
+          <span class="visually-hidden">Category</span>
           <div class="navicon"></div>
         </button>
         <ul class="hidden-links hidden"></ul>
@@ -173,7 +197,7 @@
   </div>
 
   <div class="author__urls-wrapper">
-    <button class="btn btn--inverse">팔로우</button>
+    <button class="btn btn--inverse">Contact</button>
     <ul class="author__urls social-icons">
       
         <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
@@ -263,8 +287,93 @@
 </div>
 
   
-  </div>
 
+  
+    <!--전체 글 수를 세기 위한 연산. sum 변수에 전체 글 수 저장-->
+
+
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Category</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <!--전체 글 수-->
+      <li>
+            📂 <span>전체 글 수</style> <span>1</style> <span>개</style> 
+      </li>
+      <li>
+        <!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C -->
+        <span class="nav__sub-title">HTML/CSS/JS</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/cpp 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">Coding Test</span>
+            <ul>
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">Database</span>
+            <ul>
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">Design</span>
+            <ul>
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">etc</span>
+            <ul>
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog Dev (1)</a></li>
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+            </ul>
+      </li>
+  </ul>
+</nav>
+  
+
+  </div>
 
 
   <div class="archive">
@@ -289,7 +398,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/TIL/" rel="permalink">jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러
+        <a href="/categories/blog/" rel="permalink">[Blog] 깃허브 블로그 만들기/포스팅/배포 과정 중 발생한 에러
 </a>
       
     </h2>
@@ -297,8 +406,15 @@
 
   <p class="page__meta">
     
-
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-09T00:00:00+09:00">January 9, 2023</time>
+      </span>
     
+
+    <span class="page__meta-sep"></span>
 
     
       
@@ -307,15 +423,14 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          5 분 소요
+          6 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러
-
+    <p class="archive__item-excerpt" itemprop="description">Jekyll을 사용한 깃허브 블로그 제작 중 마주친 에러들과의 혈투를 담아보자.
 </p>
   </article>
 </div>
@@ -331,6 +446,17 @@
     </div>
 
     
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
 
     <div id="footer" class="page__footer">
       <footer>
@@ -340,7 +466,7 @@
         <div class="page__footer-follow">
   <ul class="social-icons">
     
-      <li><strong>팔로우:</strong></li>
+      <li><strong>Contact:</strong></li>
     
 
     
@@ -380,8 +506,14 @@
 
     
   <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
 
 
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
 
 
 

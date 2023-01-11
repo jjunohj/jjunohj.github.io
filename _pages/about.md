@@ -1,8 +1,7 @@
 ---
-permalink: /about/
 title: "About"
+permalink: /about/
 toc: true
-toc_sticky: true
 toc_label: "MYSELF"
 ---
 
@@ -13,4 +12,3 @@ toc_label: "MYSELF"
 ## 학력
 
 - 아주대학교 소프트웨어학과 재학
-

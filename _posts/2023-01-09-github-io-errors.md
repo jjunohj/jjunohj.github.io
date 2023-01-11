@@ -1,19 +1,25 @@
 ---
-title: "jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러"
-last_modified_at: 2023-01-09T19:46:51+09:00
-permalink: /TIL/
-categories:
-  - Errors
-tags:
-  - rbenv
-  - Ruby
-  - Gem
-  - Errors
-  - Github pages
-toc: true
----
+title: "[Blog] 깃허브 블로그 만들기/포스팅/배포 과정 중 발생한 에러"
+excerpt: "Jekyll을 사용한 깃허브 블로그 제작 중 마주친 에러들과의 혈투를 담아보자."
 
-# jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러
+categories:
+  - Blog
+
+tags:
+  - [Blog, jekyll, rbenv, Github, Errors]
+
+toc: true
+toc_sticky: true
+
+date: 2023-01-09
+last_modified_at: 2023-01-11
+
+permalink: /categories/blog/
+
+taxonomy: Blog
+header:
+  teaser: /assets/images/github-pages.png
+---
 
 ~~"명색이 개발자면 블로그는 github.io 써야지"~~
 
@@ -25,7 +31,7 @@ toc: true
 
 <hr>
 
-## Gem::FilePermissionError, Gem 설치 에러
+## Gem 설치 에러 / Gem::FilePermissionError
 
 `jekyll`을 설치하기 위해서는 선행 조건인 `Ruby`와 `bundler`가 필요하다. 기본적으로 Mac을 사용하게 되면 패키지를 설치할 때 `ruby` 기반인 `Homebrew`를 이용하기 때문에 당연히 설치되어 있고, 문제가 없을 줄 알았다.
 
@@ -82,7 +88,7 @@ rbenv install 3.2.0
 
 ---
 
-## BUILD FAILED (macOS 13.1 using ruby-build 20221225), rbenv 설치 에러 
+## rbenv 설치 에러 / BUILD FAILED (macOS 13.1 using ruby-build 20221225)
 
 ```
 BUILD FAILED (macOS 13.1 using ruby-build 20221225)
@@ -138,7 +144,7 @@ $ gem install bundler
 
 ---
 
-## Bundler::GemNotFound, Jekyll 설치 에러
+## Jekyll 설치 에러 / Bundler::GemNotFound
 
 ```
 $ gem intall jekyll
@@ -171,7 +177,7 @@ Run `bundle install` to install missing gems.
 $ bundle install
 ```
 
-## Gem::LoadError, Gem 로드 에러
+## Gem 로드 에러 / Gem::LoadError
 
 이렇게 설치를 한 뒤 `jekyll serve`를 하면 다음과 같은 에러가 뜬다.
 ```
@@ -190,7 +196,7 @@ $ bundle exec jekyll serve
 
 **~~암튼 실행됐죠?~~**
 
-## webrick(loadError), Jekyll 로드 에러
+## Jekyll 로드 에러 / webrick(loadError)
 
 하지만 처음에 `jekyll serve`를 실행할 때는 아래와 같은 에러가 등장한다.
 
@@ -211,7 +217,7 @@ $ bundle add webrick
 
 ---
 
-## Deprecation Warning: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0, 문법 지원 중단
+## 문법 지원 중단 문제 / Deprecation Warning: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0
 
 나름 되게 골머리를 앓았던 에러인데, `calc` 함수 외부에서 `/`를 이용하여 나눗셈을 하는 것은 더이상 지원되지 않아서 발생하는 오류이다.
 하필 적용하려는 테마에서 반응형을 지원할 때 `/`를 여러 군데 사용하여 구현하여 위와 같은 에러가 발생했다.
@@ -229,7 +235,7 @@ body {
 
 ~~멍청해서 요수를 부리는 것보다 일단 노가다를 시작하는 게 더 빠르다~~
 
-## Conversion error: Jekyll::Converters::Scss encountered an error while converting 'assets/css/main.scss', 변환 에러
+## Jekyll-Scss 변환 에러 / Conversion error: Jekyll::Converters::Scss encountered an error while converting 'assets/css/main.scss'
 
 github.io에 테마를 적용하고, 네비게이션 바를 조금 바꾸니 마주쳤던 에러이다. 
 
@@ -237,7 +243,7 @@ github.io에 테마를 적용하고, 네비게이션 바를 조금 바꾸니 마
 
 `SCSS`에서 자신이 변경한 부분이나 `;`, `{`, `}` 등 부호에 각별하게 주의를 해서 코드를 마무리 했어야 했다.
 
-## Authentication failed for ~ use a personal access token instead, Github pull 에러
+## Github pull 에러 / Authentication failed for ~ use a personal access token instead
 
 새로운 리포지토리를 파고, 해당하는 리포지토리에 git pull할 때 위와 같은 에러가 발생한다. 이는 2021년 8월 이후로 ID/PW 방식이 아닌 token을 이용하여 로그인을 하기 때문에 발생하는 것이다. 좀 불편하지만, 보안이 더 좋아지는 것이니 감내해야 할 것 같다.
 
@@ -257,7 +263,7 @@ $ git config --global user.name ‘아이디’
 $ git config --global user.password ‘복사한 토큰’
 ```
 
-## github pages에서 build error
+## Github pages 빌드 에러
 
 `localhost:4000`에서는 잘만 실행되는 블로그가 깃허브 레포지토리에 push만 하면 build가 아작이 나는 상태가 계속되었다.
 

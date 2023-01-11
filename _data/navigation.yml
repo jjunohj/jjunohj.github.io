@@ -1,10 +1,26 @@
 # main links
 main:
-  #- title: "Home"
-  #  url: "/"
+  # - title: "Home"
+  #   url: "/"
   - title: "Introduce"
     url: /about/
-  - title: "TIL"
-    url: /TIL/
+  - title: "Category"
+    url: /categories/
   - title: "Tags"
     url: /tags/
+
+# docs:
+#   - title: Category
+#     children:
+#       - title: "HTML/CSS/JS"
+#         url: /categories/html_css_js
+#       - title: "Algorithm"
+#         url: /categories/algorithm
+#       - title: "Database"
+#         url: /categories/database
+#       - title: "Design"
+#         url: /categories/design
+#       - title: "Deployment"
+#         url: /categories/deployment
+#       - title: "Blog"
+#         url: /categories/blog

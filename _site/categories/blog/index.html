@@ -7,10 +7,21 @@
 -->
 <html lang="ko" class="no-js">
   <head>
+    <!--폰트 : "Nanum Gothic Coding", "Coming Soon"-->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Nanum+Gothic+Coding&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Nanum+Gothic+Coding&display=swap">
+    
+    <!--폰트 : "Iropke Batang"-->
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+
+    <!--main.scss 조금이라도 빨리 로드 되길.. preload-->
+    <link rel="preload" as="style" href="/assets/css/main.css">
+    
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러 - Daily Inspiration</title>
-<meta name="description" content="jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러">
+<!-- begin _includes/seo.html --><title>[Blog] 깃허브 블로그 만들기/포스팅/배포 과정 중 발생한 에러 | Daily Inspiration</title>
+<meta name="description" content="Jekyll을 사용한 깃허브 블로그 제작 중 마주친 에러들과의 혈투를 담아보자.">
 
 
   <meta name="author" content="주노 (jjunohj)">
@@ -22,13 +33,15 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Daily Inspiration">
-<meta property="og:title" content="jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러">
-<meta property="og:url" content="http://localhost:4000/TIL/">
+<meta property="og:title" content="[Blog] 깃허브 블로그 만들기/포스팅/배포 과정 중 발생한 에러">
+<meta property="og:url" content="http://localhost:4000/categories/blog/">
 
 
-  <meta property="og:description" content="jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러">
+  <meta property="og:description" content="Jekyll을 사용한 깃허브 블로그 제작 중 마주친 에러들과의 혈투를 담아보자.">
 
 
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/github-pages.png">
 
 
 
@@ -38,7 +51,7 @@
 
 
 
-  <meta property="article:modified_time" content="2023-01-09T19:46:51+09:00">
+  <meta property="article:modified_time" content="2023-01-11T00:00:00+09:00">
 
 
 
@@ -47,7 +60,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/TIL/">
+<link rel="canonical" href="http://localhost:4000/categories/blog/">
 
 
 
@@ -64,9 +77,13 @@
 </script>
 
 
+  <meta name="google-site-verification" content="3e45d69838ad669a" />
 
 
 
+
+
+  <meta name="naver-site-verification" content="0927ff851e7c3a88dbef776ef5f5a7e8">
 
 
 <!-- end _includes/seo.html -->
@@ -122,20 +139,27 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt="Daily Inspiration"></a>
+        
         <a class="site-title" href="/">
-          Daily Inspiration Blog
+          Daily Inspiration
           <span class="site-subtitle">기록되지 않는 건 기억되지 않는다.</span>
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/about/">Introduce</a>
             </li><li class="masthead__menu-item">
-              <a href="/TIL/">TIL</a>
+              <a href="/categories/">Category</a>
             </li><li class="masthead__menu-item">
               <a href="/tags/">Tags</a>
             </li></ul>
         
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
         <button class="greedy-nav__toggle hidden" type="button">
-          <span class="visually-hidden">토글 메뉴</span>
+          <span class="visually-hidden">Category</span>
           <div class="navicon"></div>
         </button>
         <ul class="hidden-links hidden"></ul>
@@ -150,6 +174,43 @@
 
 
 
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#categories" itemprop="item"><span itemprop="name">Categories</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[Blog] 깃허브 블로그 만들기/포스팅/배포 과정 중 발생한 에러</li>
+      
+    
+  </ol>
+</nav>
+
+  
 
 
 <div id="main" role="main">
@@ -181,7 +242,7 @@
   </div>
 
   <div class="author__urls-wrapper">
-    <button class="btn btn--inverse">팔로우</button>
+    <button class="btn btn--inverse">Contact</button>
     <ul class="author__urls social-icons">
       
         <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
@@ -271,29 +332,121 @@
 </div>
 
   
+
+  
+    <!--전체 글 수를 세기 위한 연산. sum 변수에 전체 글 수 저장-->
+
+
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Category</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <!--전체 글 수-->
+      <li>
+            📂 <span>전체 글 수</style> <span>1</style> <span>개</style> 
+      </li>
+      <li>
+        <!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C -->
+        <span class="nav__sub-title">HTML/CSS/JS</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/cpp 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">Coding Test</span>
+            <ul>
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">Database</span>
+            <ul>
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">Design</span>
+            <ul>
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">etc</span>
+            <ul>
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog Dev (1)</a></li>
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+            </ul>
+      </li>
+  </ul>
+</nav>
+  
+
   </div>
 
 
-
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러">
-    <meta itemprop="description" content="jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러">
+    <meta itemprop="headline" content="[Blog] 깃허브 블로그 만들기/포스팅/배포 과정 중 발생한 에러">
+    <meta itemprop="description" content="Jekyll을 사용한 깃허브 블로그 제작 중 마주친 에러들과의 혈투를 담아보자.">
     <meta itemprop="datePublished" content="2023-01-09T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2023-01-09T19:46:51+09:00">
+    <meta itemprop="dateModified" content="2023-01-11T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/TIL/" class="u-url" itemprop="url">jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러
+            <a href="http://localhost:4000/categories/blog/" class="u-url" itemprop="url">[Blog] 깃허브 블로그 만들기/포스팅/배포 과정 중 발생한 에러
 </a>
           </h1>
           
 
   <p class="page__meta">
     
-
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-09T00:00:00+09:00">January 9, 2023</time>
+      </span>
     
+
+    <span class="page__meta-sep"></span>
 
     
       
@@ -302,7 +455,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          5 분 소요
+          6 분 소요
         
       </span>
     
@@ -314,17 +467,64 @@
 
       <section class="page__content e-content" itemprop="text">
         
-          <aside class="sidebar__right ">
+          <aside class="sidebar__right sticky">
             <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
-              <ul class="toc__menu"><li><a href="#jekyll를-이용한-깃허브-블로그-생성-배포-과정-발생한-에러">jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러</a><ul><li><a href="#gemfilepermissionerror-gem-설치-에러">Gem::FilePermissionError, Gem 설치 에러</a><ul><li><a href="#문제-해결">문제 해결</a></li></ul></li><li><a href="#build-failed-macos-131-using-ruby-build-20221225-rbenv-설치-에러">BUILD FAILED (macOS 13.1 using ruby-build 20221225), rbenv 설치 에러</a><ul><li><a href="#문제-해결-1">문제 해결</a></li></ul></li><li><a href="#bundlergemnotfound-jekyll-설치-에러">Bundler::GemNotFound, Jekyll 설치 에러</a><ul><li><a href="#문제-해결-2">문제 해결</a></li></ul></li><li><a href="#gemloaderror-gem-로드-에러">Gem::LoadError, Gem 로드 에러</a><ul><li><a href="#문제-해결-3">문제 해결</a></li></ul></li><li><a href="#webrickloaderror-jekyll-로드-에러">webrick(loadError), Jekyll 로드 에러</a><ul><li><a href="#문제-해결-4">문제 해결</a></li></ul></li><li><a href="#deprecation-warning-using--for-division-outside-of-calc-is-deprecated-and-will-be-removed-in-dart-sass-200-문법-지원-중단">Deprecation Warning: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0, 문법 지원 중단</a><ul><li><a href="#문제-해결-5">문제 해결</a></li></ul></li><li><a href="#conversion-error-jekyllconvertersscss-encountered-an-error-while-converting-assetscssmainscss-변환-에러">Conversion error: Jekyll::Converters::Scss encountered an error while converting ‘assets/css/main.scss’, 변환 에러</a><ul><li><a href="#문제-해결-6">문제 해결</a></li></ul></li><li><a href="#authentication-failed-for--use-a-personal-access-token-instead-github-pull-에러">Authentication failed for ~ use a personal access token instead, Github pull 에러</a><ul><li><a href="#문제-해결-7">문제 해결</a></li></ul></li><li><a href="#github-pages에서-build-error">github pages에서 build error</a><ul><li><a href="#문제-해결-8">문제 해결</a></li></ul></li><li><a href="#참고-블로그">참고 블로그</a></li></ul></li></ul>
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Index</h4></header>
+              <!-- <ul class="toc__menu"><li><a href="#gem-설치-에러--gemfilepermissionerror">Gem 설치 에러 / Gem::FilePermissionError</a><ul><li><a href="#문제-해결">문제 해결</a></li></ul></li><li><a href="#rbenv-설치-에러--build-failed-macos-131-using-ruby-build-20221225">rbenv 설치 에러 / BUILD FAILED (macOS 13.1 using ruby-build 20221225)</a><ul><li><a href="#문제-해결-1">문제 해결</a></li></ul></li><li><a href="#jekyll-설치-에러--bundlergemnotfound">Jekyll 설치 에러 / Bundler::GemNotFound</a><ul><li><a href="#문제-해결-2">문제 해결</a></li></ul></li><li><a href="#gem-로드-에러--gemloaderror">Gem 로드 에러 / Gem::LoadError</a><ul><li><a href="#문제-해결-3">문제 해결</a></li></ul></li><li><a href="#jekyll-로드-에러--webrickloaderror">Jekyll 로드 에러 / webrick(loadError)</a><ul><li><a href="#문제-해결-4">문제 해결</a></li></ul></li><li><a href="#문법-지원-중단-문제--deprecation-warning-using--for-division-outside-of-calc-is-deprecated-and-will-be-removed-in-dart-sass-200">문법 지원 중단 문제 / Deprecation Warning: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0</a><ul><li><a href="#문제-해결-5">문제 해결</a></li></ul></li><li><a href="#jekyll-scss-변환-에러--conversion-error-jekyllconvertersscss-encountered-an-error-while-converting-assetscssmainscss">Jekyll-Scss 변환 에러 / Conversion error: Jekyll::Converters::Scss encountered an error while converting ‘assets/css/main.scss’</a><ul><li><a href="#문제-해결-6">문제 해결</a></li></ul></li><li><a href="#github-pull-에러--authentication-failed-for--use-a-personal-access-token-instead">Github pull 에러 / Authentication failed for ~ use a personal access token instead</a><ul><li><a href="#문제-해결-7">문제 해결</a></li></ul></li><li><a href="#github-pages-빌드-에러">Github pages 빌드 에러</a><ul><li><a href="#문제-해결-8">문제 해결</a></li></ul></li><li><a href="#참고-블로그">참고 블로그</a></li></ul> -->
 
+
+<ul class="toc__menu">
+  <li><a href="#gem-설치-에러--gemfilepermissionerror">Gem 설치 에러 / Gem::FilePermissionError</a>
+    <ul>
+      <li><a href="#문제-해결">문제 해결</a></li>
+    </ul>
+  </li>
+  <li><a href="#rbenv-설치-에러--build-failed-macos-131-using-ruby-build-20221225">rbenv 설치 에러 / BUILD FAILED (macOS 13.1 using ruby-build 20221225)</a>
+    <ul>
+      <li><a href="#문제-해결-1">문제 해결</a></li>
+    </ul>
+  </li>
+  <li><a href="#jekyll-설치-에러--bundlergemnotfound">Jekyll 설치 에러 / Bundler::GemNotFound</a>
+    <ul>
+      <li><a href="#문제-해결-2">문제 해결</a></li>
+    </ul>
+  </li>
+  <li><a href="#gem-로드-에러--gemloaderror">Gem 로드 에러 / Gem::LoadError</a>
+    <ul>
+      <li><a href="#문제-해결-3">문제 해결</a></li>
+    </ul>
+  </li>
+  <li><a href="#jekyll-로드-에러--webrickloaderror">Jekyll 로드 에러 / webrick(loadError)</a>
+    <ul>
+      <li><a href="#문제-해결-4">문제 해결</a></li>
+    </ul>
+  </li>
+  <li><a href="#문법-지원-중단-문제--deprecation-warning-using--for-division-outside-of-calc-is-deprecated-and-will-be-removed-in-dart-sass-200">문법 지원 중단 문제 / Deprecation Warning: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0</a>
+    <ul>
+      <li><a href="#문제-해결-5">문제 해결</a></li>
+    </ul>
+  </li>
+  <li><a href="#jekyll-scss-변환-에러--conversion-error-jekyllconvertersscss-encountered-an-error-while-converting-assetscssmainscss">Jekyll-Scss 변환 에러 / Conversion error: Jekyll::Converters::Scss encountered an error while converting ‘assets/css/main.scss’</a>
+    <ul>
+      <li><a href="#문제-해결-6">문제 해결</a></li>
+    </ul>
+  </li>
+  <li><a href="#github-pull-에러--authentication-failed-for--use-a-personal-access-token-instead">Github pull 에러 / Authentication failed for ~ use a personal access token instead</a>
+    <ul>
+      <li><a href="#문제-해결-7">문제 해결</a></li>
+    </ul>
+  </li>
+  <li><a href="#github-pages-빌드-에러">Github pages 빌드 에러</a>
+    <ul>
+      <li><a href="#문제-해결-8">문제 해결</a></li>
+    </ul>
+  </li>
+  <li><a href="#참고-블로그">참고 블로그</a></li>
+</ul>
             </nav>
           </aside>
         
-        <h1 id="jekyll를-이용한-깃허브-블로그-생성-배포-과정-발생한-에러">jekyll를 이용한 깃허브 블로그 생성, 배포 과정 발생한 에러</h1>
-
-<p><del>“명색이 개발자면 블로그는 github.io 써야지”</del></p>
+        <p><del>“명색이 개발자면 블로그는 github.io 써야지”</del></p>
 
 <p>2023년엔 지금껏 곳곳에 작성했던 여러 TIL들을 싹 없애고, 아예 새로운 블로그를 만들어 배운 걸 착착 기록하고자 한다. 여러 블로그 환경들 중 내가 선택한 것은 가장 <del>개발자스러운</del> 깔끔하고 커스터마이징이 가능한 <strong>github.io</strong> 였다.</p>
 
@@ -332,7 +532,9 @@
 
 <p>아무튼, 본 포스팅은 Github.io를 만들고, 깃허브에서 페이지를 등록하는 것까지의 과정을 일일이 설명하는 것이 아니다. 그저 구글에 아~주 간단하게 나와있는 Github.io 만들기를 따라하면서 무려 6시간동안 겪은 수많은 에러와의 사투 <del>(나한테만 있는 건지..)</del> 들을 정리해보고자 하는 것이다.</p>
 
-<h2 id="gemfilepermissionerror-gem-설치-에러">Gem::FilePermissionError, Gem 설치 에러</h2>
+<hr />
+
+<h2 id="gem-설치-에러--gemfilepermissionerror">Gem 설치 에러 / Gem::FilePermissionError</h2>
 
 <p><code class="language-plaintext highlighter-rouge">jekyll</code>을 설치하기 위해서는 선행 조건인 <code class="language-plaintext highlighter-rouge">Ruby</code>와 <code class="language-plaintext highlighter-rouge">bundler</code>가 필요하다. 기본적으로 Mac을 사용하게 되면 패키지를 설치할 때 <code class="language-plaintext highlighter-rouge">ruby</code> 기반인 <code class="language-plaintext highlighter-rouge">Homebrew</code>를 이용하기 때문에 당연히 설치되어 있고, 문제가 없을 줄 알았다.</p>
 
@@ -343,7 +545,7 @@ ERROR:  While executing gem ... (Gem::FilePermissionError)
     You don't have write permissions for the /Library/Ruby/Gems/X.X.X directory.
 </code></pre></div></div>
 
-<p>write 권한이 없다고 하는데, 여러 블로그들을 찾아보며 알아 본 결과 기본적으로 OS ruby를 사용하고 있기 때문에 권한이 없어서 gem설치가 안됐던 것이라고 한다.</p>
+<p>write 권한이 없다고 하는데, 여러 블로그들을 찾아보며 알아 본 결과 기본적으로 <code class="language-plaintext highlighter-rouge">OS ruby</code>를 사용하고 있기 때문에 권한이 없어서 <code class="language-plaintext highlighter-rouge">gem</code>설치가 안됐던 것이라고 한다.</p>
 
 <p>따라서 <code class="language-plaintext highlighter-rouge">sudo</code>를 통해 root 권한으로 실행하면 설치가 가능하다고 하지만, <strong>보안상 권장하지 않는 설치법</strong>이라고 한다.</p>
 
@@ -354,8 +556,8 @@ ERROR:  While executing gem ... (Gem::FilePermissionError)
 <h3 id="문제-해결">문제 해결</h3>
 
 <p>먼저 <code class="language-plaintext highlighter-rouge">brew</code>를 통해 <code class="language-plaintext highlighter-rouge">rbenv</code>를 설치한다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew update
-brew install rbenv ruby-build
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew update
+$ brew install rbenv ruby-build
 </code></pre></div></div>
 
 <p><code class="language-plaintext highlighter-rouge">rbenv</code>가 잘 설치되었는지 확인한다.</p>
@@ -382,7 +584,9 @@ rbx-5.0
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv install 3.2.0
 </code></pre></div></div>
 
-<h2 id="build-failed-macos-131-using-ruby-build-20221225-rbenv-설치-에러">BUILD FAILED (macOS 13.1 using ruby-build 20221225), rbenv 설치 에러</h2>
+<hr />
+
+<h2 id="rbenv-설치-에러--build-failed-macos-131-using-ruby-build-20221225">rbenv 설치 에러 / BUILD FAILED (macOS 13.1 using ruby-build 20221225)</h2>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BUILD FAILED (macOS 13.1 using ruby-build 20221225)
 </code></pre></div></div>
@@ -395,23 +599,25 @@ rbx-5.0
 <p>해결책은 다음과 같았다.</p>
 <ol>
   <li>Mac OS를 최신 버전으로 업데이트한다.</li>
-  <li>homebrew로 <code class="language-plaintext highlighter-rouge">libyaml</code>를 설치한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">homebrew</code>로 <code class="language-plaintext highlighter-rouge">libyaml</code>를 설치한다.</li>
 </ol>
 
 <p>명령어는 다음과 같은 순으로 실행했다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install libyaml
-brew update &amp;&amp; brew upgrade ruby-build
-rbenv install 3.2.0
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew install libyaml
+$ brew update &amp;&amp; brew upgrade ruby-build
+$ rbenv install 3.2.0
 </code></pre></div></div>
 
-<p><em>하지만, 나는 이 번거로움을 싫어서 그냥 3.1.3 버전을 설치 후 사용했다 . . .ㅎㅎ..</em></p>
+<p><em>하지만, 나는 이 번거로움이 싫어서 그냥 3.1.3 버전을 설치 후 사용했다 . . .ㅎㅎ..</em></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv global 3.1.3
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rbenv global 3.1.3
 </code></pre></div></div>
+
+<hr />
 
 <p>그럼 <code class="language-plaintext highlighter-rouge">ruby</code>를 설치했으니 rbenv <code class="language-plaintext highlighter-rouge">PATH</code>를 추가하기 위해 쉘 설정파일에 다음 코드를 추가한다.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim ~/.zshrc
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim ~/.zshrc
 </code></pre></div></div>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[ -d ~/.rbenv  ]] &amp;&amp; \
@@ -420,19 +626,21 @@ rbenv install 3.2.0
 </code></pre></div></div>
 
 <p>추가했다면, <code class="language-plaintext highlighter-rouge">source</code>로 코드를 적용한다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source ~/.zshrc
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ source ~/.zshrc
 </code></pre></div></div>
 
 <p><strong>다시 gem install을 실행한다.</strong></p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install bundler
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install bundler
 </code></pre></div></div>
 
 <p>이제서야 gem install이 되는 모습</p>
 
-<h2 id="bundlergemnotfound-jekyll-설치-에러">Bundler::GemNotFound, Jekyll 설치 에러</h2>
+<hr />
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem intall jekyll
-jekyll serve
+<h2 id="jekyll-설치-에러--bundlergemnotfound">Jekyll 설치 에러 / Bundler::GemNotFound</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem intall jekyll
+$ jekyll serve
 </code></pre></div></div>
 <p>드디어 선행 설치요소가 다 설치하고 <code class="language-plaintext highlighter-rouge">jekyll</code>을 설치하고 실행하려는데,</p>
 
@@ -455,10 +663,10 @@ Run `bundle install` to install missing gems.
 <p>이제는 <code class="language-plaintext highlighter-rouge">bundle install</code>을 하라는 메시지가 나온다.
 하라는대로 하면 여러 다른 gem metadata가 fetch된다.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle install
 </code></pre></div></div>
 
-<h2 id="gemloaderror-gem-로드-에러">Gem::LoadError, Gem 로드 에러</h2>
+<h2 id="gem-로드-에러--gemloaderror">Gem 로드 에러 / Gem::LoadError</h2>
 
 <p>이렇게 설치를 한 뒤 <code class="language-plaintext highlighter-rouge">jekyll serve</code>를 하면 다음과 같은 에러가 뜬다.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You have already activated i18n 1.12.0, but your Gemfile requires i18n 0.9.5. Prepending `bundle exec` to your command may solve this. (Gem::LoadError)
@@ -469,30 +677,32 @@ Run `bundle install` to install missing gems.
 <p>이는 현재 나의 로컬에서 활성화되어 있는 버전은 <code class="language-plaintext highlighter-rouge">i18n 1.12.0</code>이고, <code class="language-plaintext highlighter-rouge">Gemfile</code>에는 <code class="language-plaintext highlighter-rouge">i18n 0.9.5</code>가 설치되어 있고 이 의존성을 해결하기 위해 코드를 다 고칠 수는 없으니 앞에 <code class="language-plaintext highlighter-rouge">bundle exec</code>를 붙여서 사용하라는 뜻이다.</p>
 
 <p>그러므로</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle exec jekyll serve
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle exec jekyll serve
 </code></pre></div></div>
 <p>앞으로 위 명령어를 사용해주면 된다.</p>
 
 <p><strong><del>암튼 실행됐죠?</del></strong></p>
 
-<h2 id="webrickloaderror-jekyll-로드-에러">webrick(loadError), Jekyll 로드 에러</h2>
+<h2 id="jekyll-로드-에러--webrickloaderror">Jekyll 로드 에러 / webrick(loadError)</h2>
 
 <p>하지만 처음에 <code class="language-plaintext highlighter-rouge">jekyll serve</code>를 실행할 때는 아래와 같은 에러가 등장한다.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Please append --trace to the serve command for any additional information or backtrace....cannot load such file -- webrick(loadError)
 </code></pre></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code>를 해도 자꾸 등장하는 이 에러의 원인은, webrick이라는 파일이 없어러 load를 할 수 없다는 내용인데, ruby 3.0.0 버전부터 webrick이 기본으로 포함된 gem에서 빠졌기 때문에 발생한다.</p>
+<p><code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code>를 해도 자꾸 등장하는 이 에러의 원인은, webrick이라는 파일이 없어러 load를 할 수 없다는 내용인데, <code class="language-plaintext highlighter-rouge">ruby 3.0.0</code> 버전부터 webrick이 기본으로 포함된 gem에서 빠졌기 때문에 발생한다.</p>
 
 <h3 id="문제-해결-4">문제 해결</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle add webrick
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle add webrick
 </code></pre></div></div>
 <p>을 추가해주면 된다.</p>
 
 <p><strong>이를 끝으로 localhost:4000에서 접속을 하는데 성공했다.</strong></p>
 
-<h2 id="deprecation-warning-using--for-division-outside-of-calc-is-deprecated-and-will-be-removed-in-dart-sass-200-문법-지원-중단">Deprecation Warning: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0, 문법 지원 중단</h2>
+<hr />
+
+<h2 id="문법-지원-중단-문제--deprecation-warning-using--for-division-outside-of-calc-is-deprecated-and-will-be-removed-in-dart-sass-200">문법 지원 중단 문제 / Deprecation Warning: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0</h2>
 
 <p>나름 되게 골머리를 앓았던 에러인데, <code class="language-plaintext highlighter-rouge">calc</code> 함수 외부에서 <code class="language-plaintext highlighter-rouge">/</code>를 이용하여 나눗셈을 하는 것은 더이상 지원되지 않아서 발생하는 오류이다.
 하필 적용하려는 테마에서 반응형을 지원할 때 <code class="language-plaintext highlighter-rouge">/</code>를 여러 군데 사용하여 구현하여 위와 같은 에러가 발생했다.</p>
@@ -509,7 +719,7 @@ body {
 
 <p><del>멍청해서 요수를 부리는 것보다 일단 노가다를 시작하는 게 더 빠르다</del></p>
 
-<h2 id="conversion-error-jekyllconvertersscss-encountered-an-error-while-converting-assetscssmainscss-변환-에러">Conversion error: Jekyll::Converters::Scss encountered an error while converting ‘assets/css/main.scss’, 변환 에러</h2>
+<h2 id="jekyll-scss-변환-에러--conversion-error-jekyllconvertersscss-encountered-an-error-while-converting-assetscssmainscss">Jekyll-Scss 변환 에러 / Conversion error: Jekyll::Converters::Scss encountered an error while converting ‘assets/css/main.scss’</h2>
 
 <p>github.io에 테마를 적용하고, 네비게이션 바를 조금 바꾸니 마주쳤던 에러이다.</p>
 
@@ -517,7 +727,7 @@ body {
 
 <p><code class="language-plaintext highlighter-rouge">SCSS</code>에서 자신이 변경한 부분이나 <code class="language-plaintext highlighter-rouge">;</code>, <code class="language-plaintext highlighter-rouge">{</code>, <code class="language-plaintext highlighter-rouge">}</code> 등 부호에 각별하게 주의를 해서 코드를 마무리 했어야 했다.</p>
 
-<h2 id="authentication-failed-for--use-a-personal-access-token-instead-github-pull-에러">Authentication failed for ~ use a personal access token instead, Github pull 에러</h2>
+<h2 id="github-pull-에러--authentication-failed-for--use-a-personal-access-token-instead">Github pull 에러 / Authentication failed for ~ use a personal access token instead</h2>
 
 <p>새로운 리포지토리를 파고, 해당하는 리포지토리에 git pull할 때 위와 같은 에러가 발생한다. 이는 2021년 8월 이후로 ID/PW 방식이 아닌 token을 이용하여 로그인을 하기 때문에 발생하는 것이다. 좀 불편하지만, 보안이 더 좋아지는 것이니 감내해야 할 것 같다.</p>
 
@@ -525,20 +735,20 @@ body {
 
 <ol>
   <li>github 계정 로그인</li>
-  <li>우측 상단 Settings</li>
-  <li>좌측 최하단 Developer settings</li>
-  <li>Personal access tokens 탭</li>
-  <li>Generate new token</li>
+  <li>우측 상단 <code class="language-plaintext highlighter-rouge">Settings</code></li>
+  <li>좌측 최하단 <code class="language-plaintext highlighter-rouge">Developer settings</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Personal access tokens</code> 탭</li>
+  <li><code class="language-plaintext highlighter-rouge">Generate new token</code></li>
   <li>사용처, 만료 기간 결정 후 생성</li>
   <li>생성된 토큰 키 복사</li>
-  <li>이후 git config로 등록</li>
+  <li>이후 <code class="language-plaintext highlighter-rouge">git config</code>로 등록</li>
 </ol>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config --global user.name ‘아이디’
-git config --global user.password ‘복사한 토큰’
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git config --global user.name ‘아이디’
+$ git config --global user.password ‘복사한 토큰’
 </code></pre></div></div>
 
-<h2 id="github-pages에서-build-error">github pages에서 build error</h2>
+<h2 id="github-pages-빌드-에러">Github pages 빌드 에러</h2>
 
 <p><code class="language-plaintext highlighter-rouge">localhost:4000</code>에서는 잘만 실행되는 블로그가 깃허브 레포지토리에 push만 하면 build가 아작이 나는 상태가 계속되었다.</p>
 
@@ -564,26 +774,23 @@ remote_theme   : "mmistakes/minimal-mistakes
 </code></pre></div>    </div>
   </li>
   <li><code class="language-plaintext highlighter-rouge">Gemfile</code>을 아래와 같이 수정한다.
-```
-source “https://rubygems.org”</li>
-</ol>
-
-<p>gem “github-pages”, group: :jekyll_plugins
-gem “jekyll-include-cache”</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3. `bundle` 명령을 통해 필요한 gem을 설치한다.
-</code></pre></div></div>
-<p>bundle install
-```</p>
-
-<ol>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source "https://rubygems.org"
+gem "github-pages", group: :jekyll_plugins
+gem "jekyll-include-cache"
+</code></pre></div>    </div>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">bundle</code> 명령을 통해 필요한 gem을 설치한다.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle install
+</code></pre></div>    </div>
+  </li>
   <li>
     <p><code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code> 실행
   _site 폴더가 만들어지면서 블로그 파일들이 자동으로 생성된다.</p>
   </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">push</code> <code class="language-plaintext highlighter-rouge">push</code> baby</p>
-  </li>
+  <li><code class="language-plaintext highlighter-rouge">push</code></li>
 </ol>
+
+<hr />
 
 <h2 id="참고-블로그">참고 블로그</h2>
 
@@ -593,13 +800,13 @@ gem “jekyll-include-cache”</p>
 
 <p><a href="https://velog.io/@eona1301/Github-Blog-Jekyll-minimal-mistakes-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0">Jekyll, Github Blog 시작하기</a></p>
 
-<p><a href="https://dnight.tistory.com/entry/Jekyll%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-GitHub-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0?category=843234">https://dnight.tistory.com/entry/Jekyll%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-GitHub-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0?category=843234</a></p>
+<p><a href="https://dnight.tistory.com/entry/Jekyll%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-GitHub-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0?category=843234">Jekyll을 사용하여 Github 블로그 만들기</a></p>
 
-<p><a href="https://jojoldu.tistory.com/288">https://jojoldu.tistory.com/288</a></p>
+<p><a href="https://jojoldu.tistory.com/288">기억보단 기록을</a></p>
 
-<p><a href="https://fuzzysound.github.io/github-and-jekyll">https://fuzzysound.github.io/github-and-jekyll</a></p>
+<p><a href="https://fuzzysound.github.io/github-and-jekyll">Github Pages와 jekyll, 로컬 환경 이슈</a></p>
 
-<p><a href="https://kimss1502.github.io/%EB%B8%94%EB%A1%9C%EA%B9%85/2.-GitHub-pages-%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/">https://kimss1502.github.io/%EB%B8%94%EB%A1%9C%EA%B9%85/2.-GitHub-pages-%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/</a></p>
+<p><a href="https://kimss1502.github.io/%EB%B8%94%EB%A1%9C%EA%B9%85/2.-GitHub-pages-%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/">GitHub pages로 블로그 만들기 (2)</a></p>
 
         
       </section>
@@ -611,20 +818,32 @@ gem “jekyll-include-cache”</p>
 
 
   
+  
+  
 
   <p class="page__taxonomy">
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#errors" class="page__taxonomy-item p-category" rel="tag">Errors</a><span class="sep">, </span>
+      
+      
+      <a href="/tags/#errors" class="page__taxonomy-item-tag" rel="tag">Errors</a><span class="sep"> </span>
     
-      <a href="/tags/#gem" class="page__taxonomy-item p-category" rel="tag">Gem</a><span class="sep">, </span>
+      
+      
+      <a href="/tags/#github" class="page__taxonomy-item-tag" rel="tag">Github</a><span class="sep"> </span>
     
-      <a href="/tags/#github-pages" class="page__taxonomy-item p-category" rel="tag">Github pages</a><span class="sep">, </span>
+      
+      
+      <a href="/tags/#jekyll" class="page__taxonomy-item-tag" rel="tag">jekyll</a><span class="sep"> </span>
     
-      <a href="/tags/#rbenv" class="page__taxonomy-item p-category" rel="tag">rbenv</a><span class="sep">, </span>
+      
+      
+      <a href="/tags/#rbenv" class="page__taxonomy-item-tag" rel="tag">rbenv</a><span class="sep"> </span>
     
-      <a href="/tags/#ruby" class="page__taxonomy-item p-category" rel="tag">Ruby</a>
+      
+      
+      <a href="/tags/#blog" class="page__taxonomy-item-tag" rel="tag">Blog</a>
     
     </span>
   </p>
@@ -636,12 +855,16 @@ gem “jekyll-include-cache”</p>
 
 
   
+  
+  
 
   <p class="page__taxonomy">
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#errors" class="page__taxonomy-item p-category" rel="tag">Errors</a>
+      
+      
+      <a href="/categories/#blog" class="page__taxonomy-item-category" rel="tag">Blog</a>
     
     </span>
   </p>
@@ -649,7 +872,7 @@ gem “jekyll-include-cache”</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-01-09">January 9, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-01-11">January 11, 2023</time></p>
 
       </footer>
 
@@ -658,11 +881,11 @@ gem “jekyll-include-cache”</p>
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=jekyll%EB%A5%BC+%EC%9D%B4%EC%9A%A9%ED%95%9C+%EA%B9%83%ED%97%88%EB%B8%8C+%EB%B8%94%EB%A1%9C%EA%B7%B8+%EC%83%9D%EC%84%B1%2C+%EB%B0%B0%ED%8F%AC+%EA%B3%BC%EC%A0%95+%EB%B0%9C%EC%83%9D%ED%95%9C+%EC%97%90%EB%9F%AC%20http%3A%2F%2Flocalhost%3A4000%2FTIL%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BBlog%5D+%EA%B9%83%ED%97%88%EB%B8%8C+%EB%B8%94%EB%A1%9C%EA%B7%B8+%EB%A7%8C%EB%93%A4%EA%B8%B0%2F%ED%8F%AC%EC%8A%A4%ED%8C%85%2F%EB%B0%B0%ED%8F%AC+%EA%B3%BC%EC%A0%95+%EC%A4%91+%EB%B0%9C%EC%83%9D%ED%95%9C+%EC%97%90%EB%9F%AC%20http%3A%2F%2Flocalhost%3A4000%2Fcategories%2Fblog%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2FTIL%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcategories%2Fblog%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2FTIL%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcategories%2Fblog%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
@@ -688,6 +911,17 @@ gem “jekyll-include-cache”</p>
     </div>
 
     
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
 
     <div id="footer" class="page__footer">
       <footer>
@@ -697,7 +931,7 @@ gem “jekyll-include-cache”</p>
         <div class="page__footer-follow">
   <ul class="social-icons">
     
-      <li><strong>팔로우:</strong></li>
+      <li><strong>Contact:</strong></li>
     
 
     
@@ -737,9 +971,14 @@ gem “jekyll-include-cache”</p>
 
     
   <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
 
 
 
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
 
 
 
@@ -747,8 +986,8 @@ gem “jekyll-include-cache”</p>
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/TIL/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/github-io-errors"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/categories/blog/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/categories/github-io-errors"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');
@@ -761,6 +1000,7 @@ gem “jekyll-include-cache”</p>
 
 
   
+
 
 
 
