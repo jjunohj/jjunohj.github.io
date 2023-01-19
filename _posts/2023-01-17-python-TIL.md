@@ -1,6 +1,6 @@
 ---
 title: "[Python] 파이썬 리스트 중복 제거하기"
-excerpt: "set() / for / dict.fromkeys() / Comprehension"
+excerpt: "set() | for | dict.fromkeys() | Comprehension"
 
 categories:
   - Python
