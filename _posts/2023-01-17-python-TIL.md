@@ -1,5 +1,6 @@
 ---
 title: "[Python] 파이썬 리스트 중복 제거하기"
+excerpt: "파이썬 문법 부시기"
 
 categories:
   - Python

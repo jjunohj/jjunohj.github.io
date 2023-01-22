@@ -1,5 +1,6 @@
 ---
 title: "[알고리즘] 탐색 알고리즘 DFS/BFS"
+excerpt: "알고리즘 부시기"
 
 categories:
   - Algorithm

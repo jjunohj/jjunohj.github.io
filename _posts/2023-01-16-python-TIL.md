@@ -1,6 +1,6 @@
 ---
 title: "[Python] 파이썬 리스트 덧붙이기"
-excerpt: "extend / append"
+excerpt: "파이썬 문법 부시기"
 
 categories:
   - Python
