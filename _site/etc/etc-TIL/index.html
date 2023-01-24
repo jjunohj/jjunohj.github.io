@@ -20,32 +20,38 @@
     
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Design Pattern | Daily Inspiration</title>
-<meta name="description" content="IT knowledge realized by a curious developer through various trials and errors.">
+<!-- begin _includes/seo.html --><title>[VSCode] Window 10, MAC 간 한글 깨짐 현상 해결방법 | Daily Inspiration</title>
+<meta name="description" content="Windows 콘솔을 UTF-8 character encoding으로 바꾸기">
 
 
   <meta name="author" content="주노 (jjunohj)">
   
+  <meta property="article:author" content="주노 (jjunohj)">
+  
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Daily Inspiration">
-<meta property="og:title" content="Design Pattern">
-<meta property="og:url" content="http://localhost:4000/categories/dpt">
+<meta property="og:title" content="[VSCode] Window 10, MAC 간 한글 깨짐 현상 해결방법">
+<meta property="og:url" content="http://localhost:4000/etc/etc-TIL/">
 
 
-  <meta property="og:description" content="IT knowledge realized by a curious developer through various trials and errors.">
-
-
-
-  <meta property="og:image" content="http://localhost:4000/assets/images/bio-photo.jpg">
+  <meta property="og:description" content="Windows 콘솔을 UTF-8 character encoding으로 바꾸기">
 
 
 
+  <meta property="og:image" content="http://localhost:4000/assets/images/window-mac.png">
 
 
 
+
+
+  <meta property="article:published_time" content="2023-01-18T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2023-01-18T00:00:00+09:00">
 
 
 
@@ -54,7 +60,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/categories/dpt">
+<link rel="canonical" href="http://localhost:4000/etc/etc-TIL/">
 
 
 
@@ -117,7 +123,7 @@
 
   </head>
 
-  <body class="layout--archive">
+  <body class="layout--single">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -167,6 +173,8 @@
       
 
 
+
+
   
     
 
@@ -188,7 +196,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories" itemprop="item"><span itemprop="name">Categories</span></a>
+          <a href="/categories/#etc" itemprop="item"><span itemprop="name">Etc</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -196,7 +204,7 @@
     
       
       
-        <li class="current">Design Pattern</li>
+        <li class="current">[VSCode] Window 10, MAC 간 한글 깨짐 현상 해결방법</li>
       
     
   </ol>
@@ -563,14 +571,415 @@
   </div>
 
 
-  <div class="archive">
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[VSCode] Window 10, MAC 간 한글 깨짐 현상 해결방법">
+    <meta itemprop="description" content="Windows 콘솔을 UTF-8 character encoding으로 바꾸기">
+    <meta itemprop="datePublished" content="2023-01-18T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-01-18T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/etc/etc-TIL/" class="u-url" itemprop="url">[VSCode] Window 10, MAC 간 한글 깨짐 현상 해결방법
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
     
-      <h1 id="page-title" class="page__title">Design Pattern</h1>
-    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-18T00:00:00+09:00">January 18, 2023</time>
+      </span>
     
 
-  </div>
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Index</h4></header>
+              <!-- <ul class="toc__menu"><li><a href="#해결-방법">해결 방법</a></li><li><a href="#references">References</a></li></ul> -->
+
+
+<ul class="toc__menu">
+  <li><a href="#해결-방법">해결 방법</a></li>
+  <li><a href="#references">References</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p>최근 집의 <code class="language-plaintext highlighter-rouge">Windows 10</code> Desktop과 밖의 <code class="language-plaintext highlighter-rouge">Mac OS</code> Macbook 모두에서 백준과 프론트엔드 공부를 하고 있는데, 매번 블로그 포스팅을 할 때는 귀찮더라도 집에서 맥북을 켜서 포스팅을 했다.</p>
+
+<p>이유는 <code class="language-plaintext highlighter-rouge">Windows 10</code>에서 <code class="language-plaintext highlighter-rouge">VSCode</code>를 사용할 때 한글을 코드에 입력하고 출력하게 될 경우 터미널 창이나 코드 작성 창에서 한글이 깨져 출력되는 경우가 있고 <code class="language-plaintext highlighter-rouge">Windows 10</code>에서 작성된 한글 문서들은 <code class="language-plaintext highlighter-rouge">Mac OS</code>환경에서 <code class="language-plaintext highlighter-rouge">Pull</code> 해서 수정할 때 마찬가지로 깨져보이게 되어 후에 Macbook에서 해당 포스트를 수정할 수 없기 때문이었다.</p>
+
+<p>이 한글 깨짐 이슈는 해결방법이 간단하다. 그냥 <code class="language-plaintext highlighter-rouge">Windows 10</code>과 <code class="language-plaintext highlighter-rouge">VSCode</code>에서의 인코딩 방식을 <code class="language-plaintext highlighter-rouge">UTF-8</code>로만 해주면 된다.</p>
+
+<h1 id="해결-방법">해결 방법</h1>
+
+<ol>
+  <li>
+    <p>먼저 <code class="language-plaintext highlighter-rouge">Window + R</code>을 눌러 실행창을 키고 <code class="language-plaintext highlighter-rouge">intl.cpl</code>을 입력해 ‘국가 또는 지역’을 실행한다.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">관리자 옵션</code>의 <code class="language-plaintext highlighter-rouge">시스템 로캘 변경(C)</code>를 클릭한다.</p>
+
+    <p><img src="/assets/images/etc-230118/1.jpg" alt="1" /></p>
+  </li>
+  <li>
+    <p>지역 설정 창이 나오면 아래에 <code class="language-plaintext highlighter-rouge">Beta: 세계 언어 지원을 위해 Unicode UTF-8 사용</code> 을 체크한 뒤 재부팅한다.</p>
+
+    <p><img src="/assets/images/etc-230118/2.jpg" alt="2" /></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">VSCode</code>의 Default encoding을 바꾸기 위해 좌측 하단의 톱니바퀴를 눌러 <code class="language-plaintext highlighter-rouge">Settings</code>에 들어간다.</p>
+
+    <p><img src="/assets/images/etc-230118/3.jpg" alt="3" /></p>
+  </li>
+  <li>
+    <p>검색창에 ‘encoding’ 을 검색한다.</p>
+
+    <p><img src="/assets/images/etc-230118/4.jpg" alt="4" /></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Files: Auto Guess Encoding</code>을 체크하고, <code class="language-plaintext highlighter-rouge">Files: Encoding</code>에 <code class="language-plaintext highlighter-rouge">UTF-8</code>을 선택한다.</p>
+
+    <p><img src="/assets/images/etc-230118/5.jpg" alt="5" /></p>
+  </li>
+</ol>
+
+<p>드디어 Windows10에서도 볼 수 있는 내 Mac발 한국어들…
+<img src="/assets/images/etc-230118/6.jpg" alt="6" /></p>
+
+<h1 id="references">References</h1>
+
+<p><a href="https://stackoverflow.com/questions/57131654/using-utf-8-encoding-chcp-65001-in-command-prompt-windows-powershell-window">stackoverflow - Using UTF-8 Encoding (CHCP 65001) in Command Prompt / Windows Powershell (Windows 10)</a></p>
+
+<p><a href="https://rasino.tistory.com/343">라즈이노 iOT</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#windows" class="page__taxonomy-item-tag" rel="tag">Windows</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#vscode" class="page__taxonomy-item-tag" rel="tag">VSCode</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#etc" class="page__taxonomy-item-category" rel="tag">ETC</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-01-18">January 18, 2023</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BVSCode%5D+Window+10%2C+MAC+%EA%B0%84+%ED%95%9C%EA%B8%80+%EA%B9%A8%EC%A7%90+%ED%98%84%EC%83%81+%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95%20http%3A%2F%2Flocalhost%3A4000%2Fetc%2Fetc-TIL%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fetc%2Fetc-TIL%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fetc%2Fetc-TIL%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/boj/boj-8980/" class="pagination--pager" title="[BOJ] 백준 8980번 - 택배
+">이전</a>
+    
+    
+      <a href="/datastructure/DS-graph/" class="pagination--pager" title="[자료구조] 그래프(Graph)란
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-2606/" rel="permalink">[BOJ] 백준 2606번 - 바이러스
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-24T00:00:00+09:00">January 24, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Silver 3
+</p>
+  </article>
 </div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-2178/" rel="permalink">[BOJ] 백준 2178번 - 미로 탐색
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-24T00:00:00+09:00">January 24, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Silver 1
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-1260/" rel="permalink">[BOJ] 백준 1260번 - DFS와 BFS
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-22T00:00:00+09:00">January 22, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Silver 2
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/alg-DFS-BFS/" rel="permalink">[알고리즘] 탐색 알고리즘 DFS/BFS
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-19T00:00:00+09:00">January 19, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">알고리즘 부시기
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
     </div>
 
     
@@ -644,6 +1053,31 @@
 <script src="/assets/js/lunr/lunr-en.js"></script>
 
 
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'jjunohj/jjunohj.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
 
 
 

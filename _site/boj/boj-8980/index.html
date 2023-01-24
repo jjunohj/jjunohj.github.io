@@ -1,0 +1,1266 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <!--폰트 : "Nanum Gothic Coding", "Coming Soon"-->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Nanum+Gothic+Coding&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Nanum+Gothic+Coding&display=swap">
+    
+    <!--폰트 : "Iropke Batang"-->
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+
+    <!--main.scss 조금이라도 빨리 로드 되길.. preload-->
+    <link rel="preload" as="style" href="/assets/css/main.css">
+    
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[BOJ] 백준 8980번 - 택배 | Daily Inspiration</title>
+<meta name="description" content="Gold 2">
+
+
+  <meta name="author" content="주노 (jjunohj)">
+  
+  <meta property="article:author" content="주노 (jjunohj)">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Daily Inspiration">
+<meta property="og:title" content="[BOJ] 백준 8980번 - 택배">
+<meta property="og:url" content="http://localhost:4000/boj/boj-8980/">
+
+
+  <meta property="og:description" content="Gold 2">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/teaser.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2023-01-18T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2023-01-18T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/boj/boj-8980/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "주노 (jjunohj)",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="3e45d69838ad669a" />
+
+
+
+
+
+  <meta name="naver-site-verification" content="0927ff851e7c3a88dbef776ef5f5a7e8">
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Daily Inspiration Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.ico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo.ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/logo.ico/favicon-16x16.png">
+<link rel="manifest" href="/assets/logo.ico/site.webmanifest">
+<link rel="mask-icon" href="/assets/logo.ico/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt="Daily Inspiration"></a>
+        
+        <a class="site-title" href="/">
+          Daily Inspiration
+          <span class="site-subtitle">기록되지 않는 건 기억되지 않는다.</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">Introduce</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Category</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#boj" itemprop="item"><span itemprop="name">Boj</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[BOJ] 백준 8980번 - 택배</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/bio-photo.jpg" alt="주노 (jjunohj)" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">주노 (jjunohj)</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p><strong>궁금한 것이 없으면 배우는 것도 없다.</strong> <br /> 궁금한 건 참 많은 개발자입니다😂</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Contact</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:jjunohj@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/jjunohj" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/xuuno_" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    <!--전체 글 수를 세기 위한 연산. sum 변수에 전체 글 수 저장-->
+
+
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Category</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <!--전체 글 수-->
+      <li>
+            📂 <span>전체 글 수</style> <span>15</style> <span>개</style> 
+      </li>
+      <li>
+        <!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C -->
+        <span class="nav__sub-title">HTML/CSS/JS</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/cpp 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">Coding Test</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/python" class="">파이썬 문법 (3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/algorithm" class="">알고리즘 구현 (1)</a></li>
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/data_structure" class="">자료구조 (3)</a></li>
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/boj" class="">백준 (6)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">Database</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">Design</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">etc</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog Dev (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/etc" class="">ETC (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+      </li>
+  </ul>
+</nav>
+  
+
+  </div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[BOJ] 백준 8980번 - 택배">
+    <meta itemprop="description" content="Gold 2">
+    <meta itemprop="datePublished" content="2023-01-18T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-01-18T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/boj/boj-8980/" class="u-url" itemprop="url">[BOJ] 백준 8980번 - 택배
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-18T00:00:00+09:00">January 18, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Index</h4></header>
+              <!-- <ul class="toc__menu"><li><a href="#문제">문제</a></li><li><a href="#문제-해결">문제 해결</a><ul><li><a href="#첫번째-제출-답안">첫번째 제출 답안</a></li><li><a href="#두-번째-제출-답안">두 번째 제출 답안</a></li><li><a href="#간결한-제출-답안">간결한 제출 답안</a></li></ul></li><li><a href="#고찰">고찰</a></li></ul> -->
+
+
+<ul class="toc__menu">
+  <li><a href="#문제">문제</a></li>
+  <li><a href="#문제-해결">문제 해결</a>
+    <ul>
+      <li><a href="#첫번째-제출-답안">첫번째 제출 답안</a></li>
+      <li><a href="#두-번째-제출-답안">두 번째 제출 답안</a></li>
+      <li><a href="#간결한-제출-답안">간결한 제출 답안</a></li>
+    </ul>
+  </li>
+  <li><a href="#고찰">고찰</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <h1 id="문제">문제</h1>
+
+<p><img src="/assets/images/boj-8980/prob.jpg" alt="prob" /></p>
+
+<p><img src="/assets/images/boj-8980/input-output.jpg" alt="input-output" /></p>
+
+<h1 id="문제-해결">문제 해결</h1>
+
+<p>마을에서 트럭이 택배를 수집할 때는 무조건 도착 배송지가 가까운 택배들부터 담는 것이 중요하다. 빠르게 순환이 되어야 또 다른 택배를 실을 수 있기 때문이다.</p>
+
+<p>또한 각 point에 도착했을 때 택배를 먼저 unload한 뒤에 load를 해야하는 순서도 꼭 지켜져야 한다.</p>
+
+<p>우선 입력이 [start_point, dest_point, load] 로 된 M개의 박스 정보를 <code class="language-plaintext highlighter-rouge">sort()</code> 하여 start_point, dest_point, load 순으로 정렬한다. 이렇게 되면, 택배가 처리되는 순서대로 정렬이 완료된다.</p>
+
+<p>그리고 각 point별로 트럭이 움직이므로 point마다 반복문을 돌리고, 각 point에서는 unload, load 순으로 코드가 진행된다.</p>
+
+<h2 id="첫번째-제출-답안">첫번째 제출 답안</h2>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">N</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>  <span class="c1">#N:마을 수, C:트럭의 용량
+</span><span class="n">M</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>  <span class="c1">#M:택배의 최대 개수
+</span>
+<span class="n">point</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1">#좌표
+</span><span class="n">load</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1">#택배 개수
+</span><span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1">#배송한 택배 개수
+</span><span class="n">task</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>  <span class="c1">#배송 일정
+</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+  <span class="n">task</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">split</span><span class="p">())))</span>
+<span class="n">task</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"------------------"</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">order</span> <span class="ow">in</span> <span class="n">task</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+    <span class="c1"># unload
+</span>    <span class="k">if</span> <span class="n">order</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">point</span><span class="p">:</span>
+      <span class="n">load</span> <span class="o">-=</span> <span class="n">order</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+      <span class="n">cnt</span> <span class="o">+=</span> <span class="n">order</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="c1"># load
+</span>    <span class="k">if</span> <span class="n">order</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">point</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">load</span> <span class="o">+</span> <span class="n">order</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">C</span><span class="p">:</span>
+        <span class="n">load</span> <span class="o">+=</span> <span class="n">order</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">order</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">C</span> <span class="o">-</span> <span class="n">load</span>
+        <span class="n">load</span> <span class="o">+=</span> <span class="n">order</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4 40
+6
+3 4 20
+1 2 10
+1 3 20
+1 4 30
+2 3 10
+2 4 20
+------------------
+[1, 2, 10]
+[1, 3, 20]
+[1, 4, 30]
+[2, 3, 10]
+[2, 4, 20]
+[3, 4, 20]
+------------------
+[1, 2, 10]
+[1, 3, 20]
+[1, 4, 10]
+[2, 3, 10]
+[2, 4, 20]
+[3, 4, 20]
+------------------
+[1, 2, 10]
+[1, 3, 20]
+[1, 4, 10]
+[2, 3, 10]
+[2, 4, 0]
+[3, 4, 20]
+------------------
+[1, 2, 10]
+[1, 3, 20]
+[1, 4, 10]
+[2, 3, 10]
+[2, 4, 0]
+[3, 4, 20]
+70
+</code></pre></div></div>
+<p>제출은 결과인 70만 출력되도록 하면 된다.</p>
+
+<p>하지만, 이 답안은 서브태스크의 최저점인 15점을 받았다…</p>
+
+<p>따라서 다른 서브태스크들을 고려하여 다시 한 번 코드를 짜보았다.</p>
+
+<h2 id="두-번째-제출-답안">두 번째 제출 답안</h2>
+
+<p><strong>문제점을 발견했다!</strong></p>
+
+<p>트럭이 1부터 N까지의 마을을 차례로 방문하며 택배를 수집하는데, 이때 이전 마을에서 너무 목적지가 먼 택배를 load했다면 계속해서 그 칸을 차지하고 있는 상태가 발생한다.
+<del>starvation..?</del></p>
+
+<p>그렇다면 이전 마을에서 수집한 택배보다 목적지가 짧은 택배를 수집할 수 있을 경우 원래 있던 목적지가 먼 택배를 버려야 한다.</p>
+
+<p><del>근데 택배 회사가 그래도 되나…? 버려진 택배는 어떡해? ‘이게 맞아..?’</del></p>
+
+<p>즉, 지금 수집할 택배보다 먼 거리의 원래 택배들을 가장 먼 순서대로 현재 택배의 개수만큼 버려야 한다. (최대 N개)</p>
+
+<p>그러면, <u>이전 마을에서 수집된 택배들에 현재 마을에서 수집할 택배들을 싹 모아놓고 거리가 가까운 순으로 C만큼만 뽑으면 되는 거 아닐까?</u></p>
+
+<p>코드로 작성해보자.</p>
+
+<p><strong>제가 짠 코드는 정말 어떻게든 생각한 바를 구현하기만 하면 100점을 맞을 수는 있다를 보여드리기 위해 작성해 놓은 것이고, 다른 더 좋은 코드들이 많습니다..!</strong></p>
+
+<p><del>코드 설명은 생략합니다</del></p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">N</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>  <span class="c1">#N:마을 수, C:트럭의 용량
+</span><span class="n">M</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>  <span class="c1"># M:택배의 최대 개수
+</span>
+<span class="n">point</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 좌표
+</span><span class="n">loaded</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 트럭에 실린 택배 개수
+</span><span class="n">delivered</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 배송한 택배 개수
+</span><span class="n">parcel</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>  <span class="c1"># 택배 리스트 (start_point, dest_point, parcel)
+</span><span class="n">loaded_parcel</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>  <span class="c1"># 실린 택배 리스트 (dest_point, parcel_ea)
+</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+  <span class="n">parcel</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">split</span><span class="p">())))</span>
+<span class="n">parcel</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"parcel = "</span><span class="p">,</span> <span class="n">parcel</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+  <span class="c1"># unload
+</span>  <span class="n">hit_parcel</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">delivery</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">loaded_parcel</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">delivery</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">point</span><span class="p">:</span>
+      <span class="n">delivered</span> <span class="o">+=</span> <span class="n">delivery</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+      <span class="n">hit_parcel</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+
+  <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">hit_parcel</span><span class="p">):</span>
+    <span class="k">del</span> <span class="n">loaded_parcel</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+  <span class="c1"># load
+</span>  <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">parcel</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">point</span><span class="p">:</span>
+      <span class="n">loaded_parcel</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+
+  <span class="n">loaded_parcel</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>  <span class="c1"># 배송지 빠른 순 정렬
+</span>
+  <span class="n">loaded</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">delivery</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">loaded_parcel</span><span class="p">):</span>
+    <span class="n">loaded</span> <span class="o">+=</span> <span class="n">delivery</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">loaded</span> <span class="o">&gt;</span> <span class="n">C</span><span class="p">:</span>
+      <span class="n">delivery</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="p">(</span><span class="n">loaded</span> <span class="o">-</span> <span class="n">C</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">delivery</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">loaded_parcel</span> <span class="o">=</span> <span class="n">loaded_parcel</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
+        <span class="k">break</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">loaded_parcel</span> <span class="o">=</span> <span class="n">loaded_parcel</span><span class="p">[:</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="k">break</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"loaded parcel = "</span><span class="p">,</span> <span class="n">loaded_parcel</span><span class="p">)</span>
+  
+<span class="k">print</span><span class="p">(</span><span class="n">delivered</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4 40
+6
+3 4 20
+1 2 10
+1 3 20
+1 4 30
+2 3 10
+2 4 20
+parcel =  [[1, 2, 10], [1, 3, 20], [1, 4, 30], [2, 3, 10], [2, 4, 20], [3, 4, 20]]
+loaded parcel =  [[2, 10], [3, 20], [4, 10]]
+loaded parcel =  [[3, 10], [3, 20], [4, 10]]
+loaded parcel =  [[4, 10], [4, 20]]
+loaded parcel =  []
+70
+</code></pre></div></div>
+
+<h2 id="간결한-제출-답안">간결한 제출 답안</h2>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="nb">input</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span>
+<span class="n">N</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+<span class="n">M</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="n">parcel</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">)]</span>
+<span class="n">parcel</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># 가까운 배송지 순으로 정렬
+</span>
+<span class="n">delivered</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">capacity</span> <span class="o">=</span> <span class="p">[</span><span class="n">C</span><span class="p">]</span> <span class="o">*</span> <span class="n">N</span> <span class="c1"># 마을 당 트럭이 수용가능한 박스 수
+</span>
+<span class="k">for</span> <span class="n">start_point</span><span class="p">,</span> <span class="n">dest_point</span><span class="p">,</span> <span class="n">ea</span> <span class="ow">in</span> <span class="n">parcel</span><span class="p">:</span>
+    <span class="n">minimum</span> <span class="o">=</span> <span class="n">C</span> 
+    <span class="c1"># 각 주문의 시작점-도착점 사이 최소 수용 가능한 택배 수를 구한다
+</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start_point</span><span class="p">,</span> <span class="n">dest_point</span><span class="p">):</span>
+        <span class="n">minimum</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">minimum</span><span class="p">,</span> <span class="n">capacity</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="c1"># 현재 주문의 개수와 최소 수용 가능한 택배 수를 비교하여 구한다.
+</span>    <span class="n">minimum</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">minimum</span><span class="p">,</span> <span class="n">ea</span><span class="p">)</span>
+    <span class="c1"># 시작점부터 도착점 사이의 모든 마을에서 트럭이 수용 가능한 택배 수를 줄이고, 배송한 택배 수를 늘린다.
+</span>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start_point</span><span class="p">,</span> <span class="n">dest_point</span><span class="p">):</span>
+        <span class="n">capacity</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-=</span> <span class="n">minimum</span>
+    <span class="n">delivered</span> <span class="o">+=</span> <span class="n">minimum</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">delivered</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="고찰">고찰</h1>
+
+<p>문제를 보면 어떻게 풀어야 할 지 감이 딱 온다. 하지만 그렇게 풀다가 보면 계속해서 또다른 무언가를 계속해서 구현해나가야 한다. 굳이 비유하자면 수능 21번, 30번 같은 느낌.. 하지만 호흡이 길어도 끝까지 해내기만 하면 결국 정답은 되겠지만 참 부끄럽다. 남들이 간결하게 푼 문제를 풀이과정 더럽게 풀어낸 느낌.. 그리고 남들이 간결하게 쓴 코드들도 해석하는데 상당한 시간이 걸린다. 아직은 경험이 부족해서라고 생각하고, 계속해서 꾸준히 조금씩 풀어나가면 주먹구구식이 아닌, 세련되고 간결한 코드를 쓸 수 있겠지라고 생각하고 있다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#greedy" class="page__taxonomy-item-tag" rel="tag">Greedy</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#python" class="page__taxonomy-item-tag" rel="tag">Python</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#boj" class="page__taxonomy-item-tag" rel="tag">BOJ</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-01-18">January 18, 2023</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BBOJ%5D+%EB%B0%B1%EC%A4%80+8980%EB%B2%88+-+%ED%83%9D%EB%B0%B0%20http%3A%2F%2Flocalhost%3A4000%2Fboj%2Fboj-8980%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fboj%2Fboj-8980%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fboj%2Fboj-8980%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/python/python-TIL2/" class="pagination--pager" title="[Python] 파이썬 리스트 요소 제거
+">이전</a>
+    
+    
+      <a href="/etc/etc-TIL/" class="pagination--pager" title="[VSCode] Window 10, MAC 간 한글 깨짐 현상 해결방법
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-2606/" rel="permalink">[BOJ] 백준 2606번 - 바이러스
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-24T00:00:00+09:00">January 24, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Silver 3
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-2178/" rel="permalink">[BOJ] 백준 2178번 - 미로 탐색
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-24T00:00:00+09:00">January 24, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Silver 1
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-1260/" rel="permalink">[BOJ] 백준 1260번 - DFS와 BFS
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-22T00:00:00+09:00">January 22, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Silver 2
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/alg-DFS-BFS/" rel="permalink">[알고리즘] 탐색 알고리즘 DFS/BFS
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-19T00:00:00+09:00">January 19, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">알고리즘 부시기
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Contact:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:jjunohj@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/jjunohj" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://instagram.com/xuuno_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 주노 (jjunohj). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'jjunohj/jjunohj.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+
+  </body>
+</html>

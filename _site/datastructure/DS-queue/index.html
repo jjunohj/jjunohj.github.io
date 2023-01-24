@@ -20,32 +20,38 @@
     
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Design Pattern | Daily Inspiration</title>
-<meta name="description" content="IT knowledge realized by a curious developer through various trials and errors.">
+<!-- begin _includes/seo.html --><title>[자료구조] 큐(Queue)란 | Daily Inspiration</title>
+<meta name="description" content="쌓아보자 자료구조">
 
 
   <meta name="author" content="주노 (jjunohj)">
   
+  <meta property="article:author" content="주노 (jjunohj)">
+  
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Daily Inspiration">
-<meta property="og:title" content="Design Pattern">
-<meta property="og:url" content="http://localhost:4000/categories/dpt">
+<meta property="og:title" content="[자료구조] 큐(Queue)란">
+<meta property="og:url" content="http://localhost:4000/datastructure/DS-queue/">
 
 
-  <meta property="og:description" content="IT knowledge realized by a curious developer through various trials and errors.">
-
-
-
-  <meta property="og:image" content="http://localhost:4000/assets/images/bio-photo.jpg">
+  <meta property="og:description" content="쌓아보자 자료구조">
 
 
 
+  <meta property="og:image" content="http://localhost:4000/assets/images/teaser.png">
 
 
 
+
+
+  <meta property="article:published_time" content="2023-01-19T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2023-01-19T00:00:00+09:00">
 
 
 
@@ -54,7 +60,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/categories/dpt">
+<link rel="canonical" href="http://localhost:4000/datastructure/DS-queue/">
 
 
 
@@ -117,7 +123,7 @@
 
   </head>
 
-  <body class="layout--archive">
+  <body class="layout--single">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -167,6 +173,8 @@
       
 
 
+
+
   
     
 
@@ -188,7 +196,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories" itemprop="item"><span itemprop="name">Categories</span></a>
+          <a href="/categories/#datastructure" itemprop="item"><span itemprop="name">Datastructure</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -196,7 +204,7 @@
     
       
       
-        <li class="current">Design Pattern</li>
+        <li class="current">[자료구조] 큐(Queue)란</li>
       
     
   </ol>
@@ -563,14 +571,409 @@
   </div>
 
 
-  <div class="archive">
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[자료구조] 큐(Queue)란">
+    <meta itemprop="description" content="쌓아보자 자료구조">
+    <meta itemprop="datePublished" content="2023-01-19T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-01-19T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/datastructure/DS-queue/" class="u-url" itemprop="url">[자료구조] 큐(Queue)란
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
     
-      <h1 id="page-title" class="page__title">Design Pattern</h1>
-    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-19T00:00:00+09:00">January 19, 2023</time>
+      </span>
     
 
-  </div>
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Index</h4></header>
+              <!-- <ul class="toc__menu"><li><a href="#파이썬">파이썬</a><ul><li><a href="#references">References</a></li></ul></li></ul> -->
+
+
+<ul class="toc__menu">
+  <li><a href="#파이썬">파이썬</a>
+    <ul>
+      <li><a href="#references">References</a></li>
+    </ul>
+  </li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p>큐는 대기줄에 비유할 수 있다. 줄을 설 때 먼저 온 사람이 먼저 들어가게 되고, 나중에 온 사람은 그만큼 나중에 들어가게 된다. 이를 <code class="language-plaintext highlighter-rouge">선입선출</code>, <code class="language-plaintext highlighter-rouge">FIFO</code> 구조라고 한다.</p>
+
+<h1 id="파이썬">파이썬</h1>
+
+<p>파이썬에서 큐를 구현할 때에는 <code class="language-plaintext highlighter-rouge">collections</code> 모듈에서 제공하는 <code class="language-plaintext highlighter-rouge">deque</code> 자료구조를 활용한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">deque</code>는 <code class="language-plaintext highlighter-rouge">스택</code>과 <code class="language-plaintext highlighter-rouge">큐</code>의 장점을 모두 채택한 것으로, 데이터를 넣고 빼는 속도가 <code class="language-plaintext highlighter-rouge">list</code> 자료형에 비해 효율적이며, <code class="language-plaintext highlighter-rouge">queue</code>라이브러리를 이용하는 것보다 더 간단한다.</p>
+
+<p>또한 <code class="language-plaintext highlighter-rouge">deque</code>객체를 <code class="language-plaintext highlighter-rouge">list</code>자료형으로 변경하고 싶다면 <code class="language-plaintext highlighter-rouge">list()</code>메서드를 이용하면 된다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+
+<span class="n">queue</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">queue</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span> <span class="c1"># 맨 앞 원소 추출 (맨 왼쪽)
+</span><span class="n">stack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">queue</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span> <span class="c1"># 맨 앞 원소 추출 (맨 왼쪽)
+</span>
+<span class="k">print</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>    <span class="c1"># 먼저 들어온 순서대로 출력 (앞번부터 출력)
+</span><span class="n">queue</span><span class="p">.</span><span class="n">reverse</span><span class="p">()</span> <span class="c1"># 역순으로 바꾸기
+</span><span class="n">prinr</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>    <span class="c1"># 나중에 들어온 순서대로 출력 (뒷번부터 출력)
+</span>
+<span class="c1"># [3, 7, 1, 4]
+# [4, 1, 7, 3]
+</span></code></pre></div></div>
+
+<h2 id="references">References</h2>
+
+<p>이것이 코딩 테스트다 with 파이썬</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#python" class="page__taxonomy-item-tag" rel="tag">Python</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#%ED%81%90" class="page__taxonomy-item-tag" rel="tag">큐</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0" class="page__taxonomy-item-tag" rel="tag">자료구조</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#datastructure" class="page__taxonomy-item-category" rel="tag">DataStructure</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-01-19">January 19, 2023</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%5D+%ED%81%90%28Queue%29%EB%9E%80%20http%3A%2F%2Flocalhost%3A4000%2Fdatastructure%2FDS-queue%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdatastructure%2FDS-queue%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdatastructure%2FDS-queue%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/datastructure/DS-graph/" class="pagination--pager" title="[자료구조] 그래프(Graph)란
+">이전</a>
+    
+    
+      <a href="/datastructure/DS-stack/" class="pagination--pager" title="[자료구조] 스택(Stack)과 재귀 함수
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-2606/" rel="permalink">[BOJ] 백준 2606번 - 바이러스
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-24T00:00:00+09:00">January 24, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Silver 3
+</p>
+  </article>
 </div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-2178/" rel="permalink">[BOJ] 백준 2178번 - 미로 탐색
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-24T00:00:00+09:00">January 24, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Silver 1
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-1260/" rel="permalink">[BOJ] 백준 1260번 - DFS와 BFS
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-22T00:00:00+09:00">January 22, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Silver 2
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/alg-DFS-BFS/" rel="permalink">[알고리즘] 탐색 알고리즘 DFS/BFS
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-19T00:00:00+09:00">January 19, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">알고리즘 부시기
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
     </div>
 
     
@@ -644,6 +1047,31 @@
 <script src="/assets/js/lunr/lunr-en.js"></script>
 
 
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'jjunohj/jjunohj.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
 
 
 

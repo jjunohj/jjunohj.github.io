@@ -20,8 +20,8 @@
     
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[BOJ] 백준 18185번 - 라면 사기 (Small) | Daily Inspiration</title>
-<meta name="description" content="Diamond 5">
+<!-- begin _includes/seo.html --><title>[자료구조] 스택(Stack)과 재귀 함수 | Daily Inspiration</title>
+<meta name="description" content="쌓아보자 자료구조">
 
 
   <meta name="author" content="주노 (jjunohj)">
@@ -33,11 +33,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Daily Inspiration">
-<meta property="og:title" content="[BOJ] 백준 18185번 - 라면 사기 (Small)">
-<meta property="og:url" content="http://localhost:4000/boj/boj-18185/">
+<meta property="og:title" content="[자료구조] 스택(Stack)과 재귀 함수">
+<meta property="og:url" content="http://localhost:4000/datastructure/DS-stack/">
 
 
-  <meta property="og:description" content="Diamond 5">
+  <meta property="og:description" content="쌓아보자 자료구조">
 
 
 
@@ -47,11 +47,11 @@
 
 
 
-  <meta property="article:published_time" content="2023-01-11T00:00:00+09:00">
+  <meta property="article:published_time" content="2023-01-19T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2023-01-11T00:00:00+09:00">
+  <meta property="article:modified_time" content="2023-01-19T00:00:00+09:00">
 
 
 
@@ -60,7 +60,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/boj/boj-18185/">
+<link rel="canonical" href="http://localhost:4000/datastructure/DS-stack/">
 
 
 
@@ -196,7 +196,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#boj" itemprop="item"><span itemprop="name">Boj</span></a>
+          <a href="/categories/#datastructure" itemprop="item"><span itemprop="name">Datastructure</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -204,7 +204,7 @@
     
       
       
-        <li class="current">[BOJ] 백준 18185번 - 라면 사기 (Small)</li>
+        <li class="current">[자료구조] 스택(Stack)과 재귀 함수</li>
       
     
   </ol>
@@ -572,16 +572,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[BOJ] 백준 18185번 - 라면 사기 (Small)">
-    <meta itemprop="description" content="Diamond 5">
-    <meta itemprop="datePublished" content="2023-01-11T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2023-01-11T00:00:00+09:00">
+    <meta itemprop="headline" content="[자료구조] 스택(Stack)과 재귀 함수">
+    <meta itemprop="description" content="쌓아보자 자료구조">
+    <meta itemprop="datePublished" content="2023-01-19T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-01-19T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/boj/boj-18185/" class="u-url" itemprop="url">[BOJ] 백준 18185번 - 라면 사기 (Small)
+            <a href="http://localhost:4000/datastructure/DS-stack/" class="u-url" itemprop="url">[자료구조] 스택(Stack)과 재귀 함수
 </a>
           </h1>
           
@@ -592,7 +592,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2023-01-11T00:00:00+09:00">January 11, 2023</time>
+        <time datetime="2023-01-19T00:00:00+09:00">January 19, 2023</time>
       </span>
     
 
@@ -605,7 +605,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          3 분 소요
+          1 분 소요
         
       </span>
     
@@ -620,187 +620,81 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Index</h4></header>
-              <!-- <ul class="toc__menu"><li><a href="#문제-해결">문제 해결</a><ul><li><a href="#case-분리">case 분리</a></li><li><a href="#indexerror">IndexError</a></li><li><a href="#정답">정답</a></li></ul></li><li><a href="#고찰">고찰</a></li></ul> -->
+              <!-- <ul class="toc__menu"><li><a href="#스택-in-파이썬">스택 in 파이썬</a></li><li><a href="#재귀-함수">재귀 함수</a><ul><li><a href="#재귀-함수-예제">재귀 함수 예제</a></li><li><a href="#references">References</a></li></ul></li></ul> -->
 
 
 <ul class="toc__menu">
-  <li><a href="#문제-해결">문제 해결</a>
+  <li><a href="#스택-in-파이썬">스택 in 파이썬</a></li>
+  <li><a href="#재귀-함수">재귀 함수</a>
     <ul>
-      <li><a href="#case-분리">case 분리</a></li>
-      <li><a href="#indexerror">IndexError</a></li>
-      <li><a href="#정답">정답</a></li>
+      <li><a href="#재귀-함수-예제">재귀 함수 예제</a></li>
+      <li><a href="#references">References</a></li>
     </ul>
   </li>
-  <li><a href="#고찰">고찰</a></li>
 </ul>
             </nav>
           </aside>
         
-        <p><a href="https://www.acmicpc.net/problem/18185">문제 바로가기</a></p>
+        <p>스택은 블록 쌓기에 비유할 수 있다. 블록은 아래에서부터 위로 차곡차곡 쌓아가고, 아래에 있는 블록을 치우기 위해선 위에 있는 블록부터 먼저 치워야한다. 즉 <code class="language-plaintext highlighter-rouge">선입후출</code>, <code class="language-plaintext highlighter-rouge">FILO</code>구조이다.</p>
 
-<p><img src="/assets/images/boj-18185.png" alt="백준 18185번 - 라면사기 (Small)" /></p>
+<h1 id="스택-in-파이썬">스택 in 파이썬</h1>
 
-<p><del>“이게 정답률 29%?”</del></p>
+<p>파이썬에서 스택을 이용할 때에는 별도의 라이브러리를 사용할 필요 없이 기본 리스트에서 <code class="language-plaintext highlighter-rouge">append()</code>와 <code class="language-plaintext highlighter-rouge">pop()</code> 메서드를 이용하면 스택 자료구조와 동일하게 동작한다.</p>
 
-<p>애초부터 그리디 필수 문제집에서 뽑은 문제고, 문제도 딱 봐도 그리디이다. 되게 쉬운 것 같았는데…</p>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
 
-<ul>
-  <li>라면을 연속된 공장 3개에서 하나씩 총 3개를 구입하면 7원</li>
-  <li>라면을 연속된 공장 2개에서 하나씩 총 2개를 구입하면 5원</li>
-  <li>라면을 연속된 공장 1개에서 하나씩 총 1개를 구입하면 3원</li>
-</ul>
+<span class="n">stack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>         <span class="c1"># 가장 뒤쪽(위쪽) 원소 추출
+</span><span class="n">stack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
 
-<p>붙어있는 공장들 중 최대한 3개로 살 수 있는 것들부터 조지고, 그 다음 2개, 그 다음 나머지 낱개로 구입하는 아주 기본적이고 간단한 접근으로 시작하였다.</p>
+<span class="k">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>        <span class="c1"># 최하단 원소부터 출력
+</span><span class="k">print</span><span class="p">(</span><span class="n">stack</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># 최상단 원소부터 출력
+</span>
+<span class="c1"># [5, 2, 3, 1]
+# [1, 3, 2, 5]
+</span></code></pre></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>n = int(input())
-c = list(map(int, input().split()))
+<h1 id="재귀-함수">재귀 함수</h1>
 
-price = 0
-i = 0
+<p>재귀 함수란 <strong>자기 자신을 다시 호출하는 함수</strong>를 의미한다.</p>
 
-print(c, price)
+<p>재귀 함수를 문제 풀이에서 사용할 때는 <u>재귀 함수가 언제 끝날지 종료 조건을 꼭 명시해야 한다.</u> 자칫 종료조건을 명시하지 않으면 함수가 무한 호출될 수 있기 때문이다.</p>
 
-while i + 2 &lt; len(c):
-  minimum = min(c[i], c[i + 1], c[i + 2])
-  if minimum != 0:
-    c[i] -= minimum
-    c[i + 1] -= minimum
-    c[i + 2] -= minimum
-    price += minimum * 7
-    print(c, price)
-  i += 1
-i = 0
+<p>컴퓨터 내부에서 재귀 함수의 수행은 <code class="language-plaintext highlighter-rouge">스택</code> 자료구조를 이용한다. 함수를 계속 호출했을 때 가장 마지막에 호출한 함수가 먼저 수행을 끝내야 그 앞의 함수 호출이 종료되기 때문이다.</p>
 
-while i + 1 &lt; len(c):
-  minimum = min(c[i], c[i + 1])
-  if minimum != 0:
-    c[i] -= minimum
-    c[i + 1] -= minimum
-    price += minimum * 5
-    print(c, price)
-  i += 1
-i = 0
+<p>따라서 스택 자료구조를 활용해야 하는 상당수 알고리즘은 재귀 함수를 이용해서 간편하게 구현될 수 있다. <code class="language-plaintext highlighter-rouge">DFS</code>가 대표적인 예이다.</p>
 
-while i &lt; len(c):
-  while c[i] != 0:
-    c[i] -= 1
-    price += 3
-    print(c, price)
-  i += 1
+<p>재귀 함수의 형태를 알아보기 위해 대표적 예시인 팩토리얼 예제를 보자</p>
 
-print(price)
-</code></pre></div></div>
-<p>위 코드를 실행하면 결과가 아래과 같다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4
-10 12 11 10
-[10, 12, 11, 10] 0
-[0, 2, 1, 10] 70
-[0, 1, 0, 9] 77
-[0, 0, 0, 9] 80
-[0, 0, 0, 8] 83
-[0, 0, 0, 7] 86
-[0, 0, 0, 6] 89
-[0, 0, 0, 5] 92
-[0, 0, 0, 4] 95
-[0, 0, 0, 3] 98
-[0, 0, 0, 2] 101
-[0, 0, 0, 1] 104
-[0, 0, 0, 0] 107
-107
+<h2 id="재귀-함수-예제">재귀 함수 예제</h2>
+
+<p>우선 iter 반복으로 구현한 팩토리얼 예제 코드이다.</p>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">factorial_iterative</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">*=</span> <span class="n">i</span>
+  <span class="k">return</span> <span class="n">result</span>
 </code></pre></div></div>
 
-<p><em>ㅋㅋ 근데 이렇게 쉽게 정답일리가 없었다.</em></p>
-
-<p>시간도 메모리도 널널하고 오류도 안나는데 정답이 틀린건 뭔가 예외가 있는 것 같은데.. 아무리 생각해도 그걸 찾지 못했다..</p>
-
-<h2 id="문제-해결">문제 해결</h2>
-
-<p>일단 조금만 비틀어 생각해봤어도 정답을 떠올릴 만 했을텐데, 문제를 풀 당시에는 ‘3개.. 3개…’ 하고 있었기 때문에 눈치를 못 챘던 것 같다.</p>
-
-<h3 id="case-분리">case 분리</h3>
-
-<p>이 문제는 i가 진행해 나가면서 3개씩 한꺼번에 값을 빼게 되는데, 그런데 이때 <strong>i+1이 i+2보다 클 경우</strong> i, i+1, i+2를 하나씩 빼나가면 i와 i+2가 먼저 고갈되게 되고, 그러면 <u>i+1이 i+3과 고립되게 되어</u> price가 더 높게 책정된다. 그러므로 앞으로 진행해 나가는 걸 고려하여 i+1이 i+3이랑 고립되지 않도록 <u>2개씩 먼저 빼는 작업이 필요하다.</u></p>
-
-<ol>
-  <li><strong>c[i + 1] &lt; c[i + 2]일 때</strong>
- 이 때는 그냥 3개씩 빼나가면 된다.</li>
-  <li><strong>c[i + 1] &gt; c[i + 2]일 때</strong>
- 이 때는 먼저 i, i+1 2개씩 빼주는 작업이 필요하다.
- 근데 이제 2개씩 몇 번 빼주는 지도 고민을 해봐야했다.
- <del>‘역시 다이아문제…’</del>
- 2-1. <strong>c[i] &gt; c[i + 1] - c[i + 2]일 때</strong>
- c[i + 1]과 c[i + 2]의 차이가 c[i]보다 작을 때는 c[i + 1] - c[i + 2]만큼만 빼주면 c[i + 1]과 c[i + 2]값이 같아지고 이후 i, i+1, i+2에서 3개씩 구입하면 깔끔하게 i에 값이 0이 되고 다음 step으로 넘어갈 수 있다.
- 2-2. <strong>c[i] &lt; c[i + 1] - c[i + 2]일 때</strong>
- 이때는 그냥 가능한만큼 c[i]와 c[i + 1]에서 2개씩 구입하면 i 값이 깔끔하게 0이 되고 앞으로 전진해나갈 수 있다.</li>
-</ol>
-
-<p>이 순서대로 코드를 구현하게 되면 배열에서 3개씩 나아가면서 해결해나가는 방식이 되고, 1과 2가 if 와 elif, 그리고 남은 else는 고립된 하나의 라면 공장이 되기 때문에 *3을 해주면 되겠다.</p>
-
-<h3 id="indexerror">IndexError</h3>
-
-<p>i에서 i+1, i+2까지 함께 확인해가며 전진해나가는 코드인데, 이 경우 자꾸 실수해서 Indexerror가 떠서 화가 났는데, 의외로 해결법이 간단했다. 그냥 0,0을 추가로 넣어주면, i를 기준으로 해서 끝까지 for문으로 간단하게 해결할 수 있었다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>c = list(map(int, input().split())) + [0, 0]
+<p>다음은 재귀 함수로 구현한 팩토리얼 예제 코드이다.</p>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">factorial_recursive</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">return</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial_recursive</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h3 id="정답">정답</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>n = int(input())
-c = list(map(int, input().split())) + [0, 0]
-price = 0
+<p>위 두 코드의 실행결과는 동일하지만 재귀 함수를 사용했을 때의 코드가 더 간결하다는 것을 알 수 있다.</p>
 
-print(c, price)
-for i in range(n):
-  if c[i+1] &gt; c[i+2]:
-    minimum = min(c[i], c[i+1]-c[i+2])
-    c[i] -= minimum
-    c[i+1] -= minimum
-    price += minimum * 5
-    print(c, price)
+<p>이는 재귀 함수가 수학의 점화식을 그대로 소스코드로 옮겼기 때문이다. 점화식이란 특정한 함수를 자신보다 더 작은 변수에 대한 함수와의 관계로 표현한 것을 의미한다.</p>
 
-    minimum = min(c[i], c[i+1], c[i+2])
-    c[i] -= minimum
-    c[i + 1] -= minimum
-    c[i + 2] -= minimum
-    price += minimum * 7
-    print(c, price)
-  else:
-    minimum = min(c[i], c[i+1], c[i+2])
-    c[i] -= minimum
-    c[i + 1] -= minimum
-    c[i + 2] -= minimum
-    price += minimum * 7
-    print(c, price)
+<h2 id="references">References</h2>
 
-    minimum = min(c[i], c[i+1])
-    c[i] -= minimum
-    c[i + 1] -= minimum
-    price += minimum * 5
-    print(c, price)
-  price += c[i] * 3
-  print(c, price)
-print(price)
-</code></pre></div></div>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4
-10 12 11 10
-[10, 12, 11, 10, 0, 0] 0
-[9, 11, 11, 10, 0, 0] 5
-[0, 2, 2, 10, 0, 0] 68
-[0, 2, 2, 10, 0, 0] 68
-[0, 0, 0, 8, 0, 0] 82
-[0, 0, 0, 8, 0, 0] 82
-[0, 0, 0, 8, 0, 0] 82
-[0, 0, 0, 8, 0, 0] 82
-[0, 0, 0, 8, 0, 0] 82
-[0, 0, 0, 8, 0, 0] 82
-[0, 0, 0, 8, 0, 0] 82
-[0, 0, 0, 8, 0, 0] 82
-[0, 0, 0, 8, 0, 0] 106
-106
-</code></pre></div></div>
-
-<h2 id="고찰">고찰</h2>
-<p>‘이 문제가 다이아라고?’로 시작해서 결국 몇 시간을 소모했다. 뭐든지 쉬워보이게 하면 장인이라고 하듯이 쉬운 문제처럼 보였지만 생각보다 까다롭고 그렇지만 또 깔끔한 게 시간 잡아먹기 딱 좋은 문제였다.</p>
+<p>이것이 코딩 테스트다 with 파이썬</p>
 
         
       </section>
@@ -821,15 +715,19 @@ print(price)
     
       
       
-      <a href="/tags/#greedy" class="page__taxonomy-item-tag" rel="tag">Greedy</a><span class="sep"> </span>
-    
-      
-      
       <a href="/tags/#python" class="page__taxonomy-item-tag" rel="tag">Python</a><span class="sep"> </span>
     
       
       
-      <a href="/tags/#boj" class="page__taxonomy-item-tag" rel="tag">BOJ</a>
+      <a href="/tags/#%EC%8A%A4%ED%83%9D" class="page__taxonomy-item-tag" rel="tag">스택</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#%EC%9E%AC%EA%B7%80" class="page__taxonomy-item-tag" rel="tag">재귀</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0" class="page__taxonomy-item-tag" rel="tag">자료구조</a>
     
     </span>
   </p>
@@ -850,7 +748,7 @@ print(price)
     
       
       
-      <a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+      <a href="/categories/#datastructure" class="page__taxonomy-item-category" rel="tag">DataStructure</a>
     
     </span>
   </p>
@@ -858,7 +756,7 @@ print(price)
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-01-11">January 11, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-01-19">January 19, 2023</time></p>
 
       </footer>
 
@@ -867,22 +765,22 @@ print(price)
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BBOJ%5D+%EB%B0%B1%EC%A4%80+18185%EB%B2%88+-+%EB%9D%BC%EB%A9%B4+%EC%82%AC%EA%B8%B0+%28Small%29%20http%3A%2F%2Flocalhost%3A4000%2Fboj%2Fboj-18185%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%5D+%EC%8A%A4%ED%83%9D%28Stack%29%EA%B3%BC+%EC%9E%AC%EA%B7%80+%ED%95%A8%EC%88%98%20http%3A%2F%2Flocalhost%3A4000%2Fdatastructure%2FDS-stack%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fboj%2Fboj-18185%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdatastructure%2FDS-stack%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fboj%2Fboj-18185%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdatastructure%2FDS-stack%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/blog/blog-TIL/" class="pagination--pager" title="[Blog] 깃허브 블로그 만들기/포스팅/배포 과정 중 발생한 에러
+      <a href="/datastructure/DS-queue/" class="pagination--pager" title="[자료구조] 큐(Queue)란
 ">이전</a>
     
     
-      <a href="/boj/boj-2212/" class="pagination--pager" title="[BOJ] 백준 2212번 - 센서
+      <a href="/algorithm/alg-DFS-BFS/" class="pagination--pager" title="[알고리즘] 탐색 알고리즘 DFS/BFS
 ">다음</a>
     
   </nav>

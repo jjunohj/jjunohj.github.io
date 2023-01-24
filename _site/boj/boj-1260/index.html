@@ -1,0 +1,1203 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <!--폰트 : "Nanum Gothic Coding", "Coming Soon"-->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Nanum+Gothic+Coding&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Nanum+Gothic+Coding&display=swap">
+    
+    <!--폰트 : "Iropke Batang"-->
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+
+    <!--main.scss 조금이라도 빨리 로드 되길.. preload-->
+    <link rel="preload" as="style" href="/assets/css/main.css">
+    
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[BOJ] 백준 1260번 - DFS와 BFS | Daily Inspiration</title>
+<meta name="description" content="Silver 2">
+
+
+  <meta name="author" content="주노 (jjunohj)">
+  
+  <meta property="article:author" content="주노 (jjunohj)">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Daily Inspiration">
+<meta property="og:title" content="[BOJ] 백준 1260번 - DFS와 BFS">
+<meta property="og:url" content="http://localhost:4000/boj/boj-1260/">
+
+
+  <meta property="og:description" content="Silver 2">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/teaser.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2023-01-22T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2023-01-22T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/boj/boj-1260/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "주노 (jjunohj)",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="3e45d69838ad669a" />
+
+
+
+
+
+  <meta name="naver-site-verification" content="0927ff851e7c3a88dbef776ef5f5a7e8">
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Daily Inspiration Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.ico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo.ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/logo.ico/favicon-16x16.png">
+<link rel="manifest" href="/assets/logo.ico/site.webmanifest">
+<link rel="mask-icon" href="/assets/logo.ico/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt="Daily Inspiration"></a>
+        
+        <a class="site-title" href="/">
+          Daily Inspiration
+          <span class="site-subtitle">기록되지 않는 건 기억되지 않는다.</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">Introduce</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Category</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#boj" itemprop="item"><span itemprop="name">Boj</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[BOJ] 백준 1260번 - DFS와 BFS</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/bio-photo.jpg" alt="주노 (jjunohj)" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">주노 (jjunohj)</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p><strong>궁금한 것이 없으면 배우는 것도 없다.</strong> <br /> 궁금한 건 참 많은 개발자입니다😂</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Contact</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:jjunohj@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/jjunohj" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/xuuno_" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    <!--전체 글 수를 세기 위한 연산. sum 변수에 전체 글 수 저장-->
+
+
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Category</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <!--전체 글 수-->
+      <li>
+            📂 <span>전체 글 수</style> <span>15</style> <span>개</style> 
+      </li>
+      <li>
+        <!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C -->
+        <span class="nav__sub-title">HTML/CSS/JS</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/cpp 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">Coding Test</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/python" class="">파이썬 문법 (3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/algorithm" class="">알고리즘 구현 (1)</a></li>
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/data_structure" class="">자료구조 (3)</a></li>
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/boj" class="">백준 (6)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">Database</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">Design</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">etc</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog Dev (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/etc" class="">ETC (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+      </li>
+  </ul>
+</nav>
+  
+
+  </div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[BOJ] 백준 1260번 - DFS와 BFS">
+    <meta itemprop="description" content="Silver 2">
+    <meta itemprop="datePublished" content="2023-01-22T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-01-22T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/boj/boj-1260/" class="u-url" itemprop="url">[BOJ] 백준 1260번 - DFS와 BFS
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-22T00:00:00+09:00">January 22, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Index</h4></header>
+              <!-- <ul class="toc__menu"><li><a href="#문제">문제</a><ul><li><a href="#문제-해결">문제 해결</a></li><li><a href="#파이썬-1등-답안">파이썬 1등 답안</a></li></ul></li><li><a href="#고찰">고찰</a></li></ul> -->
+
+
+<ul class="toc__menu">
+  <li><a href="#문제">문제</a>
+    <ul>
+      <li><a href="#문제-해결">문제 해결</a></li>
+      <li><a href="#파이썬-1등-답안">파이썬 1등 답안</a></li>
+    </ul>
+  </li>
+  <li><a href="#고찰">고찰</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <h1 id="문제">문제</h1>
+
+<p><img width="884" alt="image" src="https://user-images.githubusercontent.com/121740394/213907759-d59e76d4-e134-43e0-a1d0-b587afb91dd0.png" /></p>
+
+<h2 id="문제-해결">문제 해결</h2>
+
+<p><code class="language-plaintext highlighter-rouge">DFS</code>는 <code class="language-plaintext highlighter-rouge">깊이 우선 탐색</code>이므로 함수가 중첩되며 쌓이는 <code class="language-plaintext highlighter-rouge">스택</code>,<code class="language-plaintext highlighter-rouge">재귀</code>구조를 가지고, <code class="language-plaintext highlighter-rouge">BFS</code>는 <code class="language-plaintext highlighter-rouge">너비 우선 탐색</code>이므로 현재 노드의 인접 노드들을 모두 큐에 넣고 큐 순서대로 들어오면서 인근 노드들을 큐의 끝에 계속해서 넣어주는 방식으로 작동한다. 이론만 알고 백지 상태에서 DFS, BFS를 구현해보았다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+
+<span class="k">def</span> <span class="nf">bfs_search</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">visited</span><span class="p">):</span>
+  <span class="n">bfs_sequence</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+  <span class="n">q</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+  <span class="n">q</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+  <span class="k">while</span> <span class="p">(</span><span class="n">q</span><span class="p">):</span>
+    <span class="n">visit_node</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">visit_node</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+      <span class="n">bfs_sequence</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">visit_node</span><span class="p">)</span>
+      <span class="n">visited</span><span class="p">[</span><span class="n">visit_node</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">visit_node</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+      <span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">node</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+        <span class="n">q</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="k">continue</span>
+  <span class="k">return</span> <span class="n">bfs_sequence</span>
+
+
+<span class="k">def</span> <span class="nf">dfs_search</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">visited</span><span class="p">):</span>
+  <span class="k">global</span> <span class="n">dfs_sequence</span>
+
+  <span class="n">dfs_sequence</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+  <span class="n">visited</span><span class="p">[</span><span class="n">v</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+  <span class="k">for</span> <span class="n">neighbor</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">v</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">neighbor</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+      <span class="n">dfs_search</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">neighbor</span><span class="p">,</span> <span class="n">visited</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">dfs_sequence</span>
+
+
+<span class="k">def</span> <span class="nf">_print</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+
+<span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+<span class="n">dfs_sequence</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+  <span class="n">s</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+  <span class="n">graph</span><span class="p">[</span><span class="n">s</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">s</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">e</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+    <span class="n">graph</span><span class="p">[</span><span class="n">e</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">rel</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">:</span>
+  <span class="n">rel</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+
+<span class="n">visited</span> <span class="o">=</span> <span class="p">[</span><span class="bp">False</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+<span class="n">_print</span><span class="p">(</span><span class="n">dfs_search</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">visited</span><span class="p">))</span>
+<span class="n">visited</span> <span class="o">=</span> <span class="p">[</span><span class="bp">False</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+<span class="n">_print</span><span class="p">(</span><span class="n">bfs_search</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">visited</span><span class="p">))</span>
+</code></pre></div></div>
+<p>실행 결과는 다음과 같다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4 5 1
+1 2
+1 3
+1 4
+2 4
+3 4
+[[2, 3, 4], [1, 4], [1, 4], [1, 2, 3]]
+1 2 4 3
+1 2 3 4
+</code></pre></div></div>
+
+<h2 id="파이썬-1등-답안">파이썬 1등 답안</h2>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># DFS와 BFS
+</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="nb">input</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span>
+
+<span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">visited</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">dfs_list</span>
+
+    <span class="n">visited</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">dfs_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">G</span><span class="p">[</span><span class="n">v</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">visited</span><span class="p">[</span><span class="n">w</span><span class="p">]:</span>
+            <span class="n">dfs</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">visited</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">visited</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">bfs_list</span>
+
+    <span class="n">visited</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">queue</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span>
+    <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">queue</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">bfs_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">G</span><span class="p">[</span><span class="n">n</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">visited</span><span class="p">[</span><span class="n">w</span><span class="p">]:</span>
+                <span class="n">visited</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="n">queue</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+
+
+<span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+<span class="n">G</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>   <span class="c1"># 0~N번 노드의 인접 노드
+</span><span class="n">visited</span> <span class="o">=</span> <span class="p">[</span><span class="bp">False</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>             <span class="c1"># N+1개를 만들어야 0~N번 노드의 값이 들어갈 수 있다.
+</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>                      <span class="c1"># 너무 간단하게 이중리스트에 값을 채우는 모습 (...)
+</span>    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">G</span><span class="p">[</span><span class="n">a</span><span class="p">].</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">G</span><span class="p">[</span><span class="n">b</span><span class="p">].</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="n">dfs_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">bfs_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">dfs</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">visited</span><span class="p">)</span>
+<span class="n">visited</span> <span class="o">=</span> <span class="p">[</span><span class="bp">False</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">bfs</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">visited</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="o">*</span><span class="n">dfs_list</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="o">*</span><span class="n">bfs_list</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="고찰">고찰</h1>
+
+<p>깨달은 점이 몇 가지 있다.</p>
+<ol>
+  <li>1번부터 문제가 주어졌을 때의 해결 방향</li>
+  <li>리스트 요소 한 번에 출력하기</li>
+</ol>
+
+<p>나는 0이 시작이 아니고 1부터 노드가 시작되는 성가신 구조에서 살아남기 위해 <code class="language-plaintext highlighter-rouge">v - 1</code>, <code class="language-plaintext highlighter-rouge">node - 1</code>과 같은 코드를 작성하였는데, 역시나 예상한대로 멍청한 짓이었고, 해결법이 있을 줄 알았다.</p>
+
+<p>총 N개인 <code class="language-plaintext highlighter-rouge">0 ~ N-1</code>까지의 범위를 N+1개인<code class="language-plaintext highlighter-rouge">0 ~ N</code>까지의 범위로 바꿔주고 그냥 평소대로 하면된다. <code class="language-plaintext highlighter-rouge">0</code>은 없는 셈 친다.</p>
+
+<p>또한 <code class="language-plaintext highlighter-rouge">[1, 2, 3, 4]</code>의 요소를 갖고있는 리스트를 <code class="language-plaintext highlighter-rouge">1 2 3 4</code>로 출력하기 위해 힘들진 않지만 ‘이게 맞나?’ 싶은 코드인 <code class="language-plaintext highlighter-rouge">_print</code>함수를 작성했는데 이 역시 존재할 이유가 없어졌다. 다음과 같이 활용하면 되는 것이었다.</p>
+
+<p><strong>리스트 요소 한 번에 출력하기 : <code class="language-plaintext highlighter-rouge">print(*arr)</code></strong></p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="o">*</span><span class="n">arr</span><span class="p">)</span>
+<span class="c1"># 1 2 3 4
+</span></code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#bfs" class="page__taxonomy-item-tag" rel="tag">BFS</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#dfs" class="page__taxonomy-item-tag" rel="tag">DFS</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#python" class="page__taxonomy-item-tag" rel="tag">Python</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#boj" class="page__taxonomy-item-tag" rel="tag">BOJ</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#boj" class="page__taxonomy-item-category" rel="tag">BOJ</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-01-22">January 22, 2023</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BBOJ%5D+%EB%B0%B1%EC%A4%80+1260%EB%B2%88+-+DFS%EC%99%80+BFS%20http%3A%2F%2Flocalhost%3A4000%2Fboj%2Fboj-1260%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fboj%2Fboj-1260%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fboj%2Fboj-1260%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/algorithm/alg-DFS-BFS/" class="pagination--pager" title="[알고리즘] 탐색 알고리즘 DFS/BFS
+">이전</a>
+    
+    
+      <a href="/boj/boj-2178/" class="pagination--pager" title="[BOJ] 백준 2178번 - 미로 탐색
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-2606/" rel="permalink">[BOJ] 백준 2606번 - 바이러스
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-24T00:00:00+09:00">January 24, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Silver 3
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-2178/" rel="permalink">[BOJ] 백준 2178번 - 미로 탐색
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-24T00:00:00+09:00">January 24, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Silver 1
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/alg-DFS-BFS/" rel="permalink">[알고리즘] 탐색 알고리즘 DFS/BFS
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-19T00:00:00+09:00">January 19, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">알고리즘 부시기
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/datastructure/DS-stack/" rel="permalink">[자료구조] 스택(Stack)과 재귀 함수
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-19T00:00:00+09:00">January 19, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">쌓아보자 자료구조
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Contact:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:jjunohj@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/jjunohj" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://instagram.com/xuuno_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 주노 (jjunohj). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'jjunohj/jjunohj.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+
+  </body>
+</html>
