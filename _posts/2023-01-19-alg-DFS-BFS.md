@@ -1,11 +1,11 @@
 ---
 title: "[알고리즘] 탐색 알고리즘 DFS/BFS"
-excerpt: "알고리즘 부시기"
+excerpt: "그래프를 탐색하기 위한 대표적인 두 가지 알고리즘"
 
 categories:
   - Algorithm
 tags:
-  - [DFS, BFS, 재귀, 스택, 큐, Python]
+  - [DFS, BFS, Recursive, Stack, Queue, Python]
 
 toc: true
 toc_sticky: true
