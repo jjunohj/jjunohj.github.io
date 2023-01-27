@@ -5,10 +5,43 @@
     <description>IT knowledge realized by a curious developer through various trials and errors.</description>
     <link>http://localhost:4000</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-	<lastBuildDate>Tue, 24 Jan 2023 00:00:00 +0900</lastBuildDate>
+	<lastBuildDate>Thu, 26 Jan 2023 00:00:00 +0900</lastBuildDate>
 	
 	<item>
-		<title>[BOJ] 백준 2606번 - 바이러스</title>
+		<title>[BOJ] 백준 2667번 - 단지번호 붙이기 (Python)</title>
+        
+        
+            <description>Silver 1</description>
+        
+        <pubDate>Thu, 26 Jan 2023 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/boj/boj-2667/</link>
+        <guid isPermaLink="true">http://localhost:4000/boj/boj-2667/</guid>
+      </item>
+    
+	<item>
+		<title>[BOJ] 백준 1789번 - 수들의 합 (Python)</title>
+        
+        
+            <description>Silver 5</description>
+        
+        <pubDate>Wed, 25 Jan 2023 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/boj/boj-1789/</link>
+        <guid isPermaLink="true">http://localhost:4000/boj/boj-1789/</guid>
+      </item>
+    
+	<item>
+		<title>[알고리즘] 정렬 알고리즘</title>
+        
+        
+            <description>연속된 데이터를 기준에 따라서 정렬하기 위한 알고리즘</description>
+        
+        <pubDate>Wed, 25 Jan 2023 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/algorithm/alg-sort/</link>
+        <guid isPermaLink="true">http://localhost:4000/algorithm/alg-sort/</guid>
+      </item>
+    
+	<item>
+		<title>[BOJ] 백준 2606번 - 바이러스 (Python)</title>
         
         
             <description>Silver 3</description>
@@ -19,7 +52,18 @@
       </item>
     
 	<item>
-		<title>[BOJ] 백준 2178번 - 미로 탐색</title>
+		<title>[BOJ] 백준 14502번 - 연구소 (Python)</title>
+        
+        
+            <description>Gold 4</description>
+        
+        <pubDate>Tue, 24 Jan 2023 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/boj/boj-14502/</link>
+        <guid isPermaLink="true">http://localhost:4000/boj/boj-14502/</guid>
+      </item>
+    
+	<item>
+		<title>[BOJ] 백준 2178번 - 미로 탐색 (Python)</title>
         
         
             <description>Silver 1</description>
@@ -30,7 +74,7 @@
       </item>
     
 	<item>
-		<title>[BOJ] 백준 1260번 - DFS와 BFS</title>
+		<title>[BOJ] 백준 1260번 - DFS와 BFS (Python)</title>
         
         
             <description>Silver 2</description>
@@ -44,7 +88,7 @@
 		<title>[알고리즘] 탐색 알고리즘 DFS/BFS</title>
         
         
-            <description>알고리즘 부시기</description>
+            <description>그래프를 탐색하기 위한 대표적인 두 가지 알고리즘</description>
         
         <pubDate>Thu, 19 Jan 2023 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/algorithm/alg-DFS-BFS/</link>
@@ -71,50 +115,6 @@
         <pubDate>Thu, 19 Jan 2023 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/datastructure/DS-queue/</link>
         <guid isPermaLink="true">http://localhost:4000/datastructure/DS-queue/</guid>
-      </item>
-    
-	<item>
-		<title>[자료구조] 그래프(Graph)란</title>
-        
-        
-            <description>쌓아보자 자료구조</description>
-        
-        <pubDate>Thu, 19 Jan 2023 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/datastructure/DS-graph/</link>
-        <guid isPermaLink="true">http://localhost:4000/datastructure/DS-graph/</guid>
-      </item>
-    
-	<item>
-		<title>[VSCode] Window 10, MAC 간 한글 깨짐 현상 해결방법</title>
-        
-        
-            <description>Windows 콘솔을 UTF-8 character encoding으로 바꾸기</description>
-        
-        <pubDate>Wed, 18 Jan 2023 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/etc/etc-TIL/</link>
-        <guid isPermaLink="true">http://localhost:4000/etc/etc-TIL/</guid>
-      </item>
-    
-	<item>
-		<title>[BOJ] 백준 8980번 - 택배</title>
-        
-        
-            <description>Gold 2</description>
-        
-        <pubDate>Wed, 18 Jan 2023 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/boj/boj-8980/</link>
-        <guid isPermaLink="true">http://localhost:4000/boj/boj-8980/</guid>
-      </item>
-    
-	<item>
-		<title>[Python] 파이썬 리스트 요소 제거</title>
-        
-        
-            <description>파이썬 문법 부시기</description>
-        
-        <pubDate>Tue, 17 Jan 2023 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/python/python-TIL2/</link>
-        <guid isPermaLink="true">http://localhost:4000/python/python-TIL2/</guid>
       </item>
     
   </channel>

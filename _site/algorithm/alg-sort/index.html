@@ -1,0 +1,1248 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <!--폰트 : "Nanum Gothic Coding", "Coming Soon"-->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Nanum+Gothic+Coding&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Nanum+Gothic+Coding&display=swap">
+    
+    <!--폰트 : "Iropke Batang"-->
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+
+    <!--main.scss 조금이라도 빨리 로드 되길.. preload-->
+    <link rel="preload" as="style" href="/assets/css/main.css">
+    
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[알고리즘] 정렬 알고리즘 | Daily Inspiration</title>
+<meta name="description" content="연속된 데이터를 기준에 따라서 정렬하기 위한 알고리즘">
+
+
+  <meta name="author" content="주노 (jjunohj)">
+  
+  <meta property="article:author" content="주노 (jjunohj)">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Daily Inspiration">
+<meta property="og:title" content="[알고리즘] 정렬 알고리즘">
+<meta property="og:url" content="http://localhost:4000/algorithm/alg-sort/">
+
+
+  <meta property="og:description" content="연속된 데이터를 기준에 따라서 정렬하기 위한 알고리즘">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/ALG-sort.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2023-01-25T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2023-01-25T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/algorithm/alg-sort/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "주노 (jjunohj)",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="3e45d69838ad669a" />
+
+
+
+
+
+  <meta name="naver-site-verification" content="0927ff851e7c3a88dbef776ef5f5a7e8">
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Daily Inspiration Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.ico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo.ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/logo.ico/favicon-16x16.png">
+<link rel="manifest" href="/assets/logo.ico/site.webmanifest">
+<link rel="mask-icon" href="/assets/logo.ico/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt="Daily Inspiration"></a>
+        
+        <a class="site-title" href="/">
+          Daily Inspiration
+          <span class="site-subtitle">기록되지 않는 건 기억되지 않는다.</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">Introduce</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Category</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#algorithm" itemprop="item"><span itemprop="name">Algorithm</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[알고리즘] 정렬 알고리즘</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/bio-photo.jpg" alt="주노 (jjunohj)" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">주노 (jjunohj)</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p><strong>궁금한 것이 없으면 배우는 것도 없다.</strong> <br /> 궁금한 건 참 많은 개발자입니다😂</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Contact</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:jjunohj@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/jjunohj" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/xuuno_" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    <!--전체 글 수를 세기 위한 연산. sum 변수에 전체 글 수 저장-->
+
+
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Category</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <!--전체 글 수-->
+      <li>
+            📂 <span>전체 글 수</style> <span>19</style> <span>개</style> 
+      </li>
+      <li>
+        <!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C -->
+        <span class="nav__sub-title">HTML/CSS/JS</span>
+            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
+            <ul>
+                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/cpp 주소의 글로 링크 연결-->
+                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">Coding Test</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/python" class="">파이썬 문법 (3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/algorithm" class="">알고리즘 구현 (2)</a></li>
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/data_structure" class="">자료구조 (3)</a></li>
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/boj" class="">백준 (9)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">Database</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">Design</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">etc</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog Dev (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/etc" class="">ETC (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+      </li>
+  </ul>
+</nav>
+  
+
+  </div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[알고리즘] 정렬 알고리즘">
+    <meta itemprop="description" content="연속된 데이터를 기준에 따라서 정렬하기 위한 알고리즘">
+    <meta itemprop="datePublished" content="2023-01-25T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-01-25T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/algorithm/alg-sort/" class="u-url" itemprop="url">[알고리즘] 정렬 알고리즘
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-25T00:00:00+09:00">January 25, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Index</h4></header>
+              <!-- <ul class="toc__menu"><li><a href="#정렬-sorting">정렬 (Sorting)</a><ul><li><a href="#선택-정렬-selection-sort">선택 정렬 (Selection Sort)</a></li><li><a href="#삽입-정렬-insertion-sort">삽입 정렬 (Insertion Sort)</a></li><li><a href="#퀵-정렬-quick-sort">퀵 정렬 (Quick Sort)</a></li><li><a href="#계수-정렬-count-sort">계수 정렬 (Count Sort)</a></li><li><a href="#파이썬-정렬-라이브러리">파이썬 정렬 라이브러리</a></li><li><a href="#결론">결론</a></li></ul></li><li><a href="#references">References</a></li></ul> -->
+
+
+<ul class="toc__menu">
+  <li><a href="#정렬-sorting">정렬 (Sorting)</a>
+    <ul>
+      <li><a href="#선택-정렬-selection-sort">선택 정렬 (Selection Sort)</a></li>
+      <li><a href="#삽입-정렬-insertion-sort">삽입 정렬 (Insertion Sort)</a></li>
+      <li><a href="#퀵-정렬-quick-sort">퀵 정렬 (Quick Sort)</a></li>
+      <li><a href="#계수-정렬-count-sort">계수 정렬 (Count Sort)</a></li>
+      <li><a href="#파이썬-정렬-라이브러리">파이썬 정렬 라이브러리</a></li>
+      <li><a href="#결론">결론</a></li>
+    </ul>
+  </li>
+  <li><a href="#references">References</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <h1 id="정렬-sorting">정렬 (Sorting)</h1>
+
+<p><code class="language-plaintext highlighter-rouge">정렬(Sorting)</code>이란 <strong>데이터를 특정한 기준에 따라서 순서대로 나열하는 것</strong>을 말한다.</p>
+
+<p>프로그램에서 데이터를 가공할 때 오름차순이나 내림차순 등 어떤 식으로든 정렬해서 사용하는 경우가 많아 정렬 알고리즘은 필수적으로 알아야한다고 할 수 있다.</p>
+
+<p>정렬 알고리즘은 <code class="language-plaintext highlighter-rouge">선택 정렬</code>, <code class="language-plaintext highlighter-rouge">삽입 정렬</code>, <code class="language-plaintext highlighter-rouge">퀵 정렬</code> 등등 다양한 알고리즘이 존재하는데, 상황에 적절하지 못한 정렬 알고리즘을 사용할 경우 당연히 프로그램이 비효율적으로 동작하며 필요 이상으로 시간을 많이 소요하게 된다.</p>
+
+<p>따라서 시간과 메모리 요구 조건에 맞는 적절한 알고리즘 선택이 가능해야 한다. <del>사실상 파이썬 기본 정렬 라이브러리와 계수정렬만 알면 웬만한 문제는 해결되긴 하지만 말이다..</del></p>
+
+<h2 id="선택-정렬-selection-sort">선택 정렬 (Selection Sort)</h2>
+
+<p>굉장히 원시적인 방법으로, 정렬되지 않은 요소들 중 가장 작은 요소를 선택해 맨 앞부터 쌓는 방식이다.</p>
+
+<p>좀 더 구체적으로 말하자면 데이터가 무작위로 여러 개 있을 때, 가장 작은 데이터를 선택해 맨 앞에 있는 데이터와 바꾸고, 그 다음 작은 데이터를 선택해 앞에서 두 번째 데이터와 바꾸는 과정을 말한다.</p>
+
+<p>파이썬으로 작성한 선택 정렬의 소스코드는 다음과 같다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">array</span><span class="p">[</span><span class="n">min_index</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+            <span class="n">min_index</span> <span class="o">=</span> <span class="n">j</span>
+    <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">array</span><span class="p">[</span><span class="n">min_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">min_index</span><span class="p">],</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+
+<span class="c1"># [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</span></code></pre></div></div>
+
+<p>선택 정렬의 시간 복잡도는 <code class="language-plaintext highlighter-rouge">N-1</code>번 만큼 가장 작은 수를 찾고, 매번 가장 작은 수를 찾기 위해 비교 연산이 필요하다. 따라서 <code class="language-plaintext highlighter-rouge">N + (N - 1) + (N - 2) + ... + 2</code>이고, 이는 <code class="language-plaintext highlighter-rouge">N * (N + 1) / 2</code>, <strong>즉, <code class="language-plaintext highlighter-rouge">O(N^2)</code> 라고 표현할 수 있다.</strong></p>
+
+<p>선택 정렬은 기본 정렬 라이브러리를 포함한 다름 알고리즘들과 비교했을 때 <em>매우 비효율적</em>이지만, <u>특정 리스트에서 가장 작은 데이터를 찾을 때</u> 자주 사용하는 방법이므로 익숙해질 필요가 있다.</p>
+
+<h2 id="삽입-정렬-insertion-sort">삽입 정렬 (Insertion Sort)</h2>
+
+<p>삽입 정렬은 데이터를 하나씩 확인하며 각 데이터를 적절한 위치에 <strong>삽입</strong>해나가는 방식으로 작동하는 정렬 알고리즘이다.</p>
+
+<p>삽입 정렬은 선택 정렬에 비해 구현 난이도가 높은 편이지만 선택 정렬에 비해 실행 시간 측면에서 더 효율적인 알고리즘이다. 특히 삽입 정렬은 필요할 때만 위치를 바꾸므로 <strong>데이터가 거의 정렬되어 있을 때 훨씬 효율적</strong>이다.</p>
+
+<p>삽입 정렬은 특정한 데이터가 적절한 위치에 삽입되기 이전에, 그 앞까지의 데이터는 이미 정렬되어 있다고 가정한다. 즉 정렬되어 있는 데이터 리스트에서 적절한 위치를 찾은 뒤에, 그 위치에 삽입된다.</p>
+
+<p>파이썬으로 작성한 삽입 정렬의 소스코드는 다음과 같다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>  <span class="c1"># 두 번째 인덱스부터 반복
+</span>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>   <span class="c1"># 마지막 인덱스부터 1까지 감소하며 반복
+</span>        <span class="k">if</span> <span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">array</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+            <span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">array</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">break</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span class="c1"># [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</span></code></pre></div></div>
+
+<p>삽입 정렬의 시간 복잡도는 <code class="language-plaintext highlighter-rouge">O(N^2)</code>이다. 선택 정렬과 마찬가지로 반복문이 2번 중첩되어 사용되었다. 하지만 꼭 기억해야 할 것은 삽입 정렬은 <strong>현재 리스트의 데이터가 거의 정렬되어 있는 상태라면 매우 빠르게 동작한다</strong>는 것이다. 최선의 경우 <code class="language-plaintext highlighter-rouge">O(N)</code>의 시간 복잡도를 가진다. 따라서 거의 정렬되어 있는 상태로 입력이 주어지는 문제라면 여타 정렬 알고리즘들 보다 삽입 정렬을 이용하는 것이 유리하다.</p>
+
+<h2 id="퀵-정렬-quick-sort">퀵 정렬 (Quick Sort)</h2>
+
+<p>퀵 정렬 알고리즘은 지금까지 배운 정렬 알고리즘 중 가장 많이 사용되는 알고리즘으로, 기준 데이터를 설정하고 그 기준보다 큰 데이터와 작은 데이터의 위치를 바꿔가며 정렬해나가는 알고리즘이다.</p>
+
+<p>퀵 정렬은 <code class="language-plaintext highlighter-rouge">기준(pivot)</code>을 설정한 뒤 pivot보다 큰 수와 작은 수를 교환한 후 리스트를 반으로 나누는 방식으로 동작한다. 퀵 정렬을 수행하기 전에는 이러한 피벗을 어떻게 설정할 것인지 미리 명시해야 한다.</p>
+
+<p>피벗을 설정하고 리스트를 분할하는 방법에 따라 여러 가지 방식으로 퀵 정렬을 구분하는데, 이 중 <code class="language-plaintext highlighter-rouge">호어 분할 (Hoare Partition)</code>을 기준으로 순서대로 퀵 정렬을 살펴보자.</p>
+
+<ol>
+  <li>리스트의 <strong>첫 번째 데이터</strong>를 피벗으로 설정한다.</li>
+  <li>피벗을 제외한 <em>데이터의 맨 왼쪽에서부터</em> <strong>피벗보다 큰 데이터</strong>를, <em>맨 오른쪽에서부터</em> <strong>피벗보다 작은 데이터</strong>를 선택한다.</li>
+  <li>두 데이터의 위치를 서로 변경한다.</li>
+  <li>2번의 과정을 반복한다.</li>
+  <li>피벗보다 큰 데이터와 작은 데이터가 엇갈렸을 경우 <strong>작은 데이터</strong>와 피벗의 위치를 서로 변경한다.</li>
+  <li>5번의 과정을 완료하면 리스트에서 피벗을 기준으로 왼편에는 작은 데이터들이 오른편에는 큰 데이터들이 분할되어 있을 것이다. 이후 왼쪽 리스트와 오른쪽 리스트를 개별적으로 1번과 5번의 방법을 통해 정렬시킨다.</li>
+</ol>
+
+<p>6번에서 2개의 파티션이 분리되고, 똑같은 방식으로 두 파티션을 나눠나가는 것은 <code class="language-plaintext highlighter-rouge">재귀 함수</code>와 동작 원리가 동일하기 때문에 실제로 퀵 정렬은 재귀 함수 형태로 작성했을 때 구현이 매우 간결해진다. 재귀 함수로 구현을 할 경우 <u>재귀 함수의 종료 조건은 리스트의 원소가 1개일 때</u>이다.</p>
+
+<p>파이썬으로 작성한 가장 직관적인 형태의 퀵 정렬 소스코드는 다음과 같다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">quick_sort</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">start</span> <span class="o">&gt;=</span> <span class="n">end</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">start</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">end</span>
+    <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;=</span> <span class="n">end</span> <span class="n">array</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">array</span><span class="p">[</span><span class="n">pivot</span><span class="p">]:</span>
+            <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">right</span> <span class="o">&gt;</span> <span class="n">start</span> <span class="ow">and</span> <span class="n">array</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">array</span><span class="p">[</span><span class="n">pivot</span><span class="p">]:</span>
+            <span class="n">right</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">left</span> <span class="o">&gt;</span> <span class="n">right</span><span class="p">:</span>
+            <span class="n">array</span><span class="p">[</span><span class="n">right</span><span class="p">],</span> <span class="n">array</span><span class="p">[</span><span class="n">pivot</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">pivot</span><span class="p">],</span> <span class="n">array</span><span class="p">[</span><span class="n">right</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">array</span><span class="p">[</span><span class="n">left</span><span class="p">],</span> <span class="n">array</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">right</span><span class="p">],</span> <span class="n">array</span><span class="p">[</span><span class="n">left</span><span class="p">]</span>
+    
+    <span class="n">quick_sort</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">right</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">quick_sort</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">right</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+
+<span class="n">quick_sort</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+
+<span class="c1"># [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</span></code></pre></div></div>
+
+<p>파이썬의 장점을 살려 짧게 작성한 퀵 정렬 소스코드는 다음과 같다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">quick_sort</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">array</span>
+    
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">tail</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+    <span class="n">left_side</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tail</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">pivot</span><span class="p">]</span>
+    <span class="n">right_side</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tail</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">pivot</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">quick_sort</span><span class="p">(</span><span class="n">left_side</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">pivot</span><span class="p">]</span> <span class="o">+</span> <span class="n">quick_sort</span><span class="p">(</span><span class="n">right_side</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">quick_sort</span><span class="p">(</span><span class="n">array</span><span class="p">))</span>
+
+<span class="c1"># [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</span></code></pre></div></div>
+
+<p>퀵 정렬의 평균 시간 복잡도는 <code class="language-plaintext highlighter-rouge">O(NlogN)</code>이다. 퀵 정렬에서 최선의 경우는 피벗값의 위치가 변경되어 분할이 일어날 때마다 정확히 왼쪽 리스트와 오른쪽 리스트를 절반씩 분할했을 때이다. 그럴 경우 분할은 <code class="language-plaintext highlighter-rouge">logN</code>만큼 분할이 되고, 마지막 노드들은 <code class="language-plaintext highlighter-rouge">N</code>개가 되므로 총 <code class="language-plaintext highlighter-rouge">NlogN</code>의 시간 복잡도가 나타나게 된다.</p>
+
+<p>하지만 퀵 정렬은 최악의 경우 시간 복잡도가 <code class="language-plaintext highlighter-rouge">O(N^2)</code>가 될 수도 있다. 퀵 정렬의 피벗의 기준이 가장 왼쪽 데이터이고, 이미 데이터가 대부분 정렬되어 있을 경우에는 매우 느리게 작동할 수 있다. <u>앞서 다룬 삽입 정렬은 이미 데이터가 정렬되어 있을 때 빠르게 동작한다고 했는데, 퀵 정렬은 그와 반대된다고 볼 수 있다.</u></p>
+
+<h2 id="계수-정렬-count-sort">계수 정렬 (Count Sort)</h2>
+
+<p>계수 정렬은 <strong>모든 데이터의 크기 범위가 제한되어 정수 형태로 표현할 수 있을 때</strong>만 사용할 수 있다. 계수 정렬은 최악의 경우에도 수행시간 <code class="language-plaintext highlighter-rouge">O(N + K)</code>를 보장하는 정렬 알고리즘이지만, 가장 큰 데이터와 가장 작은 데이터의 차이가 <code class="language-plaintext highlighter-rouge">1,000,000</code>을 넘지 않을 때에만 효과적으로 사용할 수 있다는 점이 특징이다.</p>
+
+<p>계수 정렬은 데이터의 모든 범위를 담을 수 있는 크기의 리스트를 선언한 뒤, 데이터를 하나씩 확인하며 데이터의 값과 동일한 인덱스의 데이터를 1씩 증가시키면 계수 정렬이 완료된다.</p>
+
+<p>파이썬으로 작성한 계수 정렬의 소스코드는 다음과 같다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+    <span class="n">count</span><span class="p">[</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">count</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+
+<span class="c1"># 0 0 1 1 2 2 3 4 5 5 6 7 8 9 9
+</span></code></pre></div></div>
+
+<p>계수 정렬의 시간 복잡도는 앞서 언급했듯이 모든 데이터가 양의 정수인 상황에서 데이터의 개수를 <code class="language-plaintext highlighter-rouge">N</code>, 데이터 중 최대값의 크기를 <code class="language-plaintext highlighter-rouge">K</code>라고 할 때, <code class="language-plaintext highlighter-rouge">O(N + K)</code>이다. 따라서 데이터의 범위만 한정되어 있다면 효과적으로 사용할 수 있으며 항상 빠르게 동작한다. 사실상 현존하는 정렬 알고리즘 중 <code class="language-plaintext highlighter-rouge">기수 정렬 (Radix Sort)</code>과 더불어 가장 빠르다고 할 수 있다.</p>
+
+<p>시간상 효율적이라고 할 지라도, 계수 정렬은 때에 따라 심각한 공간적 비효율성을 초래할 수 있다. 예를 들어 데이터가 <code class="language-plaintext highlighter-rouge">0</code>과 <code class="language-plaintext highlighter-rouge">999,999</code> 단 2개만 존재한다고 가정할 경우, 이럴 때에도 리스트의 크기가 <code class="language-plaintext highlighter-rouge">1,000,000</code>이 되도록 선언해야 한다.</p>
+
+<p>따라서 동일한 값을 가지는 데이터가 여러 개 등장할 때 적합하며, 데이터의 특성을 파악하기 어렵되면 <code class="language-plaintext highlighter-rouge">퀵 정렬</code>을 이용하는 것이 유리하다.</p>
+
+<h2 id="파이썬-정렬-라이브러리">파이썬 정렬 라이브러리</h2>
+
+<p>파이썬의 기본 정렬 라이브러리인 <code class="language-plaintext highlighter-rouge">sorted()</code> 함수는 퀵 정렬과 동작 방식이 비슷한 병합 정렬을 기반으로 만들어졌는데, 병합 정렬은 일반적으로 퀵 정렬보다 느리지만 최악의 경우에도 시간 복잡도 <code class="language-plaintext highlighter-rouge">O(NlogN)</code>을 보장한다는 특징이 있다.</p>
+
+<p>정렬된 리스트를 리턴해주는 <code class="language-plaintext highlighter-rouge">sorted()</code> 함수 외에도 리스트의 내부 원소를 바로 정렬해주는 <code class="language-plaintext highlighter-rouge">sort()</code> 함수도 존재하는데, 이를 이용하면 별도의 정렬된 리스트가 반환되지 않고 내부 원소가 바로 정렬된다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+
+<span class="c1"># [0, 1, 2, 3, 4, 5]
+</span></code></pre></div></div>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+
+<span class="c1"># [0, 1, 2, 3, 4, 5]
+</span></code></pre></div></div>
+
+<p>또한 <code class="language-plaintext highlighter-rouge">sorted()</code>나 <code class="language-plaintext highlighter-rouge">sort()</code>를 이용할 때에는 <code class="language-plaintext highlighter-rouge">key 매개변수</code>를 입력으로 받을 수 있다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arr</span> <span class="o">=</span> <span class="p">[(</span><span class="n">홍길동</span><span class="p">,</span> <span class="mi">95</span><span class="p">),</span> <span class="p">(</span><span class="n">이순신</span><span class="p">,</span> <span class="mi">77</span><span class="p">)]</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>파이썬 정렬 라이브러리는 항상 최악의 경우에도 시간 복잡도 <code class="language-plaintext highlighter-rouge">O(NlogN)</code>을 보장하며, 이는 이미 우리가 직접 퀵 정렬을 구현할 때보다 더욱더 효과적이다.</p>
+
+<h2 id="결론">결론</h2>
+
+<p>코딩테스트 문제에서 별도의 요구가 없다면 단순히 정렬해야 하는 상황에서는 <code class="language-plaintext highlighter-rouge">기본 정렬 라이브러리</code>를 사용하고, 데이터의 범위가 한정되어 있으며 더 빠르게 동작해야 할 때는 <code class="language-plaintext highlighter-rouge">계수 정렬</code>을 사용하자.</p>
+
+<h1 id="references">References</h1>
+
+<p>이것이 취업을 위한 코딩테스트다 with 파이썬</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#python" class="page__taxonomy-item-tag" rel="tag">Python</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#sort" class="page__taxonomy-item-tag" rel="tag">Sort</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#algorithm" class="page__taxonomy-item-category" rel="tag">Algorithm</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-01-25">January 25, 2023</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%5D+%EC%A0%95%EB%A0%AC+%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20http%3A%2F%2Flocalhost%3A4000%2Falgorithm%2Falg-sort%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Falgorithm%2Falg-sort%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Falgorithm%2Falg-sort%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/boj/boj-2606/" class="pagination--pager" title="[BOJ] 백준 2606번 - 바이러스 (Python)
+">이전</a>
+    
+    
+      <a href="/boj/boj-1789/" class="pagination--pager" title="[BOJ] 백준 1789번 - 수들의 합 (Python)
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-2667/" rel="permalink">[BOJ] 백준 2667번 - 단지번호 붙이기 (Python)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-26T00:00:00+09:00">January 26, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Silver 1
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-1789/" rel="permalink">[BOJ] 백준 1789번 - 수들의 합 (Python)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-25T00:00:00+09:00">January 25, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Silver 5
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-2606/" rel="permalink">[BOJ] 백준 2606번 - 바이러스 (Python)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-24T00:00:00+09:00">January 24, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Silver 3
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-14502/" rel="permalink">[BOJ] 백준 14502번 - 연구소 (Python)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-24T00:00:00+09:00">January 24, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Gold 4
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Contact:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:jjunohj@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/jjunohj" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://instagram.com/xuuno_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 주노 (jjunohj). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'jjunohj/jjunohj.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+
+  </body>
+</html>
