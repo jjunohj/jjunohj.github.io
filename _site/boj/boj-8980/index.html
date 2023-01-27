@@ -20,7 +20,7 @@
     
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[BOJ] 백준 8980번 - 택배 | Daily Inspiration</title>
+<!-- begin _includes/seo.html --><title>[BOJ] 백준 8980번 - 택배 (Python) | Daily Inspiration</title>
 <meta name="description" content="Gold 2">
 
 
@@ -33,7 +33,7 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Daily Inspiration">
-<meta property="og:title" content="[BOJ] 백준 8980번 - 택배">
+<meta property="og:title" content="[BOJ] 백준 8980번 - 택배 (Python)">
 <meta property="og:url" content="http://localhost:4000/boj/boj-8980/">
 
 
@@ -204,7 +204,7 @@
     
       
       
-        <li class="current">[BOJ] 백준 8980번 - 택배</li>
+        <li class="current">[BOJ] 백준 8980번 - 택배 (Python)</li>
       
     
   </ol>
@@ -344,7 +344,7 @@
   <ul class="nav__items" id="category_tag_menu">
       <!--전체 글 수-->
       <li>
-            📂 <span>전체 글 수</style> <span>15</style> <span>개</style> 
+            📂 <span>전체 글 수</style> <span>19</style> <span>개</style> 
       </li>
       <li>
         <!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C -->
@@ -428,7 +428,7 @@
                     
                 
                     
-                        <li><a href="/categories/algorithm" class="">알고리즘 구현 (1)</a></li>
+                        <li><a href="/categories/algorithm" class="">알고리즘 구현 (2)</a></li>
                     
                 
             </ul>
@@ -454,7 +454,7 @@
                     
                 
                     
-                        <li><a href="/categories/boj" class="">백준 (6)</a></li>
+                        <li><a href="/categories/boj" class="">백준 (9)</a></li>
                     
                 
                     
@@ -572,7 +572,7 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[BOJ] 백준 8980번 - 택배">
+    <meta itemprop="headline" content="[BOJ] 백준 8980번 - 택배 (Python)">
     <meta itemprop="description" content="Gold 2">
     <meta itemprop="datePublished" content="2023-01-18T00:00:00+09:00">
     <meta itemprop="dateModified" content="2023-01-18T00:00:00+09:00">
@@ -581,7 +581,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/boj/boj-8980/" class="u-url" itemprop="url">[BOJ] 백준 8980번 - 택배
+            <a href="http://localhost:4000/boj/boj-8980/" class="u-url" itemprop="url">[BOJ] 백준 8980번 - 택배 (Python)
 </a>
           </h1>
           
@@ -620,16 +620,19 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Index</h4></header>
-              <!-- <ul class="toc__menu"><li><a href="#문제">문제</a></li><li><a href="#문제-해결">문제 해결</a><ul><li><a href="#첫번째-제출-답안">첫번째 제출 답안</a></li><li><a href="#두-번째-제출-답안">두 번째 제출 답안</a></li><li><a href="#간결한-제출-답안">간결한 제출 답안</a></li></ul></li><li><a href="#고찰">고찰</a></li></ul> -->
+              <!-- <ul class="toc__menu"><li><a href="#문제">문제</a><ul><li><a href="#문제-해결">문제 해결</a><ul><li><a href="#첫번째-제출-답안">첫번째 제출 답안</a></li><li><a href="#두-번째-제출-답안">두 번째 제출 답안</a></li><li><a href="#간결한-제출-답안">간결한 제출 답안</a></li></ul></li></ul></li><li><a href="#고찰">고찰</a></li></ul> -->
 
 
 <ul class="toc__menu">
-  <li><a href="#문제">문제</a></li>
-  <li><a href="#문제-해결">문제 해결</a>
+  <li><a href="#문제">문제</a>
     <ul>
-      <li><a href="#첫번째-제출-답안">첫번째 제출 답안</a></li>
-      <li><a href="#두-번째-제출-답안">두 번째 제출 답안</a></li>
-      <li><a href="#간결한-제출-답안">간결한 제출 답안</a></li>
+      <li><a href="#문제-해결">문제 해결</a>
+        <ul>
+          <li><a href="#첫번째-제출-답안">첫번째 제출 답안</a></li>
+          <li><a href="#두-번째-제출-답안">두 번째 제출 답안</a></li>
+          <li><a href="#간결한-제출-답안">간결한 제출 답안</a></li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li><a href="#고찰">고찰</a></li>
@@ -643,7 +646,7 @@
 
 <p><img src="/assets/images/boj-8980/input-output.jpg" alt="input-output" /></p>
 
-<h1 id="문제-해결">문제 해결</h1>
+<h2 id="문제-해결">문제 해결</h2>
 
 <p>마을에서 트럭이 택배를 수집할 때는 무조건 도착 배송지가 가까운 택배들부터 담는 것이 중요하다. 빠르게 순환이 되어야 또 다른 택배를 실을 수 있기 때문이다.</p>
 
@@ -653,7 +656,7 @@
 
 <p>그리고 각 point별로 트럭이 움직이므로 point마다 반복문을 돌리고, 각 point에서는 unload, load 순으로 코드가 진행된다.</p>
 
-<h2 id="첫번째-제출-답안">첫번째 제출 답안</h2>
+<h3 id="첫번째-제출-답안">첫번째 제출 답안</h3>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
 
@@ -731,7 +734,7 @@
 
 <p>따라서 다른 서브태스크들을 고려하여 다시 한 번 코드를 짜보았다.</p>
 
-<h2 id="두-번째-제출-답안">두 번째 제출 답안</h2>
+<h3 id="두-번째-제출-답안">두 번째 제출 답안</h3>
 
 <p><strong>문제점을 발견했다!</strong></p>
 
@@ -819,7 +822,7 @@ loaded parcel =  []
 70
 </code></pre></div></div>
 
-<h2 id="간결한-제출-답안">간결한 제출 답안</h2>
+<h3 id="간결한-제출-답안">간결한 제출 답안</h3>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
 
@@ -917,7 +920,7 @@ loaded parcel =  []
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BBOJ%5D+%EB%B0%B1%EC%A4%80+8980%EB%B2%88+-+%ED%83%9D%EB%B0%B0%20http%3A%2F%2Flocalhost%3A4000%2Fboj%2Fboj-8980%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BBOJ%5D+%EB%B0%B1%EC%A4%80+8980%EB%B2%88+-+%ED%83%9D%EB%B0%B0+%28Python%29%20http%3A%2F%2Flocalhost%3A4000%2Fboj%2Fboj-8980%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fboj%2Fboj-8980%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
@@ -961,7 +964,160 @@ loaded parcel =  []
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/boj/boj-2606/" rel="permalink">[BOJ] 백준 2606번 - 바이러스
+        <a href="/boj/boj-2667/" rel="permalink">[BOJ] 백준 2667번 - 단지번호 붙이기 (Python)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-26T00:00:00+09:00">January 26, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Silver 1
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-1789/" rel="permalink">[BOJ] 백준 1789번 - 수들의 합 (Python)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-25T00:00:00+09:00">January 25, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Silver 5
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/ALG-sort.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/alg-sort/" rel="permalink">[알고리즘] 정렬 알고리즘
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-25T00:00:00+09:00">January 25, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">연속된 데이터를 기준에 따라서 정렬하기 위한 알고리즘
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-2606/" rel="permalink">[BOJ] 백준 2606번 - 바이러스 (Python)
 </a>
       
     </h2>
@@ -994,159 +1150,6 @@ loaded parcel =  []
 
 
     <p class="archive__item-excerpt" itemprop="description">Silver 3
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-      <div class="archive__item-teaser">
-        <img src="/assets/images/teaser.png" alt="">
-      </div>
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/boj/boj-2178/" rel="permalink">[BOJ] 백준 2178번 - 미로 탐색
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2023-01-24T00:00:00+09:00">January 24, 2023</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          3 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Silver 1
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-      <div class="archive__item-teaser">
-        <img src="/assets/images/teaser.png" alt="">
-      </div>
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/boj/boj-1260/" rel="permalink">[BOJ] 백준 1260번 - DFS와 BFS
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2023-01-22T00:00:00+09:00">January 22, 2023</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          2 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Silver 2
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-      <div class="archive__item-teaser">
-        <img src="/assets/images/teaser.png" alt="">
-      </div>
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/algorithm/alg-DFS-BFS/" rel="permalink">[알고리즘] 탐색 알고리즘 DFS/BFS
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2023-01-19T00:00:00+09:00">January 19, 2023</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          최대 1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">알고리즘 부시기
 </p>
   </article>
 </div>

@@ -21,7 +21,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>[알고리즘] 탐색 알고리즘 DFS/BFS | Daily Inspiration</title>
-<meta name="description" content="알고리즘 부시기">
+<meta name="description" content="그래프를 탐색하기 위한 대표적인 두 가지 알고리즘">
 
 
   <meta name="author" content="주노 (jjunohj)">
@@ -37,7 +37,7 @@
 <meta property="og:url" content="http://localhost:4000/algorithm/alg-DFS-BFS/">
 
 
-  <meta property="og:description" content="알고리즘 부시기">
+  <meta property="og:description" content="그래프를 탐색하기 위한 대표적인 두 가지 알고리즘">
 
 
 
@@ -344,7 +344,7 @@
   <ul class="nav__items" id="category_tag_menu">
       <!--전체 글 수-->
       <li>
-            📂 <span>전체 글 수</style> <span>15</style> <span>개</style> 
+            📂 <span>전체 글 수</style> <span>19</style> <span>개</style> 
       </li>
       <li>
         <!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C -->
@@ -428,7 +428,7 @@
                     
                 
                     
-                        <li><a href="/categories/algorithm" class="">알고리즘 구현 (1)</a></li>
+                        <li><a href="/categories/algorithm" class="">알고리즘 구현 (2)</a></li>
                     
                 
             </ul>
@@ -454,7 +454,7 @@
                     
                 
                     
-                        <li><a href="/categories/boj" class="">백준 (6)</a></li>
+                        <li><a href="/categories/boj" class="">백준 (9)</a></li>
                     
                 
                     
@@ -573,7 +573,7 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="[알고리즘] 탐색 알고리즘 DFS/BFS">
-    <meta itemprop="description" content="알고리즘 부시기">
+    <meta itemprop="description" content="그래프를 탐색하기 위한 대표적인 두 가지 알고리즘">
     <meta itemprop="datePublished" content="2023-01-19T00:00:00+09:00">
     <meta itemprop="dateModified" content="2023-01-19T00:00:00+09:00">
 
@@ -632,13 +632,17 @@
         
         <h1 id="graph">Graph</h1>
 
-<p><code class="language-plaintext highlighter-rouge">DFS</code>, <code class="language-plaintext highlighter-rouge">BFS</code>를 설명하기 전에 <code class="language-plaintext highlighter-rouge">Graph</code>의 기본 구조를 알아야 한다. 그래프는</p>
+<p><code class="language-plaintext highlighter-rouge">DFS</code>, <code class="language-plaintext highlighter-rouge">BFS</code>를 설명하기 전에 <code class="language-plaintext highlighter-rouge">Graph</code>의 기본 구조를 알아야 한다.</p>
+
+<p>해당 내용은 자세히 포스팅 해놓았으니 다음 링크를 클릭하자 !</p>
+
+<p><a href="https://jjunohj.github.io/datastructure/DS-graph/">[자료구조] 그래프(Graph)란</a></p>
 
 <h1 id="dfs">DFS</h1>
 
-<p><code class="language-plaintext highlighter-rouge">DFS</code>는 <code class="language-plaintext highlighter-rouge">Depth-First Search</code>, <code class="language-plaintext highlighter-rouge">깊이 우선 탐색</code>이라고도 부르며, 그래프에서 <strong>깊은 부분을 우선적으로 탐색</strong>하는 알고리즘이다.</p>
+<p><img src="https://user-images.githubusercontent.com/121740394/214860260-95b9b3f8-ac38-4d11-bb7d-4a0ddcf5448d.png" alt="image" /></p>
 
-<p><img src="https://user-images.githubusercontent.com/121740394/213422352-c0e3e0e4-ac31-4d35-959b-9d8074fdff24.png" alt="image" /></p>
+<p><code class="language-plaintext highlighter-rouge">DFS</code>는 <code class="language-plaintext highlighter-rouge">Depth-First Search</code>, <code class="language-plaintext highlighter-rouge">깊이 우선 탐색</code>이라고도 부르며, 그래프에서 <strong>깊은 부분을 우선적으로 탐색</strong>하는 알고리즘이다.</p>
 
 
         
@@ -668,15 +672,15 @@
     
       
       
-      <a href="/tags/#%EC%8A%A4%ED%83%9D" class="page__taxonomy-item-tag" rel="tag">스택</a><span class="sep"> </span>
+      <a href="/tags/#queue" class="page__taxonomy-item-tag" rel="tag">Queue</a><span class="sep"> </span>
     
       
       
-      <a href="/tags/#%EC%9E%AC%EA%B7%80" class="page__taxonomy-item-tag" rel="tag">재귀</a><span class="sep"> </span>
+      <a href="/tags/#recursive" class="page__taxonomy-item-tag" rel="tag">Recursive</a><span class="sep"> </span>
     
       
       
-      <a href="/tags/#%ED%81%90" class="page__taxonomy-item-tag" rel="tag">큐</a><span class="sep"> </span>
+      <a href="/tags/#stack" class="page__taxonomy-item-tag" rel="tag">Stack</a><span class="sep"> </span>
     
       
       
@@ -733,7 +737,7 @@
 ">이전</a>
     
     
-      <a href="/boj/boj-1260/" class="pagination--pager" title="[BOJ] 백준 1260번 - DFS와 BFS
+      <a href="/boj/boj-1260/" class="pagination--pager" title="[BOJ] 백준 1260번 - DFS와 BFS (Python)
 ">다음</a>
     
   </nav>
@@ -762,7 +766,160 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/boj/boj-2606/" rel="permalink">[BOJ] 백준 2606번 - 바이러스
+        <a href="/boj/boj-2667/" rel="permalink">[BOJ] 백준 2667번 - 단지번호 붙이기 (Python)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-26T00:00:00+09:00">January 26, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Silver 1
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-1789/" rel="permalink">[BOJ] 백준 1789번 - 수들의 합 (Python)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-25T00:00:00+09:00">January 25, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Silver 5
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/ALG-sort.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/alg-sort/" rel="permalink">[알고리즘] 정렬 알고리즘
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-01-25T00:00:00+09:00">January 25, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">연속된 데이터를 기준에 따라서 정렬하기 위한 알고리즘
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teaser.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/boj/boj-2606/" rel="permalink">[BOJ] 백준 2606번 - 바이러스 (Python)
 </a>
       
     </h2>
@@ -795,159 +952,6 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">Silver 3
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-      <div class="archive__item-teaser">
-        <img src="/assets/images/teaser.png" alt="">
-      </div>
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/boj/boj-2178/" rel="permalink">[BOJ] 백준 2178번 - 미로 탐색
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2023-01-24T00:00:00+09:00">January 24, 2023</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          3 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Silver 1
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-      <div class="archive__item-teaser">
-        <img src="/assets/images/teaser.png" alt="">
-      </div>
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/boj/boj-1260/" rel="permalink">[BOJ] 백준 1260번 - DFS와 BFS
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2023-01-22T00:00:00+09:00">January 22, 2023</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          2 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Silver 2
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-      <div class="archive__item-teaser">
-        <img src="/assets/images/teaser.png" alt="">
-      </div>
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/datastructure/DS-stack/" rel="permalink">[자료구조] 스택(Stack)과 재귀 함수
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2023-01-19T00:00:00+09:00">January 19, 2023</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">쌓아보자 자료구조
 </p>
   </article>
 </div>
