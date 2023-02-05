@@ -87,7 +87,7 @@ print(result)
 
 `서로소 집합 알고리즘 (Union-Find)`의 시간 복잡도는 크루스칼 알고리즘 내부의 간선 정렬 시간 복잡도보다 작으므로 무시된다.
 
-`서로소 집합 알고리즘`에 관한 포스팅은 여기로 ! [[자료구조] 서로소 집합 알고리즘](https://jjunohj.github.io/DS/disjoint-set/)
+`서로소 집합 알고리즘`에 관한 포스팅은 여기로 ! [[자료구조] 서로소 집합 알고리즘](https://jjunohj.github.io/datastructure/DS-disjoint-set/)
 
 크루스칼 알고리즘에서 간선 `E`개를 정렬하는 데 걸리는 시간 복잡도는 `O(ElogE)`이기 때문에, 크루스칼 알고리즘의 시간 복잡도 또한 `O(ElogE)`로 동일하다.
 
