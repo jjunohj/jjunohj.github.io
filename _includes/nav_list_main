@@ -12,7 +12,7 @@
       </li>
       <li>
         <!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C -->
-        <span class="nav__sub-title">HTML/CSS/JS</span>
+        <span class="nav__sub-title">WEB</span>
             <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
             <ul>
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/cpp 주소의 글로 링크 연결-->
@@ -34,6 +34,13 @@
                 {% for category in site.categories %}
                     {% if category[0] == "Javascript" %}
                         <li><a href="/categories/js" class="">Javascript ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "React" %}
+                        <li><a href="/categories/React" class="">React ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -73,6 +80,15 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+        <span class="nav__sub-title">Open-APIs</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Kurento" %}
+                        <li><a href="/categories/Kurento" class="">Kurento ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        
         <span class="nav__sub-title">Database</span>
             <ul>
                 {% for category in site.categories %}
