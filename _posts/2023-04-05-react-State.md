@@ -17,6 +17,8 @@ header:
   teaser: /assets/images/react.png
 ---
 
+![react](/assets/images/react.png)
+
 React를 사용하면서 자주 사용하게 되는 함수인 `useState`와 `setState`.
 
 이 두 함수에 대해 조금 더 자세히 알아보고자 한다.
