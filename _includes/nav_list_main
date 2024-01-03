@@ -39,11 +39,19 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
+                    {% if category[0] == "TypeScript" %}
+                        <li><a href="/categories/TypeScript" class="">TypeScript ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
                     {% if category[0] == "React" %}
                         <li><a href="/categories/React" class="">React ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
+            
         <span class="nav__sub-title">Coding Test</span>
             <ul>
                 {% for category in site.categories %}
